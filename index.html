@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta name="darkreader-lock">
+<script src="theme.js"></script>
+<title>Курс олимпиадного ИИ — путь через задачи</title>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/path.css">
+<link rel="stylesheet" href="css/lesson.css">
+<link rel="stylesheet" href="css/trainer.css">
+<link rel="stylesheet" href="css/lab.css">
+<link rel="stylesheet" href="css/catalog.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/puzzles.css">
+<link rel="stylesheet" href="css/lessons.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="#" data-tab="path">AI Olympiad Curriculum</a>
+    <nav class="nav" id="tabs" data-i18n-aria="nav.sections" aria-label="Sections" role="tablist">
+      <button data-tab="path" class="tab active" role="tab" aria-selected="true" aria-controls="tab-path" data-i18n="nav.learn">Learn</button>
+      <button data-tab="practice" class="tab" role="tab" aria-selected="false" aria-controls="tab-practice" data-i18n="nav.practice">Practice</button>
+      <button data-tab="dashboard" class="tab" role="tab" aria-selected="false" aria-controls="tab-dashboard" data-i18n="nav.dashboard">Progress</button>
+      <button data-tab="catalog" class="tab" role="tab" aria-selected="false" aria-controls="tab-catalog" data-i18n="nav.catalog">Competitions</button>
+      <button data-tab="resources" class="tab" role="tab" aria-selected="false" aria-controls="tab-resources" data-i18n="nav.resources">Resources</button>
+    </nav>
+    <div class="lang-sw" role="group" aria-label="Language / Язык">
+      <button type="button" id="langRu" data-lang="ru">RU</button><button type="button" id="langEn" data-lang="en">EN</button>
+    </div>
+    <button type="button" class="theme-sw" id="themeSw" data-theme-sw data-i18n-aria="theme.toggle" aria-label="Theme" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg></button>
+    <button class="btn btn--primary btn--sm header-cta" data-continue data-i18n="cta.continue">Continue learning</button>
+  </div>
+</header>
+
+<main class="container">
+  <!-- ============ PATH ============ -->
+  <section id="tab-path" class="tabpane active" role="tabpanel">
+    <div class="hero" id="hero">
+      <div class="hero-text">
+        <div class="hero-eyebrow" data-i18n="hero.eyebrow">Course</div>
+        <h1 data-i18n-html="hero.title">AI Olympiad<br>Engineer</h1>
+        <p data-i18n="hero.sub">From a first NumPy array to IOAI-level tasks. Short theory, an auto-checked trainer after every lesson, a project at the end of each sprint.</p>
+        <div class="hero-actions">
+          <button class="btn btn--primary btn--lg" data-continue data-i18n="cta.continue">Continue learning</button>
+          <button class="btn btn--secondary btn--lg" data-tab="entrytest" data-i18n="hero.entry">Take the entry test</button>
+        </div>
+      </div>
+      <div class="hero-facts" id="heroFacts"></div>
+    </div>
+
+    <div id="lessonView"></div>
+    <div id="sprints"></div>
+    <div class="prog-title" id="progTitle"></div>
+    <details class="filters-discl"><summary data-i18n="fl.filters">Filters</summary><div class="filters">
+      <input id="pathSearch" type="search" data-i18n-aria="fl.search" aria-label="Search modules, skills, tasks" data-i18n-ph="fl.search" placeholder="Search modules, skills, tasks">
+      <select id="pathOly" data-i18n-aria="fl.searchOly" aria-label="Filter by olympiad"><option value="" data-i18n="fl.allOly">All olympiads</option></select>
+      <select id="pathDomain" data-i18n-aria="fl.searchDom" aria-label="Filter by domain"><option value="" data-i18n="fl.allDom">All domains</option></select>
+      <select id="pathDiff" data-i18n-aria="fl.byLevel" aria-label="Filter by level"><option value="" data-i18n="fl.anyLevel">Any level</option><option value="1" data-i18n-level="1">Level 1</option><option value="2" data-i18n-level="2">Level 2</option><option value="3" data-i18n-level="3">Level 3</option><option value="4" data-i18n-level="4">Level 4</option><option value="5" data-i18n-level="5">Level 5</option></select>
+      <label class="filters-check"><input type="checkbox" id="hideDone"> <span data-i18n="fl.hideDone">Hide completed</span></label>
+    </div></details>
+    <details class="legend"><summary data-i18n="leg.h">How to read this page</summary><p data-i18n="leg.body">Each card is a module: the M-number is its stable id, chips show level, domain and skills. Open a card for the lesson, then check yourself in the trainer.</p></details>
+    <div class="disc-nav" id="discNav"></div>
+    <div id="subjects"></div>
+  </section>
+
+  <!-- ============ PRACTICE (trainer + tensor puzzles) ============ -->
+  <section id="tab-practice" class="tabpane" role="tabpanel">
+    <div class="subnav">
+      <button class="subtab on" data-sub="trainer" data-i18n="sub.exercises">Exercises</button>
+      <button class="subtab" data-sub="jlab" data-i18n="sub.jlab">JupyterLab</button>
+      <button class="subtab" data-sub="puzzles" data-i18n="sub.puzzles">Tensor puzzles</button>
+      <button class="subtab" data-sub="entrytest" data-i18n="sub.entrytest">Entry test</button>
+    </div>
+    <div class="subpane active" id="sub-trainer">
+      <div class="pr-trainer" id="prTrainer">
+        <div class="pr-head">
+          <button type="button" class="pr-btn pr-ghost" id="trNavBtn" aria-controls="trDrawer" aria-expanded="false" data-i18n="tr.exercises">Exercises</button>
+          <div class="pr-crumb" id="trCrumb" data-i18n="tr.crumb">Trainer</div>
+          <span class="pr-hint-kbd" data-i18n="tr.kbd">Ctrl+Enter to check · Esc leaves the editor</span>
+        </div>
+
+        <div id="trEmpty" class="pr-empty"><p class="tr-muted" data-i18n="tr.empty">Open Exercises and pick one.</p></div>
+
+        <div id="trWork" class="pr-body" style="display:none">
+          <section class="pr-pane pr-task" data-i18n-aria="tr.exercise" aria-label="Exercise">
+            <div class="pr-pane-head"><span class="pr-pane-title" id="trCounter" data-i18n="tr.exercise">Exercise</span></div>
+            <div class="pr-task-body">
+              <h2 id="trTitle"></h2>
+              <div class="pr-meta" id="trMeta"></div>
+              <div id="trPrompt" class="pr-prompt"></div>
+              <div id="trTaskErr" class="pr-taskerr" role="alert" hidden></div>
+            </div>
+          </section>
+
+          <div class="pr-right">
+            <section class="pr-pane pr-code" aria-label="Code editor">
+              <div class="pr-pane-head"><span class="pr-pane-title" data-i18n="tr.code">Code</span><span class="pr-file">solution.py</span><span class="pr-env" data-i18n-title="tr.env" title="numpy is preloaded as np; also allowed: math, statistics, itertools, collections, functools, heapq, random">np preloaded</span></div>
+              <div class="pr-ed">
+                <pre class="pr-gutter" id="trGutter" aria-hidden="true">1</pre>
+                <textarea id="trEditor" class="tr-editor" spellcheck="false" autocomplete="off" autocapitalize="off" autocorrect="off" enterkeyhint="enter" wrap="off" data-i18n-aria="tr.editor" aria-label="Solution code"></textarea>
+              </div>
+            </section>
+            <section class="pr-pane pr-out" aria-live="polite">
+              <div class="pr-pane-head">
+                <span class="pr-pane-title" id="trPaneTitle" data-i18n="tr.result">Result</span>
+                <button type="button" class="pr-btn pr-ghost pr-sm" id="trTheoryToggle" aria-pressed="false" data-i18n="tr.theory">Theory</button>
+              </div>
+              <div id="trResult" class="pr-result"></div>
+              <div id="trTheory" class="pr-theory" hidden><div id="trTheoryBody"></div></div>
+            </section>
+          </div>
+        </div>
+
+        <div class="pr-bar" id="trBar" hidden>
+          <button type="button" class="pr-btn pr-secondary" id="trHint" aria-haspopup="dialog" data-i18n="tr.hint">Hint</button>
+          <button type="button" class="pr-btn pr-ghost" id="trReset" data-i18n-title="tr.resetTitle" title="Restore the starter code" data-i18n="tr.reset">Reset</button>
+          <button type="button" class="pr-btn pr-ghost" id="trSolution" data-i18n-title="tr.solTitle" title="Show the reference solution" data-i18n="tr.solution">Solution</button>
+          <span id="trStatus" class="pr-status" role="status" aria-live="polite" hidden></span>
+          <span class="pr-flex"></span>
+          <button type="button" class="pr-btn pr-secondary" id="trRecheck" hidden data-i18n="tr.checkAgain">Check again</button>
+          <button type="button" class="pr-btn pr-primary" id="trCheck" data-mode="check" data-i18n="tr.check">Check</button>
+        </div>
+
+        <div class="pr-drawer-back" id="trDrawerBack" hidden></div>
+        <aside class="pr-drawer" id="trDrawer" aria-hidden="true" data-i18n-aria="tr.exercises" aria-label="Exercises">
+          <div class="pr-drawer-head"><b data-i18n="tr.exercises">Exercises</b><button type="button" class="pr-x" id="trDrawerClose" data-i18n-aria="tr.close" aria-label="Close"></button></div>
+          <div id="trMods" class="pr-nav"></div>
+        </aside>
+
+        <div class="pr-modal" id="trHintModal" hidden>
+          <div class="pr-modal-card" role="dialog" aria-modal="true" aria-labelledby="trHintTitle">
+            <div class="pr-modal-head"><b id="trHintTitle" data-i18n="tr.hint">Hint</b><button type="button" class="pr-x" id="trHintClose" data-i18n-aria="tr.close" aria-label="Close"></button></div>
+            <div id="trHintBox" class="pr-hintbody"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="subpane" id="sub-jlab">
+      <div class="lab-bar">
+        <i class="lab-dot" id="labDot" aria-hidden="true"></i>
+        <span class="lab-status" id="labStatus" role="status" aria-live="polite"></span>
+        <button type="button" class="pr-btn pr-ghost pr-sm" data-lab-setup aria-expanded="false" aria-controls="labSetup" data-i18n="lab.setup">Set up my computer (once)</button>
+      </div>
+      <div id="labPair" hidden></div>
+      <div class="lab-card lab-setup" id="labSetup" hidden></div>
+      <div id="labLocal">
+        <div class="lab-card" id="labOffline" hidden></div>
+        <div class="lab-card" id="labFallback" hidden></div>
+        <iframe id="labLocalFrame" title="JupyterLab (local)" class="jlab-frame" hidden
+          sandbox="allow-scripts allow-same-origin allow-downloads allow-forms allow-modals allow-popups"></iframe>
+        <div class="lab-foot" id="labFoot" hidden>
+          <span class="lab-badge" data-i18n="lab.onMyPc">On my computer</span>
+          <span class="jlab-hint" id="labFiles"></span>
+          <span class="pr-flex"></span>
+          <a class="pr-btn pr-ghost pr-sm" href="guide/jupyterlab.html" target="_blank" rel="noopener" data-i18n="lab.guide">Step-by-step guide</a>
+          <button type="button" class="pr-btn pr-ghost pr-sm" data-lab-newtab data-i18n="lab.newTab">Open in a new tab</button>
+          <button type="button" class="pr-btn pr-ghost pr-sm" data-lab-disconnect data-i18n="lab.disconnect">Disconnect computer</button>
+        </div>
+      </div>
+    </div>
+    <div class="subpane" id="sub-puzzles">
+      <div class="page-head">
+        <h1 data-i18n="pz.h">Tensor puzzles</h1>
+        <p data-i18n="pz.sub">One line of broadcasting per puzzle, no loops. Train the run → read → fix loop — one 25-minute sprint a day.</p>
+      </div>
+      <div class="pg-top">
+        <div class="pg-stat" id="pgPace" data-i18n-title="pz.paceTitle" title="Median time between runs this session. Under 60 s = a fast loop."></div>
+        <div class="pg-stat" id="pgSince"></div>
+        <div class="pg-stat" id="pgToday"></div>
+        <div class="pg-stat pg-streak"><div id="pgStreak"></div><div class="pg-strip" id="pgStrip" data-i18n-title="pz.stripTitle" title="Last 14 days"></div></div>
+        <div class="pg-sprint">
+          <div id="pgSprintIdle"><span data-i18n="pz.sprint">Sprint</span>
+            <button class="btn btn--secondary btn--sm" data-sprint="10" data-i18n="pz.10">10 min</button>
+            <button class="btn btn--secondary btn--sm" data-sprint="25" data-i18n="pz.25">25 min</button>
+            <button class="btn btn--ghost btn--sm" id="pgDrill" data-i18n-title="pz.drillTitle" title="Re-solve a puzzle you already solved, from blank, against the clock" data-i18n="pz.drill">Drill</button>
+          </div>
+          <div id="pgSprintOn" hidden><b id="pgSprintTime">0:00</b> <span id="pgSprintStats"></span>
+            <button class="btn btn--ghost btn--sm" id="pgSprintStop" data-i18n="pz.stop">Stop</button></div>
+          <div class="pg-muted" id="pgDrillTime"></div>
+        </div>
+      </div>
+
+      <div class="pg-grid">
+        <aside class="pg-side">
+          <div class="pg-list" id="pgList"></div>
+          <p class="pg-muted" id="pgSolved"></p>
+          <div class="pg-rules">
+            <h4 data-i18n="pz.rules">Rules</h4>
+            <ul>
+              <li data-i18n-html="pz.rule1">One line: <code>return …</code>, under 80 columns.</li>
+              <li data-i18n-html="pz.rule2">Allowed: <code>arange</code>, <code>where</code>, <code>@</code>, arithmetic, comparison, <code>.shape</code>, any indexing (<code>a[:, None]</code>, <code>a[arange(3)]</code>) and your earlier puzzle functions.</li>
+              <li data-i18n-html="pz.rule3">Not allowed: anything else — no <code>np.*</code>, <code>.sum</code>, loops, <code>if</code>, lists.</li>
+            </ul>
+            <p class="pg-muted" data-i18n-html="pz.credit">Puzzles by <a href="https://github.com/srush/Tensor-Puzzles" target="_blank" rel="noopener">Sasha Rush</a> (MIT). Runs real Python + NumPy in your browser.</p>
+          </div>
+        </aside>
+
+        <div class="pg-main">
+          <h2 id="pgTitle"></h2>
+          <p id="pgDesc" class="pg-desc"></p>
+          <details class="pg-specbox" open><summary data-i18n="pz.spec">Reference spec (loop version — reproduce it without loops)</summary><pre id="pgSpec" class="pg-code"></pre></details>
+          <div class="pg-exhead" data-i18n="pz.examples">Examples</div>
+          <div id="pgExamples"></div>
+          <div class="pg-edwrap">
+            <textarea id="pgEditor" class="pg-editor" spellcheck="false" autocomplete="off" autocapitalize="off" autocorrect="off" wrap="off" aria-label="Puzzle code"></textarea>
+            <div class="pg-toolbar">
+              <button class="btn btn--primary btn--sm" id="pgRun" data-i18n="pz.run">Run</button>
+              <button class="btn btn--ghost btn--sm" id="pgReset" data-i18n="tr.reset">Reset</button>
+              <span class="pg-kbdhint" data-i18n="pz.kbd">Ctrl+Enter to run · Esc to leave</span>
+              <span class="pg-cols" id="pgCols"></span>
+            </div>
+          </div>
+          <div id="pgStatus" class="pg-statusmsg" role="status" aria-live="polite" hidden></div>
+          <div id="pgResult"></div>
+        </div>
+
+        <aside class="pg-side">
+          <h4 class="pg-h" data-i18n="pz.iterLog">Iteration log</h4>
+          <div id="pgLog"></div>
+          <h4 class="pg-h" data-i18n="pz.recent">Recent sprints</h4>
+          <div id="pgSprintHist"></div>
+          <div class="pg-rules">
+            <h4 data-i18n="pz.howTo">How to train</h4>
+            <ul>
+              <li data-i18n="pz.tip1">Change one small thing, then run. Read the failing case and repeat.</li>
+              <li data-i18n="pz.tip2">Keep your median loop under 60 s, and do one 25-min sprint a day.</li>
+              <li data-i18n="pz.tip3">Drill solved puzzles from blank until each one takes under a minute.</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+    <div class="subpane" id="sub-entrytest">
+      <div id="etBody"></div>
+    </div>
+  </section>
+
+  <!-- ============ DASHBOARD (progress) ============ -->
+  <section id="tab-dashboard" class="tabpane" role="tabpanel">
+    <div class="subnav">
+      <button class="subtab on" data-sub="dash" data-i18n="sub.progress">Progress</button>
+    </div>
+    <div class="subpane active" id="sub-dash">
+      <div id="dashBody"></div>
+      <div class="danger-zone">
+        <button id="resetProgress" class="btn btn--ghost btn--sm" data-i18n-title="fl.resetTitle" title="Clear all saved progress" data-i18n="fl.reset">Reset progress</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CATALOG (olympiads + tasks + syllabus) ============ -->
+  <section id="tab-catalog" class="tabpane" role="tabpanel">
+    <div class="subnav">
+      <button class="subtab on" data-sub="olympiads" data-i18n="sub.oly">Olympiads</button>
+      <button class="subtab" data-sub="tasks" data-i18n="sub.tasks">Task bank</button>
+      <button class="subtab" data-sub="syllabus" data-i18n="sub.syllabus">Syllabus</button>
+    </div>
+    <div class="subpane active" id="sub-olympiads">
+      <div class="page-head">
+        <h1 data-i18n="oly.h">Olympiads</h1>
+        <p data-i18n="oly.sub">The AI olympiads this course prepares for — format, scope and where to find them.</p>
+      </div>
+      <div id="olyGrid" class="olygrid"></div>
+    </div>
+    <div class="subpane" id="sub-tasks">
+      <div class="page-head">
+        <h1 data-i18n="tasks.h">Task bank</h1>
+        <p data-i18n="tasks.sub">Real problems from IOAI finals, national selections and AICC — each mapped to a module.</p>
+      </div>
+      <div class="filters">
+        <input id="taskSearch" type="search" data-i18n-aria="tasks.search" aria-label="Search tasks" data-i18n-ph="tasks.search" placeholder="Search tasks">
+        <select id="taskOly" data-i18n-aria="fl.searchOly" aria-label="Filter by olympiad"><option value="" data-i18n="fl.allOly">All olympiads</option></select>
+        <select id="taskDomain" data-i18n-aria="fl.searchDom" aria-label="Filter by domain"><option value="" data-i18n="fl.allDom">All domains</option></select>
+        <select id="taskDiff" data-i18n-aria="fl.byLevel" aria-label="Filter by level"><option value="" data-i18n="fl.anyLevel">Any level</option><option value="1" data-i18n-level="1">Level 1</option><option value="2" data-i18n-level="2">Level 2</option><option value="3" data-i18n-level="3">Level 3</option><option value="4" data-i18n-level="4">Level 4</option><option value="5" data-i18n-level="5">Level 5</option></select>
+      </div>
+      <div class="table-wrap"><table id="taskTable">
+        <thead><tr><th data-i18n="tasks.task">Task</th><th data-i18n="tasks.oly">Olympiad</th><th data-i18n="tasks.domain">Domain</th><th data-i18n="tasks.scoring">Scoring</th><th data-i18n="tasks.module">Module</th><th data-i18n="tasks.level">Level</th></tr></thead>
+        <tbody></tbody>
+      </table></div>
+    </div>
+    <div class="subpane" id="sub-syllabus">
+      <div class="page-head">
+        <h1 data-i18n="syl.h">Syllabus coverage</h1>
+        <p data-i18n-html="syl.sub">Official <b>IOAI 2026 syllabus</b> (<a class="link" href="https://ioai-official.org/wp-content/uploads/2025/10/Syllabus.pdf" target="_blank" rel="noopener">PDF</a>) — every topic mapped to a module. Topics not listed there are excluded from IOAI; modules <b>M7, M9, M11–M13</b> go beyond it for FAIO/IAIO/NEOAI, and M14 is contest practice.</p>
+      </div>
+      <div id="sylBody"></div>
+    </div>
+  </section>
+
+  <!-- ============ RESOURCES ============ -->
+  <section id="tab-resources" class="tabpane" role="tabpanel">
+    <div class="page-head">
+      <h1 data-i18n="res.h">Resources</h1>
+      <p data-i18n="res.sub">Books, courses and references that go deeper than the lessons.</p>
+    </div>
+    <div class="filters">
+      <input id="resSearch" type="search" data-i18n-aria="res.search" aria-label="Search resources" data-i18n-ph="res.search" placeholder="Search resources">
+      <select id="resLang" data-i18n-aria="res.byLang" aria-label="Filter by language"><option value="" data-i18n="res.anyLang">Any language</option><option>RU</option><option>EN</option></select>
+      <select id="resGroup" data-i18n-aria="res.byGroup" aria-label="Filter by group"><option value="" data-i18n="res.allGroups">All groups</option></select>
+    </div>
+    <div id="resList"></div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container" data-i18n="footer">Built from official olympiad materials and the IOAI 2026 syllabus. Progress is saved in this browser.</div>
+</footer>
+
+<script src="data.js"></script>
+<script src="i18n.js"></script>
+<script src="figures.js"></script>
+<script src="msmd.js"></script>
+<script src="lessons/00_core.js"></script>
+<script src="lessons/01_foundations.js"></script>
+<script src="lessons/ms_ml.js"></script>
+<script src="lessons/ms_ai.js"></script>
+
+<script src="exercises/engine.js"></script>
+<script src="exercises/ex_m00.js"></script>
+<script src="exercises/ex_m01.js"></script>
+<script src="exercises/ex_m16.js"></script>
+<script src="exercises/ex_m02.js"></script>
+<script src="exercises/ex_m03.js"></script>
+<script src="exercises/ex_m04.js"></script>
+<script src="exercises/ex_m05.js"></script>
+<script src="exercises/ex_m06.js"></script>
+<script src="exercises/ex_m07.js"></script>
+<script src="exercises/ex_m08.js"></script>
+<script src="exercises/ex_m15.js"></script>
+<script src="exercises/ex_m09.js"></script>
+<script src="exercises/ex_m10.js"></script>
+<script src="exercises/ex_m11.js"></script>
+<script src="exercises/ex_m12.js"></script>
+<script src="exercises/ex_m13.js"></script>
+<script src="exercises/ex_m14.js"></script>
+<script src="quiz/entry_test.js"></script>
+<script src="ex_map.js"></script>
+<script src="projects.js"></script>
+<script src="nbexport.js"></script>
+<script src="views/path.js"></script>
+<script src="views/lesson.js"></script>
+<script src="views/catalog.js"></script>
+<script src="app.js"></script>
+<script src="exercises/pyclient.js"></script>
+<script src="trainer.js"></script>
+<script src="lab.js"></script>
+<script src="dashboard.js"></script>
+<script src="entrytest.js"></script>
+<script src="puzzles/puzzles.js"></script>
+<script src="puzzles/harness.js"></script>
+<script src="puzzles/gym.js"></script>
+</body>
+</html>

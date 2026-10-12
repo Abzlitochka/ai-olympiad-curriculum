@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JupyterLab на вашем компьютере — инструкция</title>
+<style>
+  :root { --text:#1d1d1f; --muted:#5f6368; --line:#e3e3e8; --bg:#fff; --soft:#f6f6f8; --accent:#3b5bdb; --warn:#a15c00; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--text); background:var(--bg); }
+  main { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
+  h1 { font-size:30px; margin:8px 0 6px; }
+  h2 { font-size:22px; margin:40px 0 10px; padding-top:8px; border-top:1px solid var(--line); }
+  h3 { font-size:17px; margin:22px 0 6px; }
+  p, li { color:var(--text); }
+  .lead { color:var(--muted); font-size:18px; margin:0 0 18px; }
+  a { color:var(--accent); }
+  code { font:13.5px ui-monospace,Menlo,Consolas,monospace; background:var(--soft); border:1px solid var(--line); border-radius:6px; padding:1px 6px; }
+  pre { background:var(--soft); border:1px solid var(--line); border-radius:10px; padding:12px 14px; overflow:auto; font:13px/1.55 ui-monospace,Menlo,Consolas,monospace; }
+  pre code { border:0; background:none; padding:0; }
+  .note { border-left:4px solid var(--accent); background:#f1f4ff; padding:10px 14px; border-radius:0 8px 8px 0; margin:14px 0; }
+  .warn { border-left-color:var(--warn); background:#fff6e6; }
+  table { border-collapse:collapse; width:100%; margin:10px 0; font-size:15px; }
+  th, td { border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top; }
+  th { background:var(--soft); }
+  ol.steps { padding-left:22px; } ol.steps > li { margin:14px 0; }
+  .toc { background:var(--soft); border:1px solid var(--line); border-radius:10px; padding:10px 18px; }
+  .toc ol { margin:6px 0; padding-left:20px; }
+  .lang { float:right; font-size:14px; }
+  details { margin:10px 0; } summary { cursor:pointer; font-weight:600; }
+</style>
+</head>
+<body>
+<main>
+<a class="lang" href="#en">English ↓</a>
+<h1>JupyterLab на вашем компьютере</h1>
+<p class="lead">Весь код уроков запускается в настоящем JupyterLab на вашей машине. Сайт показывает его во встроенном окне — ничего не выполняется на чужих серверах.</p>
+
+<div class="toc"><b>Содержание</b>
+<ol>
+  <li><a href="#why">Как это устроено</a></li>
+  <li><a href="#install">Установка (один раз)</a></li>
+  <li><a href="#pair">Подключение к сайту</a></li>
+  <li><a href="#use">Работа с уроком</a></li>
+  <li><a href="#daily">Каждый день</a></li>
+  <li><a href="#fix">Если что-то не работает</a></li>
+  <li><a href="#remove">Как всё удалить</a></li>
+</ol></div>
+
+<h2 id="why">1. Как это устроено</h2>
+<ul>
+  <li>Маленькая программа-помощник <code>olympiadai-lab</code> запускает на вашем компьютере настоящий <b>JupyterLab</b> с Python, NumPy, pandas, scikit-learn и PyTorch.</li>
+  <li>Он слушает только адрес <code>127.0.0.1</code> (ваш компьютер) и требует секретный код — из сети до него не добраться.</li>
+  <li>Сайт связывается с ним напрямую из вашего браузера и открывает его во встроенной рамке на вкладке <b>Практика → JupyterLab</b>.</li>
+  <li>Тренажёр упражнений (вкладка «Упражнения») и тензор-пазлы по-прежнему работают прямо в браузере и не требуют установки.</li>
+</ul>
+<div class="note">Нужно: Windows, macOS или Linux; около 2 ГБ свободного места; интернет при первой установке. Python ставить заранее не нужно — установщик <code>uv</code> скачает подходящий сам.</div>
+
+<h2 id="install">2. Установка (один раз)</h2>
+<ol class="steps">
+  <li>Откройте сайт → вкладка <b>Практика</b> → <b>JupyterLab</b>.</li>
+  <li>Нажмите <b>«Настроить компьютер (один раз)»</b>, выберите свою систему (Windows / macOS / Linux) и нажмите <b>«Копировать»</b>. Команда подставляет правильный адрес сайта — не вводите её вручную с другой страницы.</li>
+  <li>Откройте терминал:
+    <ul>
+      <li><b>Windows</b>: меню «Пуск» → введите <code>PowerShell</code> → Enter.</li>
+      <li><b>macOS</b>: Spotlight (⌘+Пробел) → <code>Terminal</code>.</li>
+      <li><b>Linux</b>: <code>Ctrl+Alt+T</code>.</li>
+    </ul>
+  </li>
+  <li>Вставьте команду и нажмите Enter. Первый запуск скачивает библиотеки (включая PyTorch) — это займёт несколько минут, ничего не закрывайте.</li>
+</ol>
+<p>Команда делает четыре вещи подряд: ставит <code>uv</code>, ставит помощник, запускает JupyterLab (<code>up</code>) и включает автозапуск при входе в систему (<code>autostart on</code>).</p>
+<div class="note warn">Команду, которую вы копируете, показывает сам сайт. Запускайте только её и только на своём компьютере. На школьных и рабочих компьютерах с ограничениями установка может быть запрещена — спросите администратора.</div>
+
+<h2 id="pair">3. Подключение к сайту</h2>
+<ol class="steps">
+  <li>В конце установки терминал печатает ссылку вида <code>https://…/#lab=8888:ваш_код</code> и сам пытается открыть её в браузере.</li>
+  <li>Сайт спросит <b>«Подключить JupyterLab на этом компьютере?»</b> — нажмите <b>«Подключить»</b>. Код хранится только в этом браузере, и сразу после подтверждения исчезает из адресной строки.</li>
+  <li>Слева вверху появится зелёная точка и надпись «Компьютер подключён · порт 8888». Готово.</li>
+</ol>
+<p>Если окно не открылось само, скопируйте ссылку из терминала и вставьте в браузер. Потеряли ссылку — выполните <code>olympiadai-lab up</code> снова: команда безопасно запускается повторно.</p>
+
+<h2 id="use">4. Работа с уроком</h2>
+<ol class="steps">
+  <li>Откройте любой урок и нажмите <b>«Открыть в JupyterLab»</b> (кнопка вверху урока и в конце, на карточке «Практика»).</li>
+  <li>Сайт кладёт блокнот урока в папку <code>Документы/OlympiadAI/&lt;модуль&gt;/</code> (например, <code>OlympiadAI/ML2/</code>) и открывает его.</li>
+  <li>Запускайте ячейки <b>Shift+Enter</b>. Перед выполнением кода прочитайте текст ячеек над ним — блокнот повторяет урок.</li>
+  <li>Ваши правки <b>не перезаписываются</b>: если блокнот уже есть на диске, сайт откроет вашу версию. Хотите чистую копию — переименуйте или удалите файл и откройте урок снова.</li>
+  <li>Файлы лежат на вашем компьютере; их видно и в обычном проводнике.</li>
+</ol>
+<h3>Проверка PyTorch и видеокарты</h3>
+<pre><code>import torch
+print(torch.__version__, torch.cuda.is_available())</code></pre>
+<p>Помощник ставит версию PyTorch для процессора (на Apple Silicon — обычную сборку). Для учебных блокнотов этого достаточно. Если вам нужна видеокарта NVIDIA, установите в окружение сборку PyTorch с CUDA по инструкции на сайте PyTorch; без этого <code>torch.cuda.is_available()</code> вернёт <code>False</code> — это не ошибка.</p>
+
+<h2 id="daily">5. Каждый день</h2>
+<p>Если вы выполнили команду целиком, автозапуск уже включён: после перезагрузки JupyterLab поднимется сам, а сайт подключится через несколько секунд (он проверяет связь каждые 3 секунды).</p>
+<table>
+  <tr><th>Команда</th><th>Что делает</th></tr>
+  <tr><td><code>olympiadai-lab up</code></td><td>запускает JupyterLab (если уже запущен — ничего не ломает)</td></tr>
+  <tr><td><code>olympiadai-lab status</code></td><td>порт, номер процесса, рабочая папка, отвечает ли сервер</td></tr>
+  <tr><td><code>olympiadai-lab down</code></td><td>останавливает JupyterLab; сайт покажет «Компьютер не отвечает»</td></tr>
+  <tr><td><code>olympiadai-lab doctor</code></td><td>проверяет Python, место на диске, свободные порты, брандмауэр</td></tr>
+  <tr><td><code>olympiadai-lab autostart on|off</code></td><td>включает / выключает запуск при входе в систему</td></tr>
+</table>
+<p>Если команда <code>olympiadai-lab</code> не находится, вызывайте её по полному пути: <code>~/.local/bin/olympiadai-lab</code> (macOS/Linux) или <code>%USERPROFILE%\.local\bin\olympiadai-lab.exe</code> (Windows).</p>
+<p>Кнопка <b>«Отключить компьютер»</b> под окном JupyterLab забывает подключение в браузере (сам сервер продолжает работать — остановить его можно командой <code>down</code>).</p>
+
+<h2 id="fix">6. Если что-то не работает</h2>
+<table>
+  <tr><th>Что видите</th><th>Что делать</th></tr>
+  <tr><td>«Компьютер не отвечает» / «Сервер не отвечает»</td><td>Выполните <code>olympiadai-lab status</code>, затем <code>olympiadai-lab up</code>. На сайте нажмите «Проверить ещё раз».</td></tr>
+  <tr><td>«Код подключения устарел»</td><td>Сервер перезапускался с новым кодом. Выполните <code>olympiadai-lab up</code> и откройте напечатанную ссылку с <code>#lab=…</code> ещё раз.</td></tr>
+  <tr><td>«Браузер не даёт встроить локальный JupyterLab»</td><td>Браузер блокирует сторонние cookie (так бывает в Safari, режиме инкогнито и Brave со строгой защитой). Нажмите «Открыть в новой вкладке» — всё остальное работает так же. Либо разрешите cookie для сайта.</td></tr>
+  <tr><td>Порт 8888 занят</td><td>Помощник сам выберет 8899. Сайт возьмёт порт из ссылки подключения — просто откройте новую ссылку.</td></tr>
+  <tr><td>Команда не запускается на Windows</td><td>Запускайте в PowerShell, не в «Командной строке» (cmd). Если политика запрещает скрипты, команда уже содержит <code>-ExecutionPolicy ByPass</code> только для установщика.</td></tr>
+  <tr><td>Нет места на диске</td><td>Нужно около 2 ГБ. <code>olympiadai-lab doctor</code> покажет, чего не хватает.</td></tr>
+  <tr><td>Ошибка при импорте библиотеки</td><td>Убедитесь, что блокнот запущен в ядре Python 3 из этого JupyterLab (правый верхний угол блокнота), а не в чужом окружении.</td></tr>
+</table>
+<details><summary>Безопасность: что именно открыто?</summary>
+<ul>
+  <li>Сервер слушает только <code>127.0.0.1</code>, то есть недоступен из локальной сети и интернета.</li>
+  <li>Каждый запрос требует случайный код, который хранится в файле с ограниченными правами и в вашем браузере.</li>
+  <li>Разрешённый источник запросов (CORS) — только адрес этого сайта, а встраивать JupyterLab в рамку может только он.</li>
+  <li>Подключайте только тот сервер, который запустили сами командой <code>olympiadai-lab up</code>.</li>
+</ul></details>
+
+<h2 id="remove">7. Как всё удалить</h2>
+<pre><code>olympiadai-lab autostart off
+olympiadai-lab down
+uv tool uninstall olympiadai-lab</code></pre>
+<p>Затем удалите папку <code>Документы/OlympiadAI</code> (там окружение, логи и ваши блокноты — скопируйте нужные файлы заранее). Сам <code>uv</code> можно оставить: он не мешает другим программам.</p>
+
+<hr>
+<h1 id="en">JupyterLab on your computer (English)</h1>
+<p class="lead">All lesson code runs in a real JupyterLab on your own machine; the site only embeds it in a frame. The exercise trainer and tensor puzzles keep working in the browser with no setup.</p>
+<ol class="steps">
+  <li><b>Install once.</b> Site → Practice → JupyterLab → “Set up my computer (once)”. Pick your OS, copy the command, run it in PowerShell (Windows) or a terminal (macOS/Linux). The first run downloads Python packages including PyTorch (about 2 GB, several minutes). It installs <code>uv</code>, installs the helper, starts JupyterLab and enables autostart.</li>
+  <li><b>Pair.</b> The terminal prints a link ending in <code>#lab=8888:&lt;code&gt;</code> and tries to open it. Click “Connect”. The code stays in this browser only. A green dot means you are connected.</li>
+  <li><b>Open a lesson.</b> Press “Open in JupyterLab” in any lesson. The notebook is written to <code>Documents/OlympiadAI/&lt;module&gt;/</code> and opened; your edits are never overwritten. Run cells with Shift+Enter.</li>
+  <li><b>Daily use.</b> With autostart on, nothing to do. Otherwise: <code>olympiadai-lab up</code>; also <code>status</code>, <code>down</code>, <code>doctor</code>, <code>autostart on|off</code>.</li>
+  <li><b>GPU.</b> The helper installs CPU builds of PyTorch, which is enough for the lessons. <code>torch.cuda.is_available()</code> returning <code>False</code> is normal. For an NVIDIA GPU, install a CUDA build of PyTorch into the managed environment.</li>
+  <li><b>Troubleshooting.</b> “Not answering” → <code>olympiadai-lab status</code> then <code>up</code>. “Pairing code expired” → run <code>up</code> and open the new <code>#lab=</code> link. “Browser won't embed” → third-party cookies are blocked; use “Open in a new tab”.</li>
+  <li><b>Uninstall.</b> <code>olympiadai-lab autostart off</code>, <code>olympiadai-lab down</code>, <code>uv tool uninstall olympiadai-lab</code>, then delete <code>Documents/OlympiadAI</code>.</li>
+</ol>
+<p><a href="../index.html">← Back to the curriculum</a></p>
+</main>
+</body>
+</html>

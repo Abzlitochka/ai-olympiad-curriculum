@@ -1,0 +1,45 @@
+/* embedded JupyterLab */
+.jlab-hint { font: 13px var(--mono); color: var(--text-3); margin: 4px 0 6px; min-height: 18px; }
+.jlab-frame { display: block; width: 100%; height: calc(100vh - 260px); min-height: 560px;
+  border: 1px solid var(--line); border-radius: var(--radius); background: #fff; }
+.jlab-frame[hidden] { display: none; }   /* display:block would otherwise beat the hidden attribute */
+
+/* local JupyterLab («На моём компьютере») — lab.js */
+/* trainer buttons are scoped to .pr-trainer — give the lab pane the same look */
+#sub-jlab .pr-btn { font: inherit; font-size: 14px; font-weight: 600; border-radius: 12px; padding: 9px 16px;
+  border: 1px solid transparent; line-height: 1.2; white-space: nowrap; cursor: pointer;
+  transition: background .15s, border-color .15s, color .15s; }
+#sub-jlab .pr-btn:disabled { opacity: .45; cursor: default; }
+#sub-jlab .pr-primary { background: var(--brand); color: var(--text); }
+#sub-jlab .pr-primary:hover:not(:disabled) { background: var(--brand-hover); }
+#sub-jlab .pr-secondary { background: var(--bg); border-color: var(--line); }
+#sub-jlab .pr-secondary:hover { background: var(--line); }
+#sub-jlab .pr-ghost { background: none; color: var(--text-2); }
+#sub-jlab .pr-ghost:hover { background: var(--subtle); color: var(--text); }
+#sub-jlab .pr-sm { padding: 5px 10px; font-size: 13px; }
+.lab-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 12px 0 4px; }
+.lab-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--line-strong); display: inline-block; }
+.lab-dot.ok { background: var(--ok); box-shadow: 0 0 0 3px var(--ok-soft); }
+.lab-status { font-size: 13px; color: var(--text-3); }
+.lab-status.warn { color: var(--warn); }
+.lab-bar > .pr-btn { margin-left: auto; }
+.lab-card { border: 1px solid var(--line); border-radius: var(--radius); background: var(--subtle); padding: 18px 20px; margin: 8px 0 12px; max-width: 760px; }
+.lab-card h3 { margin: 0 0 6px; font-size: 17px; }
+.lab-card p { margin: 0 0 12px; color: var(--text-3); font-size: 14px; line-height: 1.5; }
+.lab-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.lab-os { display: inline-flex; gap: 4px; margin-bottom: 10px; }
+.lab-os button { font: inherit; font-size: 13px; padding: 5px 12px; border: 1px solid var(--line); background: var(--bg);
+  color: var(--text-3); border-radius: 999px; cursor: pointer; }
+.lab-os button.on { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+.lab-cmd { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 10px; }
+.lab-cmd code { flex: 1; display: block; font: 12.5px/1.55 var(--mono); background: var(--bg); border: 1px solid var(--line);
+  border-radius: var(--radius-sm); padding: 10px 12px; white-space: pre-wrap; word-break: break-all; user-select: all; }
+.lab-note { font-size: 13px; }
+.lab-warn { font-size: 13px; color: var(--warn); }
+.lab-details { margin-top: 10px; font-size: 13px; }
+.lab-details summary { cursor: pointer; color: var(--text-3); }
+.lab-details p { margin: 8px 0 0; }
+.lab-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 8px; }
+.lab-foot .jlab-hint { margin: 0; }
+.lab-badge { font-size: 12px; font-weight: 600; color: var(--ok); background: var(--ok-soft); border-radius: 999px; padding: 3px 10px; }
+@media (max-width: 640px) { .lab-cmd { flex-direction: column; } .lab-bar > .pr-btn { margin-left: 0; } }

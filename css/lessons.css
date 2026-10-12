@@ -1,0 +1,56 @@
+/* Lessons index — flat numbered topic blocks inside discipline sections.
+   Reuses .lrows/.lrow from path.css, .chip/.filters/.page-head/.empty from
+   base.css; only the group/module headers and the level chips are new. */
+
+/* ---- discipline section ---- */
+.lsm-grp { margin-bottom: 48px; }
+.lsm-grp-head { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.lsm-grp-head h3 { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; }
+.lsm-meta { color: var(--text-3); font-size: 14px; margin-left: auto; font-variant-numeric: tabular-nums; }
+.lsm-blurb { color: var(--text-2); font-size: 15px; margin: 8px 0 4px; max-width: 720px; }
+
+/* ---- numbered module block (plain muted number, like .card-num) ---- */
+.lsm-mod { margin-top: 28px; }
+.lsm-mod-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+/* module heads lead with the M-id — the same stable number used by the
+   Program tab, trainer and syllabus; no second per-group counter */
+.lsm-mod-head b { font-weight: 700; }
+.lsm-mod-foreign .lsm-mod-head b { color: var(--text-3); font-weight: 600; }
+
+/* ---- level filter chips — inactive = hairline, on = dark like .lang-sw ---- */
+.chip.lsm-chip { height: 32px; padding: 0 14px; font-size: 14px; border: 1px solid var(--line-strong); cursor: pointer; }
+.chip.lsm-chip:hover { color: var(--text); border-color: var(--text-3); }
+.chip.lsm-chip.on { background: var(--text); border-color: var(--text); color: var(--bg); }
+
+@media (pointer: coarse) {
+  .chip.lsm-chip { min-height: 44px; }
+}
+
+@media (max-width: 720px) {
+  .lsm-grp { margin-bottom: 40px; }
+  .lsm-grp-head h3 { font-size: 24px; }
+  .lsm-mod { margin-top: 24px; }
+  .lsm-grp-head .lsm-meta, .lsm-mod-head .lsm-meta { flex-basis: 100%; margin-left: 0; }
+}
+
+/* ---- discipline pages: cross-module connection chips ---- */
+.lnk-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; margin: 6px 0 10px; }
+.lnk-lab { font-size: 13px; color: var(--text-3); }
+.lnk { font: inherit; font-size: 13.5px; color: var(--text); border: 1px solid var(--line); border-radius: 999px; background: var(--subtle); padding: 4px 10px; cursor: pointer; }
+.lnk:hover { border-color: var(--text-3); }
+.lnk b { font-weight: 600; }
+
+/* meta line under the discipline page-head keeps .lsm-meta styling */
+.disc-meta { margin: 10px 0 0; }
+
+/* scroll target after a [data-godisc] jump — brief accent ring */
+.disc-body .lsm-mod { border-radius: var(--radius); }
+.disc-body .lsm-mod.flash { animation: disc-flash 1.6s ease-out; }
+@keyframes disc-flash {
+  0% { box-shadow: 0 0 0 3px var(--accent); }
+  100% { box-shadow: 0 0 0 3px transparent; }
+}
+
+@media (pointer: coarse) {
+  .lnk { display: inline-flex; align-items: center; min-height: 44px; }
+}

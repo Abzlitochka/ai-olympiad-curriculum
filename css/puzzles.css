@@ -1,0 +1,94 @@
+/* Tensor puzzles gym — builds on css/base.css */
+
+/* ---- top bar: stamina figures + sprint controls ---- */
+.pg-top { display: flex; gap: 28px; flex-wrap: wrap; align-items: flex-end; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+.pg-stat { display: flex; flex-direction: column; gap: 2px; }
+.pg-stat b, .pg-streak b { font-size: 22px; line-height: 1.1; font-weight: 700; letter-spacing: -0.01em; }
+.pg-stat span, .pg-streak span { font-size: 12.5px; color: var(--text-3); }
+.pg-stat b.good { color: var(--ok); } .pg-stat b.warn { color: var(--warn); } .pg-stat b.bad { color: var(--err); }
+.pg-streak { display: flex; flex-direction: row; align-items: center; gap: 16px; }
+.pg-streak > div:first-child { display: flex; flex-direction: column; }
+.pg-strip { display: grid; grid-template-columns: repeat(14, 10px); gap: 3px; }
+.pg-strip i { width: 10px; height: 18px; border-radius: 2px; background: var(--subtle); border: 1px solid var(--line); }
+.pg-strip i.l1 { background: var(--line-strong); } .pg-strip i.l2 { background: var(--text-3); }
+.pg-strip i.l3 { background: var(--text-3); } .pg-strip i.l4 { background: var(--text); border-color: var(--text); }
+.pg-sprint { margin-left: auto; display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--text-3); }
+.pg-sprint b { font-size: 18px; color: var(--text); margin-right: 6px; }
+.pg-sprint .btn { margin-left: 6px; }
+#pgSprintOn b { font-variant-numeric: tabular-nums; }
+.pg-muted { font-size: 12.5px; color: var(--text-3); margin: 4px 0; }
+
+/* ---- layout: list | workspace | log ---- */
+.pg-grid { display: grid; grid-template-columns: 210px minmax(0, 1fr) 240px; gap: 28px; align-items: start; }
+.pg-side { position: sticky; top: calc(var(--header-h) + 24px); }
+.pg-list { background: var(--subtle); border-radius: var(--radius); overflow: hidden; }
+.pg-item { display: flex; align-items: center; gap: 9px; padding: 8px 12px; cursor: pointer; border-top: 1px solid var(--line); font-size: 13px; width: 100%; text-align: left; }
+.pg-item:first-child { border-top: 0; }
+.pg-item:hover { background: var(--line); }
+.pg-item.cur { background: var(--bg); font-weight: 600; }
+.pg-dot { width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 600;
+  background: var(--bg); color: var(--text-3); flex: none; }
+.pg-item.ok .pg-dot { background: var(--brand); color: var(--text); }
+.pg-name { flex: 1; font-family: var(--mono); }
+.pg-meta { font-size: 10.5px; color: var(--text-3); }
+.pg-rules { margin-top: 16px; }
+.pg-rules h4, .pg-h { font-size: 13px; font-weight: 600; color: var(--text-3); margin: 0 0 8px; }
+.pg-h { margin-top: 20px; }
+.pg-rules ul { margin: 0 0 8px 16px; padding: 0; }
+.pg-rules li { font-size: 12.5px; color: var(--text-2); margin-bottom: 6px; line-height: 1.5; }
+.pg-rules a { color: var(--accent); }
+
+/* ---- workspace ---- */
+.pg-main h2 { font-size: 21px; margin-bottom: 6px; }
+.pg-desc { font-size: 14.5px; color: var(--text-2); margin-bottom: 12px; }
+.pg-specbox summary { cursor: pointer; font-size: 13px; color: var(--text-3); margin-bottom: 6px; }
+.pg-code { background: var(--subtle); border-radius: var(--radius-sm); padding: 12px 14px; margin: 8px 0 14px;
+  overflow-x: auto; font: 13px/1.6 var(--mono); }
+.pg-exhead { font-size: 13px; font-weight: 600; color: var(--text-3); margin: 14px 0 8px; }
+.pg-case { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; border-top: 1px solid var(--line); padding: 12px 0; }
+.pg-case .pg-arg { min-width: 0; overflow-x: auto; max-width: 100%; }
+.pg-arg { display: flex; flex-direction: column; gap: 5px; }
+.pg-lbl { font-size: 12px; font-family: var(--mono); color: var(--text); }
+.pg-lbl span { color: var(--text-3); }
+.pg-t { border-collapse: separate; border-spacing: 2px; font-size: 11px; font-family: var(--mono); }
+.pg-t td { width: 26px; height: 22px; text-align: center; border-radius: 3px; padding: 0; border: none; font-weight: 600; }
+.pg-int { font-family: var(--mono); font-size: 15px; font-weight: 700; }
+.pg-na { font-size: 12px; color: var(--text-3); }
+
+.pg-edwrap { margin-top: 16px; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.pg-edwrap:focus-within { border-color: var(--text); }
+.pg-editor { width: 100%; min-height: 96px; resize: vertical; background: var(--bg); color: var(--text);
+  border: none; outline: none; padding: 14px 16px; font: 14px/1.6 var(--mono); tab-size: 4; }
+.pg-toolbar { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-top: 1px solid var(--line); }
+.pg-kbdhint { font-size: 12px; color: var(--text-3); }
+.pg-cols { margin-left: auto; font-size: 12px; font-family: var(--mono); color: var(--text-3); }
+.pg-cols.warn { color: var(--warn); } .pg-cols.bad { color: var(--err); font-weight: 700; }
+.pg-statusmsg { margin-top: 12px; font-size: 13.5px; color: var(--text-2); }
+.pg-res { margin-top: 14px; font-size: 14px; color: var(--text-2); border-left: 2px solid var(--line-strong); padding-left: 14px; }
+.pg-res.pass { border-left-color: var(--ok); }
+.pg-res.pass b { color: var(--ok); }
+.pg-res.fail { border-left-color: var(--err); }
+.pg-res.fail b { color: var(--err); }
+.pg-res-head { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 6px; font-size: 14px; }
+.pg-res-head span { font-size: 12px; color: var(--text-3); }
+.pg-res ul { margin: 4px 0 0 18px; padding: 0; }
+.pg-res .pg-case { margin-top: 8px; }
+.pg-pb { color: var(--text); font-weight: 600; }
+
+/* ---- iteration log ---- */
+.pg-logrow { display: grid; grid-template-columns: 34px 1fr auto auto; gap: 8px; align-items: center;
+  font-size: 12px; padding: 5px 0; border-bottom: 1px solid var(--line); font-family: var(--mono); }
+#pgSprintHist .pg-logrow { grid-template-columns: 1fr auto auto auto; }
+.pg-tag { font-size: 11px; font-weight: 600; }
+.pg-tag.pass { color: var(--ok); }
+.pg-tag.error, .pg-tag.rule { color: var(--err); }
+.pg-tag.shape, .pg-tag.wrong { color: var(--warn); }
+
+@media (max-width: 1100px) {
+  .pg-grid { grid-template-columns: 1fr; }
+  .pg-side { position: static; }
+  .pg-sprint { margin-left: 0; }
+  /* 21-item list would bury the workspace — turn it into a horizontal chip strip */
+  .pg-list { display: flex; overflow-x: auto; gap: 6px; padding: 6px; max-height: none; }
+  .pg-item { flex: 0 0 auto; }
+}

@@ -1,0 +1,28 @@
+/* Catalog tabs: task bank, olympiads, resources, syllabus — builds on css/base.css */
+
+/* ---- task bank ---- */
+#taskTable td a.link { cursor: pointer; }
+.tdesc { font-size: 13px; color: var(--text-3); margin-top: 3px; max-width: 460px; }
+
+/* ---- olympiads ---- */
+.olygrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(330px, 100%), 1fr)); gap: 12px; }
+.oly { background: var(--subtle); border-radius: var(--radius-xl); padding: 28px; }
+.oly h3 { font-size: 17px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.oly-abbr { font-size: 12.5px; font-weight: 600; color: var(--accent); }
+.oly-scope { font-size: 13px; color: var(--text-3); margin: 4px 0 14px; }
+.oly-row { display: flex; gap: 12px; font-size: 14px; margin-bottom: 8px; }
+.oly-lbl { flex: none; width: 96px; color: var(--text-3); }
+.oly > .link { display: inline-block; margin-top: 8px; font-size: 14px; }
+.oly-kg { display: inline-block; margin-bottom: 14px; padding: 3px 10px; border-radius: 999px;
+  background: var(--ok-soft); color: var(--ok); font-size: 12.5px; font-weight: 600; }
+
+/* ---- resources ---- */
+.resgroup h3 { font-size: 16px; margin: 28px 0 4px; }
+.resitem { display: flex; gap: 14px; align-items: baseline; padding: 9px 2px; border-bottom: 1px solid var(--line); font-size: 14.5px; }
+.resitem .link { flex: 1; min-width: 0; }
+.resmeta { font-size: 12.5px; color: var(--text-3); white-space: nowrap; }
+
+/* ---- syllabus ---- */
+.syl-sum { color: var(--text-2); font-size: 14px; margin-bottom: 24px; }
+.sylsec { font-size: 17px; margin: 28px 0 10px; }
+#tab-syllabus .table-wrap { margin-bottom: 8px; }

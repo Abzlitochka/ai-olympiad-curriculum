@@ -12,7 +12,7 @@
   <g clip-path="url(#sc)">
     <rect x="120" y="56" width="400" height="134" fill="#eef1fd"/>
     <rect x="120" y="190" width="400" height="76" fill="#eaf6ef"/>
-    <circle cx="470" cy="94" r="16" fill="#ffdd2d"/>
+    <circle cx="470" cy="94" r="16" fill="#6741d9"/>
     <path d="M250 190L340 100L430 190Z" fill="#e7e7ea" stroke-linejoin="round"/>
     <path d="M140 190L230 115L320 190Z" fill="#d3d3d8" stroke-linejoin="round"/>
     <circle cx="350" cy="232" r="17" fill="#3b5bdb"/>

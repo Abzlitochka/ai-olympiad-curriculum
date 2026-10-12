@@ -26,8 +26,10 @@ feel like a serious workbook, not a marketing site.
 | `--line` / `--line-strong` | `#e7e7ea` / `#d3d3d8` | hairlines / input borders |
 | `--text` = `--ink` | `#141414` | body text, dark buttons, active nav pill, footer |
 | `--text-2` / `--text-3` | `#4f4f58` / `#5e5e68` | secondary / meta text |
-| `--brand` | `#ffdd2d` | primary CTA, logo mark, eyebrow pill, lesson end card, selection |
-| `--brand-hover` | `#ffd000` | CTA hover |
+| `--brand` | `#6741d9` (`#7950f2` dark) | primary CTA, logo mark, eyebrow pill, lesson end card, selection |
+| `--brand-hover` | `#5a32c8` (`#8a63f0` dark) | CTA hover |
+| `--on-brand` / `--on-brand-2` | `#fff` / `rgba(255,255,255,.75)` | text and muted text on brand fills |
+| `--ink` | `#141414` | dark text on light surfaces inside colored cards |
 | `--accent` | `#3b5bdb` | links and focus ring only |
 | `--tint-yellow` / `-sky` / `-mint` / `-lilac` / `-peach` / `-rose` | `#fff6c9` `#dfeeff` `#dcf4e8` `#ebe6ff` `#ffe7d9` `#ffe1e7` | tile surfaces that carry meaning (below) |
 | `--ok` `--err` `--warn` | `#1a7f45` `#c9302c` `#b45309` | pass / fail / nudge |
@@ -39,13 +41,14 @@ borders. Tints are never decoration:
 - **Programme groups**: Programming = yellow tint, Math & theory = lilac,
   Machine learning = mint (`.grp[data-grp] .card`).
 - **Sprints**: S1 yellow, S2/S7 sky, S3/S8 mint, S4/S9 lilac, S5 peach, S6 rose.
-- **Hero facts**: first fact brand yellow, then lilac / mint / peach.
-- **Lesson**: notes = yellow tint, quiz = lilac, end-of-lesson card = brand yellow.
-- Progress fills are ink on tinted tiles (yellow-on-yellow would vanish) and
-  brand yellow inside the lesson progress bar on white.
+- **Hero facts**: first fact brand violet, then lilac / mint / peach.
+- **Lesson**: notes = yellow tint, quiz = lilac, end-of-lesson card = brand violet.
+- Progress fills are ink on tinted tiles (brand-on-tint would vanish) and
+  brand violet inside the lesson progress bar on white.
 
-No gradients, no shadows (hover = 2–3px lift via `transform`), no purple/blue
-"AI" fingerprint.
+No gradients, no shadows (hover = 2–3px lift via `transform`), no generic
+"AI" styling — the violet is a single flat brand colour, never a glow or
+gradient.
 
 ### Typography
 
@@ -65,7 +68,7 @@ No gradients, no shadows (hover = 2–3px lift via `transform`), no purple/blue
 
 - Radius: tiles 24–28px, buttons 14–18px, inputs/rows 12px, chips and nav 999px.
 - Header: 72px, translucent white with backdrop blur, 1px hairline. Logo mark is
-  a 34px yellow rounded square with "AI". Active nav tab = ink pill with white text.
+  a 34px violet rounded square with "AI". Active nav tab = ink pill with white text.
 - Sections are separated by 72–96px of white space; borders are a fallback.
 - Footer: full-bleed ink band, muted light text, white links.
 - Motion is limited to colour/transform ≤300ms: hover lift on tiles, `scale(.98)`
@@ -108,8 +111,8 @@ No gradients, no shadows (hover = 2–3px lift via `transform`), no purple/blue
 
 ### Buttons
 
-- Primary = `--brand` fill with ink text, 48px high (60px for hero), radius 14–18px, hover = `--brand-hover`, press = `scale(.98)`.
-- Secondary = `--ink` fill with white text (the Practicum black button). Lesson "next step" buttons are brand yellow until done, then neutral. Ghost = text-only.
+- Primary = `--brand` fill with `--on-brand` white text, 48px high (60px for hero), radius 14–18px, hover = `--brand-hover`, press = `scale(.98)`.
+- Secondary = `--ink` fill with white text (the Practicum black button). Lesson "next step" buttons are brand violet until done, then neutral. Ghost = text-only.
 - Disabled = `opacity .4`, `pointer-events: none`.
 - Touch: `@media (pointer: coarse)` lifts targets to ≥44px.
 
@@ -144,11 +147,11 @@ browser (Pyodide). The student guide is `guide/jupyterlab.html`. Rules:
 - Contents drawer: slides in from the left (scrim, Esc and × close it). A module
   `<select>` re-lists lessons of any module without leaving the lesson; the
   current lesson expands into its steps; picking a lesson switches to it.
-- Reading column 860px, centred; notes yellow tint, quiz lilac, end card brand yellow.
+- Reading column 860px, centred; notes yellow tint, quiz lilac, end card brand violet.
 
 ### Status language
 
-- "Done" is text or the yellow progress fill — never a green banner, emoji, or
+- "Done" is text or the brand progress fill — never a green banner, emoji, or
   icon. `✓`-style glyphs are allowed only where they already exist
   (`.card-plus`, lnum dots are CSS shapes, not characters).
 - Warn state (`--warn`) for "content done, project left" nudges.
@@ -177,7 +180,7 @@ browser (Pyodide). The student guide is `guide/jupyterlab.html`. Rules:
 
 - No gradients, glows, glassmorphism, or shadows beyond a subtle hover shift.
 - No emoji or decorative unicode in UI chrome; icons are CSS shapes or nothing.
-- No primary-colored section backgrounds; color is scarce — brand yellow for
+- No primary-colored section backgrounds; color is scarce — brand violet for
   progress/CTA, accent blue for interaction, pastels only as soft fills.
 - No new fonts, no icon font/library.
 - No AI-slop copy: "Elevate", "Unleash", "Seamless", "Journey" etc. are banned.

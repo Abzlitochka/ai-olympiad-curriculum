@@ -25,7 +25,7 @@
   padding: 9px 16px; border: 1px solid transparent; line-height: 1.2; white-space: nowrap;
   transition: background .15s, border-color .15s, color .15s; }
 .pr-trainer .pr-btn:disabled { opacity: .45; cursor: default; }
-.pr-trainer .pr-primary { background: var(--brand); color: var(--text); min-width: 140px; }
+.pr-trainer .pr-primary { background: var(--brand); color: var(--on-brand); min-width: 140px; }
 .pr-trainer .pr-primary:hover:not(:disabled) { background: var(--brand-hover); }
 .pr-trainer .pr-primary[data-mode="next"] { background: var(--inv-bg); color: var(--inv-fg); }
 .pr-trainer .pr-primary[data-mode="next"]:hover { background: var(--inv-hover); }

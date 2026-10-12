@@ -46,7 +46,7 @@
   <!-- donut chart -->
   <g transform="rotate(-90 464 255)">
     <circle cx="464" cy="255" r="36" fill="none" stroke="#3b5bdb" stroke-width="24" stroke-dasharray="111 115.19"/>
-    <circle cx="464" cy="255" r="36" fill="none" stroke="#ffdd2d" stroke-width="24" stroke-dasharray="65.7 160.49" stroke-dashoffset="-113.1"/>
+    <circle cx="464" cy="255" r="36" fill="none" stroke="#6741d9" stroke-width="24" stroke-dasharray="65.7 160.49" stroke-dashoffset="-113.1"/>
     <circle cx="464" cy="255" r="36" fill="none" stroke="#1a7f45" stroke-width="24" stroke-dasharray="43.19 183" stroke-dashoffset="-180.9"/>
   </g>
   <text x="464" y="328" font-size="14" font-weight="600" fill="#141414" text-anchor="middle">pie</text>

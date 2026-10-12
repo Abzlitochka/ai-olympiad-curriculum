@@ -10,7 +10,7 @@
   border: 1px solid transparent; line-height: 1.2; white-space: nowrap; cursor: pointer;
   transition: background .15s, border-color .15s, color .15s; }
 #sub-jlab .pr-btn:disabled { opacity: .45; cursor: default; }
-#sub-jlab .pr-primary { background: var(--brand); color: var(--text); }
+#sub-jlab .pr-primary { background: var(--brand); color: var(--on-brand); }
 #sub-jlab .pr-primary:hover:not(:disabled) { background: var(--brand-hover); }
 #sub-jlab .pr-secondary { background: var(--bg); border-color: var(--line); }
 #sub-jlab .pr-secondary:hover { background: var(--line); }

@@ -14,7 +14,7 @@
   <circle cx="300" cy="180" r="22" fill="none" stroke="#4f4f58" stroke-width="1.5" opacity="0.35"/>
   <circle cx="300" cy="180" r="36" fill="none" stroke="#4f4f58" stroke-width="1.5" opacity="0.35"/>
   <!-- centroid marker -->
-  <circle cx="300" cy="180" r="9" fill="#ffdd2d" stroke="#141414" stroke-width="2"/>
+  <circle cx="300" cy="180" r="9" fill="#6741d9" stroke="#141414" stroke-width="2"/>
   <path d="M295 180H305M300 175V185" stroke="#141414" stroke-width="2" stroke-linecap="round"/>
   <!-- label + leader -->
   <path d="M283 82L296 141" fill="none" stroke="#4f4f58" stroke-width="1.5"/>

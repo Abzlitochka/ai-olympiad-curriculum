@@ -1,4 +1,4 @@
-/* Design system — Yandex Practicum course pages: white canvas, near-black ink, one yellow brand,
+/* Design system — Yandex Practicum course pages: white canvas, near-black ink, one violet brand,
    pastel tint tiles that carry meaning (group / sprint), big confident headings, 14–28px radii.
    No shadows beyond a hover lift, no gradients, no emoji. Source of truth: DESIGN.md.
    Per-view files live next to this one. */
@@ -12,9 +12,11 @@
   --text-3: #5e5e68;
   --accent: #3b5bdb;
   --accent-soft: #eef1fd;
-  --brand: #ffdd2d;
-  --brand-hover: #ffd000;
-  --ink: #141414;            /* text on brand yellow — constant in both themes */
+  --brand: #6741d9;
+  --brand-hover: #5a32c8;
+  --on-brand: #ffffff;        /* text on brand fills — constant in both themes */
+  --on-brand-2: rgba(255, 255, 255, .75);  /* muted text on brand fills */
+  --ink: #141414;            /* dark text on light surfaces inside colored cards */
   --inv-bg: #141414; --inv-fg: #ffffff; --inv-hover: #2c2c30;   /* inverted (black / white) buttons and pills */
   --glass: rgba(255, 255, 255, .78); --glass-strong: rgba(255, 255, 255, .88); --glass-hover: #ffffff;
   --track: rgba(20, 20, 20, .08);
@@ -39,13 +41,14 @@
   --header-h: 72px;
 }
 
-/* Dark theme (Practicum dark): same yellow, surfaces step down instead of being inverted by the browser.
-   theme.js sets data-theme from localStorage or the system preference. */
+/* Dark theme (Practicum dark): brand brightens a step, surfaces step down instead of being
+   inverted by the browser. theme.js sets data-theme from localStorage or the system preference. */
 :root[data-theme="dark"] {
   color-scheme: dark;
   --bg: #151517; --subtle: #212124; --line: #2c2c30; --line-strong: #3d3d43;
   --text: #f3f3f4; --text-2: #babac3; --text-3: #9b9ba6;
   --accent: #9fb2ff; --accent-soft: #272d4d;
+  --brand: #7950f2; --brand-hover: #8a63f0;
   --ok: #4cc88a; --ok-soft: #16301f; --err: #ff6f69; --warn: #f2a652;
   --tint-yellow: #35301a; --tint-sky: #1d2b3e; --tint-mint: #17322a; --tint-lilac: #292542; --tint-peach: #3a2819; --tint-rose: #3b2029;
   --inv-bg: #f3f3f4; --inv-fg: #141414; --inv-hover: #dcdce1;
@@ -72,7 +75,7 @@ a { color: inherit; text-decoration: underline; text-decoration-color: var(--lin
 a:hover { text-decoration-color: currentColor; }
 button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
-::selection { background: var(--brand); color: var(--ink); }
+::selection { background: var(--brand); color: var(--on-brand); }
 
 h1 { font-size: 48px; line-height: 1.06; font-weight: 800; letter-spacing: -0.035em; }
 h2 { font-size: 30px; line-height: 1.16; font-weight: 700; letter-spacing: -0.025em; }
@@ -89,7 +92,7 @@ code { font-family: var(--mono); font-size: 0.9em; background: var(--subtle); pa
   -webkit-backdrop-filter: saturate(1.4) blur(12px); backdrop-filter: saturate(1.4) blur(12px); }
 .site-header .container { height: var(--header-h); display: flex; align-items: center; gap: 20px; }
 .brand { font-weight: 800; font-size: 17px; letter-spacing: -0.02em; text-decoration: none; white-space: nowrap; display: flex; align-items: center; gap: 12px; }
-.brand::before { content: "AI"; width: 34px; height: 34px; border-radius: 10px; background: var(--brand); color: var(--ink); flex: none;
+.brand::before { content: "AI"; width: 34px; height: 34px; border-radius: 10px; background: var(--brand); color: var(--on-brand); flex: none;
   display: grid; place-items: center; font-size: 13px; font-weight: 800; letter-spacing: -0.02em; }
 .nav { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; flex: 1;
   -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
@@ -135,7 +138,7 @@ main.container { padding-top: 56px; padding-bottom: 120px; }
   border-radius: 14px; font-size: 16px; font-weight: 600; text-decoration: none; white-space: nowrap;
   border: 1px solid transparent; transition: background .15s, border-color .15s, color .15s, transform .12s; }
 .btn:active:not(:disabled), .prl-btn:active:not(:disabled), .pr-btn:active:not(:disabled) { transform: scale(.98); }
-.btn--primary { background: var(--brand); color: var(--ink); }
+.btn--primary { background: var(--brand); color: var(--on-brand); }
 .btn--primary:hover { background: var(--brand-hover); }
 .btn--secondary { background: var(--inv-bg); color: var(--inv-fg); }
 .btn--secondary:hover { background: var(--inv-hover); }

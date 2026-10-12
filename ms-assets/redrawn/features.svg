@@ -12,7 +12,7 @@
 
   <!-- input image: flat photo icon -->
   <rect x="56" y="96" width="120" height="120" rx="12" fill="#eef1fd" stroke="#d3d3d8" stroke-width="1.5"/>
-  <circle cx="144" cy="126" r="10" fill="#ffdd2d"/>
+  <circle cx="144" cy="126" r="10" fill="#6741d9"/>
   <path d="M72 198 L102 150 L120 174 L136 158 L164 198 Z" fill="#3b5bdb" stroke-linejoin="round"/>
 
   <line x1="186" y1="156" x2="286" y2="156" stroke="#3b5bdb" stroke-width="2" marker-end="url(#arr)"/>

@@ -14,7 +14,7 @@
   <rect x="44" y="50" width="52" height="52" fill="#eef1fd"/>
   <rect x="148" y="154" width="52" height="52" fill="#eaf6ef"/>
   <rect x="200" y="258" width="52" height="52" fill="#ffe8e6"/>
-  <rect x="252" y="258" width="52" height="52" fill="#ffdd2d" fill-opacity="0.25"/>
+  <rect x="252" y="258" width="52" height="52" fill="#6741d9" fill-opacity="0.25"/>
 
   <!-- grid lines -->
   <g stroke="#e7e7ea" stroke-width="1.5">
@@ -32,7 +32,7 @@
   <!-- markers: agent, reward, penalty, goal -->
   <use href="#dia" transform="translate(174 180)" fill="#1a7f45"/>
   <use href="#tri" transform="translate(226 284)" fill="#c9302c"/>
-  <use href="#star" transform="translate(278 284)" fill="#ffdd2d" stroke="#141414" stroke-width="1"/>
+  <use href="#star" transform="translate(278 284)" fill="#6741d9" stroke="#141414" stroke-width="1"/>
   <circle cx="70" cy="76" r="11" fill="#3b5bdb"/>
 
   <!-- legend panel -->
@@ -40,7 +40,7 @@
   <g font-size="14" fill="#141414">
     <circle cx="368" cy="96" r="9" fill="#3b5bdb"/>
     <text x="394" y="101">agent</text>
-    <use href="#star" transform="translate(368 130)" fill="#ffdd2d" stroke="#141414" stroke-width="1"/>
+    <use href="#star" transform="translate(368 130)" fill="#6741d9" stroke="#141414" stroke-width="1"/>
     <text x="394" y="135">goal</text>
     <use href="#dia" transform="translate(368 164)" fill="#1a7f45"/>
     <text x="394" y="169">reward +10</text>

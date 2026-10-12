@@ -17,7 +17,7 @@ body.in-lesson main.container { max-width: none; padding: 0; }
 .prl-bar-icon { width: 40px; padding: 0; }
 .prl-bar-exit { background: none; padding: 0 12px; color: var(--text-2); }
 .prl-bar-title { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: 10px; }
-.prl-bar-mod { flex: none; font-size: 12.5px; font-weight: 700; background: var(--brand); color: var(--ink); border-radius: 999px; padding: 3px 10px; }
+.prl-bar-mod { flex: none; font-size: 12.5px; font-weight: 700; background: var(--brand); color: var(--on-brand); border-radius: 999px; padding: 3px 10px; }
 .prl-bar-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 700; letter-spacing: -0.01em; }
 .prl-bar-step { flex: none; font-size: 13.5px; color: var(--text-3); font-variant-numeric: tabular-nums; }
 .prl-burger { width: 16px; height: 2px; border-radius: 1px; background: currentColor; box-shadow: 0 5px 0 currentColor, 0 -5px 0 currentColor; }
@@ -50,11 +50,11 @@ body.in-lesson main.container { max-width: none; padding: 0; }
 .prl-lesson-link { display: flex; align-items: center; gap: 12px; width: 100%; border-radius: var(--radius-sm);
   padding: 11px 12px; font-size: 15px; text-align: left; transition: background .15s; }
 .prl-lesson-link:hover { background: var(--subtle); }
-.prl-lesson-item.is-current > .prl-lesson-link { font-weight: 700; background: var(--tint-yellow); }
+.prl-lesson-item.is-current > .prl-lesson-link { font-weight: 700; background: var(--tint-lilac); }
 .prl-lnum { width: 26px; height: 26px; flex: none; border-radius: 50%; display: grid; place-items: center;
   font-size: 12.5px; font-weight: 700; background: var(--subtle); color: var(--text-3); }
 .prl-lesson-item.is-current .prl-lnum { background: var(--bg); color: var(--text); }
-.prl-lesson-item.is-done .prl-lnum { background: var(--brand); color: var(--ink); }
+.prl-lesson-item.is-done .prl-lnum { background: var(--brand); color: var(--on-brand); }
 .prl-lname { flex: 1; line-height: 1.35; }
 .prl-lscore { font-size: 12.5px; color: var(--text-3); font-variant-numeric: tabular-nums; }
 .prl-lesson-item.is-done .prl-lscore { color: var(--ok); }
@@ -120,10 +120,10 @@ body.in-lesson main.container { max-width: none; padding: 0; }
 .prl-tools .prl-btn:hover { background: var(--line); color: var(--text); }
 .prl-btn { font: inherit; font-weight: 600; font-size: 15px; border-radius: 14px; padding: 13px 24px;
   border: 1px solid transparent; transition: background .12s, border-color .12s, color .12s, transform .12s; }
-.prl-primary { background: var(--brand); color: var(--ink); }
+.prl-primary { background: var(--brand); color: var(--on-brand); }
 .prl-primary:hover:not(:disabled) { background: var(--brand-hover); }
 .prl-primary:disabled { background: var(--line-strong); cursor: default; }
-.prl-secondary { background: var(--brand); color: var(--ink); }
+.prl-secondary { background: var(--brand); color: var(--on-brand); }
 .prl-secondary:hover:not(:disabled) { background: var(--brand-hover); }
 .prl-secondary.is-on, .prl-secondary:disabled { background: var(--subtle); color: var(--ok); border-color: transparent; cursor: default; }
 .prl-ghost { color: var(--text-3); font-weight: 500; font-size: 14px; }
@@ -158,14 +158,14 @@ body.in-lesson main.container { max-width: none; padding: 0; }
 
 /* ---- end of lesson ---- */
 .prl-end { margin-top: 8px; }
-.prl-end-card { color: var(--ink); background: var(--brand); border-radius: var(--radius-xl); padding: 36px; margin-bottom: 24px; }
+.prl-end-card { color: var(--on-brand); background: var(--brand); border-radius: var(--radius-xl); padding: 36px; margin-bottom: 24px; }
 .prl-end-card .prl-h2 { font-size: 32px; }
-.prl-end-card .prl-quiz-label, .prl-end-card .prl-muted { color: rgba(20, 20, 20, .72); }
+.prl-end-card .prl-quiz-label, .prl-end-card .prl-muted { color: var(--on-brand-2); }
 .prl-end-card .prl-primary { background: #141414; color: #fff; border-color: transparent; }
 .prl-end-card .prl-primary:hover:not(:disabled) { background: #2c2c30; }
-.prl-end-card .prl-ghost { background: rgba(255, 255, 255, .55); color: var(--ink); }
-.prl-end-card .prl-ghost:hover { background: #fff; color: var(--ink); }
-.prl-end-card .prl-exlist .prl-link { color: var(--ink); }
+.prl-end-card .prl-ghost { background: rgba(255, 255, 255, .85); color: var(--brand); }
+.prl-end-card .prl-ghost:hover { background: #fff; color: var(--brand); }
+.prl-end-card .prl-exlist .prl-link { color: var(--on-brand); }
 .prl-muted { color: var(--text-2); font-size: 16px; margin: 0 0 14px; }
 .prl-exlist { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 16px; font-size: 14px; }
 .prl-exlist .prl-link { color: var(--accent); font-family: var(--mono); font-size: 13px; }

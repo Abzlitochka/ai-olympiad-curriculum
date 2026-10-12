@@ -148,18 +148,21 @@
       </div>
       <div id="labPair" hidden></div>
       <div class="lab-card lab-setup" id="labSetup" hidden></div>
-      <div id="labLocal">
-        <div class="lab-card" id="labOffline" hidden></div>
-        <div class="lab-card" id="labFallback" hidden></div>
-        <iframe id="labLocalFrame" title="JupyterLab (local)" class="jlab-frame" hidden
-          sandbox="allow-scripts allow-same-origin allow-downloads allow-forms allow-modals allow-popups"></iframe>
-        <div class="lab-foot" id="labFoot" hidden>
-          <span class="lab-badge" data-i18n="lab.onMyPc">On my computer</span>
-          <span class="jlab-hint" id="labFiles"></span>
-          <span class="pr-flex"></span>
-          <a class="pr-btn pr-ghost pr-sm" href="guide/jupyterlab.html" target="_blank" rel="noopener" data-i18n="lab.guide">Step-by-step guide</a>
-          <button type="button" class="pr-btn pr-ghost pr-sm" data-lab-newtab data-i18n="lab.newTab">Open in a new tab</button>
-          <button type="button" class="pr-btn pr-ghost pr-sm" data-lab-disconnect data-i18n="lab.disconnect">Disconnect computer</button>
+      <div id="labLocal" class="lab-grid">
+        <aside class="lab-tasks" id="labTasks" hidden aria-label="Lesson tasks"></aside>
+        <div class="lab-main">
+          <div class="lab-card" id="labOffline" hidden></div>
+          <div class="lab-card" id="labFallback" hidden></div>
+          <iframe id="labLocalFrame" title="JupyterLab (local)" class="jlab-frame" hidden
+            sandbox="allow-scripts allow-same-origin allow-downloads allow-forms allow-modals allow-popups"></iframe>
+          <div class="lab-foot" id="labFoot" hidden>
+            <span class="lab-badge" data-i18n="lab.onMyPc">On my computer</span>
+            <span class="jlab-hint" id="labFiles"></span>
+            <span class="pr-flex"></span>
+            <a class="pr-btn pr-ghost pr-sm" href="guide/jupyterlab.html" target="_blank" rel="noopener" data-i18n="lab.guide">Step-by-step guide</a>
+            <button type="button" class="pr-btn pr-ghost pr-sm" data-lab-newtab data-i18n="lab.newTab">Open in a new tab</button>
+            <button type="button" class="pr-btn pr-ghost pr-sm" data-lab-disconnect data-i18n="lab.disconnect">Disconnect computer</button>
+          </div>
         </div>
       </div>
     </div>

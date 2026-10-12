@@ -285,6 +285,42 @@ function labRender() {
   if (foot) foot.hidden = !ok || !lab.src;
   const files = $("#labFiles");
   if (files) files.textContent = lab.files ? tf("lab.files", lab.files) : "";
+
+  /* lesson task checklist beside the frame — same exercises that are graded
+     in the notebook's Задания cells; ticks come from the trainer store */
+  const taskPane = $("#labTasks"), grid = $("#labLocal");
+  const tasks = ok && lab.lesson ? labLessonTasks() : null;
+  if (taskPane) {
+    taskPane.hidden = !tasks;
+    if (grid) grid.classList.toggle("with-tasks", !!tasks);
+    if (tasks) {
+      const done = tasks.filter(x => x.solved).length;
+      const sig = `${lab.lesson.mod}|${lab.lesson.li}|${done}/${tasks.length}|${t("lab.tasksH")}`;
+      if (sig !== lab._taskSig) { lab._taskSig = sig; taskPane.innerHTML = labTasksHTML(tasks, done); }
+    } else lab._taskSig = "";
+  }
+}
+
+/* exercises mapped to the lesson currently loaded in the lab, solved-flagged */
+function labLessonTasks() {
+  if (!lab.lesson || typeof prLessonExercises !== "function" || typeof EXERCISES === "undefined") return null;
+  const { ids } = prLessonExercises(lab.lesson.mod, lab.lesson.li);
+  const sol = typeof exSolved === "function" ? exSolved() : {};
+  const tasks = ids.map(id => EXERCISES.find(x => x.id === id)).filter(Boolean)
+    .map(x => ({ ...x, solved: !!sol[x.id] }));
+  return tasks.length ? tasks : null;
+}
+
+function labTasksHTML(tasks, done) {
+  const allDone = done === tasks.length;
+  return `<h3 class="lab-tasks-h">${esc(t("lab.tasksH"))} <span class="lab-tasks-prog ${allDone ? "is-done" : ""}">${done}/${tasks.length}</span></h3>
+    <p class="lab-tasks-hint">${esc(t("lab.tasksHint"))}</p>
+    <ol class="lab-tasklist">${tasks.map((x, i) => `
+      <li><button type="button" class="lab-task ${x.solved ? "is-done" : ""}" data-task-ex="${esc(x.id)}" title="${esc(t("lab.taskOpen"))}">
+        <span class="lab-task-check" aria-hidden="true">${x.solved ? "✓" : ""}</span>
+        <span class="lab-task-body"><b>${i + 1}. ${esc(loc(x.title))}</b>
+          <span class="lab-task-meta">${"●".repeat(x.diff || 1)}${"○".repeat(3 - (x.diff || 1))} · ~${x.minutes} ${esc(t("u.min"))}</span></span>
+      </button></li>`).join("")}</ol>`;
 }
 
 /* ---------- events ---------- */
@@ -301,6 +337,8 @@ document.addEventListener("click", e => {
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, () => {});
     return;
   }
+  const taskEx = e.target.closest("[data-task-ex]");
+  if (taskEx) { if (typeof prOpenExercise === "function") prOpenExercise(taskEx.dataset.taskEx); return; }
   if (e.target.closest("[data-lab-retry]")) { if (lab.cfg) { lab.status = "checking"; labRender(); labCheck(); } return; }
   if (e.target.closest("[data-lab-pair-ok]")) { labPairConfirm(true); return; }
   if (e.target.closest("[data-lab-pair-no]")) { labPairConfirm(false); return; }

@@ -376,7 +376,7 @@ Over the past few years we have witnessed huge successes with large language mod
 
 В качестве примера рассмотрим следующую экспертную систему определения животного по его физическим характеристикам:
 
-![AND-OR дерево](ms-assets/ai/AND-OR-Tree.5592d2c70187f283.webp)
+![AND-OR дерево](ms-assets/en-originals/and-or-tree.png)
 
 > Изображение от [Dmitry Soshnikov](http://soshnikov.com)
 
@@ -601,7 +601,7 @@ Expert systems are built like the human reasoning system, which contains **short
 
 As an example, let's consider the following expert system of determining an animal based on its physical characteristics:
 
-![AND-OR Tree](https://raw.githubusercontent.com/microsoft/AI-For-Beginners/main/lessons/2-Symbolic/images/AND-OR-Tree.png)
+![AND-OR Tree](ms-assets/en-originals/and-or-tree.png)
 
 > Image by [Dmitry Soshnikov](http://soshnikov.com)
 
@@ -1417,7 +1417,7 @@ im = cv2.cvtColor(im,cv2.COLOR_BGR2RGB)
 
 * **Обнаружение движения на видео с помощью разницы кадров**. Если камера фиксирована, то кадры из видеопотока должны быть довольно похожи друг на друга. Так как кадры представлены в виде массивов, просто вычитая массивы двух последовательных кадров, мы получим разницу пикселей, которая будет небольшой для статичных кадров и увеличиваться при значительном движении на изображении.
 
-![Изображение кадров видео и разницы кадров](ms-assets/ai/frame-difference.706f805491a0883c.webp)
+![Изображение кадров видео и разницы кадров](ms-assets/redrawn/frame-difference.ru.svg)
 
 > Изображение из [OpenCV.ipynb](https://github.com/microsoft/AI-For-Beginners/blob/main/translations/ru/lessons/4-ComputerVision/06-IntroCV/OpenCV.ipynb)
 
@@ -1515,7 +1515,7 @@ You can also use OpenCV to load video frame-by-frame - an example is given in th
 
 * **Detecting motion in video using frame difference**. If the camera is fixed, then frames from the camera feed should be pretty similar to each other. Since frames are represented as arrays, just by subtracting those arrays for two subsequent frames we will get the pixel difference, which should be low for static frames, and become higher once there is substantial motion in the image.
 
-![Image of video frames and frame differences](https://raw.githubusercontent.com/microsoft/AI-For-Beginners/main/lessons/4-ComputerVision/06-IntroCV/images/frame-difference.png)
+![Image of video frames and frame differences](ms-assets/redrawn/frame-difference.svg)
 
 > Image from [OpenCV.ipynb](https://github.com/microsoft/AI-For-Beginners/blob/main/lessons/4-ComputerVision/06-IntroCV/OpenCV.ipynb)
 
@@ -1590,9 +1590,9 @@ You can also use OpenCV to load video frame-by-frame - an example is given in th
 
 В качестве примера давайте рассмотрим архитектуру VGG-16, сети, которая достигла точности 92.7% в топ-5 классификации ImageNet в 2014 году:
 
-![Слои ImageNet](ms-assets/ai/vgg-16-arch1.d901a5583b3a51ba.webp)
+![Слои ImageNet](ms-assets/redrawn/vgg16-arch.svg)
 
-![Пирамида ImageNet](ms-assets/ai/vgg-16-arch.64ff2137f50dd49f.webp)
+![Пирамида ImageNet](ms-assets/en-originals/vgg-16-arch.jpg)
 
 > Изображение с [Researchgate](https://www.researchgate.net/figure/Vgg16-model-structure-To-get-the-VGG-NIN-model-we-replace-the-2-nd-4-th-6-th-7-th_fig2_335194493)`),
     ]),
@@ -1644,9 +1644,9 @@ However, while we can design the filters to extract some patterns manually, we c
 
 As an example, let's look at the architecture of VGG-16, a network that achieved 92.7% accuracy in ImageNet's top-5 classification in 2014:
 
-![ImageNet Layers](https://raw.githubusercontent.com/microsoft/AI-For-Beginners/main/lessons/4-ComputerVision/07-ConvNets/images/vgg-16-arch1.jpg)
+![ImageNet Layers](ms-assets/redrawn/vgg16-arch.svg)
 
-![ImageNet Pyramid](https://raw.githubusercontent.com/microsoft/AI-For-Beginners/main/lessons/4-ComputerVision/07-ConvNets/images/vgg-16-arch.jpg)
+![ImageNet Pyramid](ms-assets/en-originals/vgg-16-arch.jpg)
 
 > Image from [Researchgate](https://www.researchgate.net/figure/Vgg16-model-structure-To-get-the-VGG-NIN-model-we-replace-the-2-nd-4-th-6-th-7-th_fig2_335194493)`),
     ]),
@@ -2151,7 +2151,7 @@ The way it works is the following:
 2. Запустить классификацию изображений для каждой плитки.
 3. Те плитки, которые дают достаточно высокую активацию, можно считать содержащими искомый объект.
 
-![Простое обнаружение объектов](ms-assets/ai/naive-detection.e7f1ba220ccd08c6.webp)
+![Простое обнаружение объектов](ms-assets/redrawn/naive-detection.ru.svg)
 
 > *Изображение из [учебной тетради](https://github.com/microsoft/AI-For-Beginners/blob/main/translations/ru/lessons/4-ComputerVision/11-ObjectDetection/ObjectDetection-TF.ipynb)*
 
@@ -2187,7 +2187,7 @@ The way it works is the following:
 2. В зависимости от порога мы получим больше или меньше объектов, обнаруженных на изображении, и разные значения точности и отзыва.
 3. Кривая будет выглядеть так:
 
-![](ms-assets/ai/ObjDetectionPrecisionRecall.d2ef5b6081a0b094.webp)
+![Illustration](ms-assets/en-originals/objdet-pr.png)
 
 > *Изображение из [NeuroWorkshop](http://github.com/shwars/NeuroWorkshop)*
 
@@ -2201,7 +2201,7 @@ $$
 
 Мы будем учитывать только те обнаружения, для которых IoU превышает определенное значение. Например, в наборе данных PASCAL VOC обычно предполагается $\\mbox{IoU Threshold} = 0.5$, а в COCO AP измеряется для разных значений $\\mbox{IoU Threshold}$.
 
-![](ms-assets/ai/ObjDetectionPrecisionRecallIoU.96b4116fcd30ce5a.webp)
+![Illustration](ms-assets/en-originals/objdet-pr-iou.png)
 
 > *Изображение из [NeuroWorkshop](http://github.com/shwars/NeuroWorkshop)*
 
@@ -2313,7 +2313,7 @@ YOLO — это алгоритм реального времени с одним
 2. Run image classification on each tile.
 3. Those tiles that result in sufficiently high activation can be considered to contain the object in question.
 
-![Naive Object Detection](https://raw.githubusercontent.com/microsoft/AI-For-Beginners/main/lessons/4-ComputerVision/11-ObjectDetection/images/naive-detection.png)
+![Naive Object Detection](ms-assets/redrawn/naive-detection.svg)
 
 > *Image from [Exercise Notebook](https://github.com/microsoft/AI-For-Beginners/blob/main/lessons/4-ComputerVision/11-ObjectDetection/ObjectDetection-TF.ipynb)*
 
@@ -2346,7 +2346,7 @@ The idea is simple - we divide the area of intersection between two figures by t
 2. Depending on the threshold, we will get more or less objects detected in the image, and different values of precision and recall.
 3. The curve will look like this:
 
-![](ms-assets/ai/ObjDetectionPrecisionRecall.d2ef5b6081a0b094.webp)
+![Illustration](ms-assets/en-originals/objdet-pr.png)
 
 > *Image from [NeuroWorkshop](http://github.com/shwars/NeuroWorkshop)*
 
@@ -2359,7 +2359,7 @@ $$`),
     T("AP and IoU", [
       md(`We shall consider only those detections, for which IoU is above a certain value. For example, in PASCAL VOC dataset typically $\\mbox{IoU Threshold} = 0.5$ is assumed, while in COCO AP is measured for different values of $\\mbox{IoU Threshold}$.
 
-![](ms-assets/ai/ObjDetectionPrecisionRecallIoU.96b4116fcd30ce5a.webp)
+![Illustration](ms-assets/en-originals/objdet-pr-iou.png)
 
 > *Image from [NeuroWorkshop](http://github.com/shwars/NeuroWorkshop)*`),
     ]),
@@ -3037,7 +3037,7 @@ Generation with Visual Attention](https://arxiv.org/pdf/1502.03044v2.pdf)`),
 
 Мы будем обучать эту RNN генерировать текст шаг за шагом. На каждом шаге мы будем брать последовательность символов длиной \`nchars\` и просить сеть сгенерировать следующий символ для каждого входного символа:
 
-![Изображение, показывающее пример генерации слова 'HELLO' с помощью RNN.](ms-assets/ai/rnn-generate.56c54afb52f9781d.webp)
+![Изображение, показывающее пример генерации слова 'HELLO' с помощью RNN.](ms-assets/en-originals/rnn-generate.png)
 
 При генерации текста (во время инференса) мы начинаем с некоторого **запроса**, который передается через ячейки RNN для генерации промежуточного состояния, а затем из этого состояния начинается генерация. Мы генерируем по одному символу за раз, передаем состояние и сгенерированный символ в следующую ячейку RNN для генерации следующего символа, пока не будет сгенерировано достаточное количество символов.
 
@@ -3104,7 +3104,7 @@ In this unit, we will focus on simple generative models that help us generate te
 
 We will train this RNN to generate text step by step. On each step, we will take a sequence of characters of length \`nchars\`, and ask the network to generate the next output character for each input character:
 
-![Image showing an example RNN generation of the word 'HELLO'.](https://raw.githubusercontent.com/microsoft/AI-For-Beginners/main/lessons/5-NLP/17-GenerativeNetworks/images/rnn-generate.png)
+![Image showing an example RNN generation of the word 'HELLO'.](ms-assets/en-originals/rnn-generate.png)
 
 When generating text (during inference), we start with some **prompt**, which is passed through RNN cells to generate its intermediate state, and then from this state the generation starts. We generate one character at a time, and pass the state and the generated character to another RNN cell to generate the next one, until we generate enough characters.
 
@@ -3166,7 +3166,7 @@ Explore how this soft text generation is implemented in the notebooks linked abo
 
 Матрица внимания {α<sub>i,j</sub>} представляет степень, в которой определенные входные слова участвуют в генерации данного слова в выходной последовательности. Ниже приведен пример такой матрицы:
 
-![Изображение, показывающее пример выравнивания, найденного RNNsearch-50, взято из Bahdanau - arxiv.org](ms-assets/ai/bahdanau-fig3.09ba2d37f202a6af.webp)
+![Изображение, показывающее пример выравнивания, найденного RNNsearch-50, взято из Bahdanau - arxiv.org](ms-assets/en-originals/bahdanau-fig3.png)
 
 > Рисунок из [Bahdanau et al., 2015](https://arxiv.org/pdf/1409.0473.pdf) (Рис.3)
 
@@ -3205,7 +3205,7 @@ Explore how this soft text generation is implemented in the notebooks linked abo
 
 Далее нам нужно захватить некоторые паттерны внутри нашей последовательности. Для этого трансформеры используют механизм **самовнимания**, который по сути является вниманием, применяемым к одной и той же последовательности как входу, так и выходу. Применение самовнимания позволяет учитывать **контекст** внутри предложения и видеть, какие слова взаимосвязаны. Например, это позволяет понять, к каким словам относятся местоимения, такие как *it*, и учитывать контекст:
 
-![](ms-assets/ai/CoreferenceResolution.861924d6d384a7d6.webp)
+![Illustration](ms-assets/en-originals/coreference-resolution.png)
 
 > Изображение из [Google Blog](https://research.googleblog.com/2017/08/transformer-novel-neural-network.html)
 
@@ -3229,7 +3229,7 @@ Explore how this soft text generation is implemented in the notebooks linked abo
     T("BERT", [
       md(`**BERT** (Bidirectional Encoder Representations from Transformers) — это очень большая многослойная сеть трансформеров с 12 слоями для *BERT-base* и 24 для *BERT-large*. Модель сначала предварительно обучается на большом корпусе текстовых данных (WikiPedia + книги) с использованием обучения без учителя (предсказание замаскированных слов в предложении). Во время предварительного обучения модель усваивает значительные уровни понимания языка, которые затем можно использовать с другими наборами данных с помощью тонкой настройки. Этот процесс называется **перенос обучения**.
 
-![картинка с http://jalammar.github.io/illustrated-bert/](ms-assets/ai/jalammarBERT-language-modeling-masked-lm.34f113ea5fec4362.webp)
+![картинка с http://jalammar.github.io/illustrated-bert/](ms-assets/en-originals/jalammar-bert.png)
 
 > Изображение [источник](http://jalammar.github.io/illustrated-bert/)`),
     ]),
@@ -3263,7 +3263,7 @@ With RNNs, sequence-to-sequence is implemented by two recurrent networks, where 
 
 The attention matrix {α<sub>i,j</sub>} would represent the degree that certain input words play in the generation of a given word in the output sequence. Below is an example of such a matrix:
 
-![Image showing a sample alignment found by RNNsearch-50, taken from Bahdanau - arxiv.org](https://raw.githubusercontent.com/microsoft/AI-For-Beginners/main/lessons/5-NLP/18-Transformers/images/bahdanau-fig3.png)
+![Image showing a sample alignment found by RNNsearch-50, taken from Bahdanau - arxiv.org](ms-assets/en-originals/bahdanau-fig3.png)
 
 > Figure from [Bahdanau et al., 2015](https://arxiv.org/pdf/1409.0473.pdf) (Fig.3)
 
@@ -3300,7 +3300,7 @@ The result that we get with positional embedding embeds both the original token 
     T("Multi-Head Self-Attention", [
       md(`Next, we need to capture some patterns within our sequence. To do this, transformers use a **self-attention** mechanism, which is essentially attention applied to the same sequence as the input and output. Applying self-attention allows us to take into account **context** within the sentence, and see which words are inter-related. For example, it allows us to see which words are referred to by coreferences, such as *it*, and also take the context into account:
 
-![Illustration](https://raw.githubusercontent.com/microsoft/AI-For-Beginners/main/lessons/5-NLP/18-Transformers/images/CoreferenceResolution.png)
+![Illustration](ms-assets/en-originals/coreference-resolution.png)
 
 > Image from the [Google Blog](https://research.googleblog.com/2017/08/transformer-novel-neural-network.html)
 
@@ -3323,7 +3323,7 @@ Since each input position is mapped independently to each output position, trans
     T("BERT", [
       md(`**BERT** (Bidirectional Encoder Representations from Transformers) is a very large multi layer transformer network with 12 layers for *BERT-base*, and 24 for *BERT-large*. The model is first pre-trained on a large corpus of text data (WikiPedia + books) using unsupervised training (predicting masked words in a sentence). During pre-training the model absorbs significant levels of language understanding which can then be leveraged with other datasets using fine tuning. This process is called **transfer learning**.
 
-![picture from http://jalammar.github.io/illustrated-bert/](https://raw.githubusercontent.com/microsoft/AI-For-Beginners/main/lessons/5-NLP/18-Transformers/images/jalammarBERT-language-modeling-masked-lm.png)
+![picture from http://jalammar.github.io/illustrated-bert/](ms-assets/en-originals/jalammar-bert.png)
 
 > Image [source](http://jalammar.github.io/illustrated-bert/)`),
     ]),

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="Onest, 'Segoe UI', system-ui, Arial, sans-serif">
+  <rect width="640" height="360" rx="18" fill="#ffffff" stroke="#e7e7ea" stroke-width="1.5"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#3b5bdb"/>
+    </marker>
+    <path id="dia" d="M0 -10L9 0L0 10L-9 0Z"/>
+    <path id="tri" d="M0 -10L10 8L-10 8Z" stroke-linejoin="round"/>
+    <path id="star" d="M0 -11L2.7 -3.6L10.5 -3.4L4.3 1.4L6.5 8.9L0 4.5L-6.5 8.9L-4.3 1.4L-10.5 -3.4L-2.7 -3.6Z" stroke-linejoin="round"/>
+  </defs>
+
+  <!-- board base + marked cells -->
+  <rect x="190" y="50" width="260" height="260" fill="#ffffff" stroke="#d3d3d8" stroke-width="1.5"/>
+  <rect x="190" y="50" width="52" height="52" fill="#eef1fd"/>
+  <rect x="294" y="154" width="52" height="52" fill="#eaf6ef"/>
+  <rect x="346" y="258" width="52" height="52" fill="#ffe8e6"/>
+  <rect x="398" y="258" width="52" height="52" fill="#ffdd2d" fill-opacity="0.25"/>
+
+  <!-- grid lines -->
+  <g stroke="#e7e7ea" stroke-width="1.5">
+    <line x1="242" y1="50" x2="242" y2="310"/><line x1="294" y1="50" x2="294" y2="310"/>
+    <line x1="346" y1="50" x2="346" y2="310"/><line x1="398" y1="50" x2="398" y2="310"/>
+    <line x1="190" y1="102" x2="450" y2="102"/><line x1="190" y1="154" x2="450" y2="154"/>
+    <line x1="190" y1="206" x2="450" y2="206"/><line x1="190" y1="258" x2="450" y2="258"/>
+  </g>
+
+  <!-- walls -->
+  <rect x="247" y="107" width="42" height="42" rx="8" fill="#d3d3d8"/>
+  <rect x="351" y="107" width="42" height="42" rx="8" fill="#d3d3d8"/>
+  <rect x="247" y="211" width="42" height="42" rx="8" fill="#d3d3d8"/>
+
+  <!-- learned policy: one arrow per free cell -->
+  <g stroke="#3b5bdb" stroke-width="2" stroke-linecap="round" fill="none">
+    <path d="M204 76L226 76" marker-end="url(#arr)"/>
+    <path d="M256 76L278 76" marker-end="url(#arr)"/>
+    <path d="M308 76L330 76" marker-end="url(#arr)"/>
+    <path d="M360 76L382 76" marker-end="url(#arr)"/>
+    <path d="M424 66L424 86" marker-end="url(#arr)"/>
+    <path d="M216 118L216 138" marker-end="url(#arr)"/>
+    <path d="M320 118L320 138" marker-end="url(#arr)"/>
+    <path d="M424 118L424 138" marker-end="url(#arr)"/>
+    <path d="M216 170L216 190" marker-end="url(#arr)"/>
+    <path d="M256 180L278 180" marker-end="url(#arr)"/>
+    <path d="M308 180L330 180" marker-end="url(#arr)"/>
+    <path d="M372 170L372 190" marker-end="url(#arr)"/>
+    <path d="M424 170L424 190" marker-end="url(#arr)"/>
+    <path d="M216 222L216 242" marker-end="url(#arr)"/>
+    <path d="M308 232L330 232" marker-end="url(#arr)"/>
+    <path d="M360 232L382 232" marker-end="url(#arr)"/>
+    <path d="M424 222L424 242" marker-end="url(#arr)"/>
+    <path d="M204 284L226 284" marker-end="url(#arr)"/>
+    <path d="M256 284L278 284" marker-end="url(#arr)"/>
+    <path d="M320 294L320 274" marker-end="url(#arr)"/>
+  </g>
+
+  <!-- markers on top: reward, penalty, goal, agent -->
+  <use href="#dia" transform="translate(320 180)" fill="#1a7f45"/>
+  <use href="#tri" transform="translate(372 284)" fill="#c9302c"/>
+  <use href="#star" transform="translate(424 284)" fill="#ffdd2d" stroke="#141414" stroke-width="1"/>
+  <circle cx="216" cy="76" r="10" fill="#3b5bdb"/>
+</svg>

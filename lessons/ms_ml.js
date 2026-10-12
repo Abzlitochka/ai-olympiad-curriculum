@@ -11584,7 +11584,7 @@ COURSE.ML8 = [
     T("Среда", [
       md(`Для простоты давайте представим мир Петра в виде квадратной доски размером \`width\` x \`height\`, вот такой:
 
-![Среда Петра](ms-assets/ml/environment.40ba3cb66256c93f.webp)
+![Среда Петра](ms-assets/redrawn/environment.ru.svg)
 
 Каждая ячейка в этой доске может быть:
 
@@ -11683,7 +11683,7 @@ action_idx = { a : i for i,a in enumerate(actions.keys()) }
 
     Также вы можете увидеть, как выглядят перемещения Петра во время случайного блуждания:
 
-    ![Случайное блуждание Петра](ms-assets/ml/8-Reinforcement/1-QLearning/images/random_walk.gif)`),
+    ![Случайное блуждание Петра](ms-assets/redrawn/random-walk.svg)`),
     ]),
     T("Функция награды", [
       md(`Чтобы сделать нашу политику более «умной», нам нужно понять, какие ходы «лучше» других. Для этого нужно определить нашу цель.
@@ -11720,7 +11720,7 @@ Q = np.ones((width,height,len(actions)),dtype=np.float64)*1.0/len(actions)
 
 Обратите внимание, что все значения Q-таблицы инициализируются одинаковым значением, в нашем случае — 0.25. Это соответствует политике случайного блуждания, поскольку все действия в каждом состоянии равнозначны. Мы можем передать Q-таблицу в функцию \`plot\` для визуализации таблицы на доске: \`m.plot(Q)\`.
 
-![Среда Петра](ms-assets/ml/env_init.04e8f26d2d60089e.webp)
+![Среда Петра](ms-assets/redrawn/env-init.svg)
 
 В центре каждой ячейки показана «стрелка», указывающая предпочтительное направление движения. Поскольку все направления равны, отображается точка.
 
@@ -11807,7 +11807,7 @@ Q = np.ones((width,height,len(actions)),dtype=np.float64)*1.0/len(actions)
 
 После выполнения этого алгоритма Q-таблица должна обновиться значениями, определяющими привлекательность разных действий на каждом шаге. Мы можем попытаться визуализировать Q-таблицу, нарисовав в каждой ячейке вектор, который указывает в желаемом направлении для движения. Для простоты вместо наконечника стрелки рисуем маленький кружок.
 
-![](ms-assets/ml/learned.ed28bcd8484b5287.webp)`),
+![Illustration](ms-assets/redrawn/learned.svg)`),
     ]),
     T("Проверка политики", [
       md(`Поскольку Q-таблица показывает «привлекательность» каждого действия в каждом состоянии, довольно просто использовать её для определения эффективной навигации в нашем мире. В простейшем случае мы можем выбрать действие, соответствующее наивысшему значению Q-таблицы: (кодовый блок 9)
@@ -11888,7 +11888,7 @@ You can open [the lesson notebook](https://github.com/microsoft/ML-For-Beginners
     T("The environment", [
       md(`For simplicity, let's consider Peter's world to be a square board of size \`width\` x \`height\`, like this:
 
-![Peter's Environment](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/8-Reinforcement/1-QLearning/images/environment.png)
+![Peter's Environment](ms-assets/redrawn/environment.svg)
 
 Each cell in this board can either be:
 
@@ -11987,7 +11987,7 @@ To sum up, the strategy and goal of this scenario are as follows:
 
     You can also see what Peter's movement looks like during the random walk:
 
-    ![Peter's Random Walk](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/8-Reinforcement/1-QLearning/images/random_walk.gif)`),
+    ![Peter's Random Walk](ms-assets/redrawn/random-walk.svg)`),
     ]),
     T("Reward function", [
       md(`To make our policy more intelligent, we need to understand which moves are "better" than others. To do this, we need to define our goal.
@@ -12024,7 +12024,7 @@ Q = np.ones((width,height,len(actions)),dtype=np.float64)*1.0/len(actions)
 
 Notice that we initialize all the values of the Q-Table with an equal value, in our case - 0.25. This corresponds to the "random walk" policy, because all moves in each state are equally good. We can pass the Q-Table to the \`plot\` function in order to visualize the table on the board: \`m.plot(Q)\`.
 
-![Peter's Environment](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/8-Reinforcement/1-QLearning/images/env_init.png)
+![Peter's Environment](ms-assets/redrawn/env-init.svg)
 
 In the center of each cell there is an "arrow" that indicates the preferred direction of movement. Since all directions are equal, a dot is displayed.
 
@@ -12111,7 +12111,7 @@ Run them learning algorithm through 5000 experiments, also called **epochs**: (c
 
 After executing this algorithm, the Q-Table should be updated with values that define the attractiveness of different actions at each step. We can try to visualize the Q-Table by plotting a vector at each cell that will point in the desired direction of movement. For simplicity, we draw a small circle instead of an arrow head.
 
-![Illustration](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/8-Reinforcement/1-QLearning/images/learned.png)`),
+![Illustration](ms-assets/redrawn/learned.svg)`),
     ]),
     T("Checking the policy", [
       md(`Since the Q-Table lists the "attractiveness" of each action at each state, it is quite easy to use it to define the efficient navigation in our world. In the simplest case, we can select the action corresponding to the highest Q-Table value: (code block 9)

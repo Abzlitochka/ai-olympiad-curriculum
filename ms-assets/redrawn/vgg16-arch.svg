@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="Onest, 'Segoe UI', system-ui, Arial, sans-serif">
+  <rect width="720" height="300" rx="18" fill="#ffffff" stroke="#e7e7ea" stroke-width="1.5"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#3b5bdb"/>
+    </marker>
+  </defs>
+
+  <text x="360" y="48" text-anchor="middle" font-size="18" font-weight="600" fill="#141414">VGG-16</text>
+  <text x="360" y="70" text-anchor="middle" font-size="12.5" fill="#4f4f58">13 conv + 3 fc = 16 layers</text>
+
+  <!-- input image -->
+  <rect x="50" y="128" width="34" height="64" rx="8" fill="#eef1fd" stroke="#d3d3d8" stroke-width="1.5"/>
+  <circle cx="76" cy="140" r="4.5" fill="#ffdd2d"/>
+  <path d="M55 184L65 166L72 176L78 169L83 184Z" fill="#3b5bdb" fill-opacity="0.5" stroke-linejoin="round"/>
+  <line x1="92" y1="160" x2="110" y2="160" stroke="#3b5bdb" stroke-width="2" stroke-linecap="round" marker-end="url(#arr)"/>
+
+  <!-- block 1: conv x2 + pool -->
+  <rect x="114" y="116" width="14" height="88" rx="3" fill="#eef1fd" stroke="#3b5bdb" stroke-width="1.5"/>
+  <rect x="133" y="116" width="14" height="88" rx="3" fill="#eef1fd" stroke="#3b5bdb" stroke-width="1.5"/>
+  <rect x="152" y="116" width="14" height="88" rx="3" fill="#ffdd2d" fill-opacity="0.5"/>
+
+  <!-- block 2: conv x2 + pool -->
+  <rect x="180" y="116" width="14" height="88" rx="3" fill="#eef1fd" stroke="#3b5bdb" stroke-width="1.5"/>
+  <rect x="199" y="116" width="14" height="88" rx="3" fill="#eef1fd" stroke="#3b5bdb" stroke-width="1.5"/>
+  <rect x="218" y="116" width="14" height="88" rx="3" fill="#ffdd2d" fill-opacity="0.5"/>
+
+  <!-- block 3: conv x3 + pool -->
+  <rect x="246" y="116" width="14" height="88" rx="3" fill="#eef1fd" stroke="#3b5bdb" stroke-width="1.5"/>
+  <rect x="265" y="116" width="14" height="88" rx="3" fill="#eef1fd" stroke="#3b5bdb" stroke-width="1.5"/>
+  <rect x="284" y="116" width="14" height="88" rx="3" fill="#eef1fd" stroke="#3b5bdb" stroke-width="1.5"/>
+  <rect x="303" y="116" width="14" height="88" rx="3" fill="#ffdd2d" fill-opacity="0.5"/>
+
+  <!-- block 4: conv x3 + pool -->
+  <rect x="331" y="116" width="14" height="88" rx="3" fill="#eef1fd" stroke="#3b5bdb" stroke-width="1.5"/>
+  <rect x="350" y="116" width="14" height="88" rx="3" fill="#eef1fd" stroke="#3b5bdb" stroke-width="1.5"/>
+  <rect x="369" y="116" width="14" height="88" rx="3" fill="#eef1fd" stroke="#3b5bdb" stroke-width="1.5"/>
+  <rect x="388" y="116" width="14" height="88" rx="3" fill="#ffdd2d" fill-opacity="0.5"/>
+
+  <!-- block 5: conv x3 + pool -->
+  <rect x="416" y="116" width="14" height="88" rx="3" fill="#eef1fd" stroke="#3b5bdb" stroke-width="1.5"/>
+  <rect x="435" y="116" width="14" height="88" rx="3" fill="#eef1fd" stroke="#3b5bdb" stroke-width="1.5"/>
+  <rect x="454" y="116" width="14" height="88" rx="3" fill="#eef1fd" stroke="#3b5bdb" stroke-width="1.5"/>
+  <rect x="473" y="116" width="14" height="88" rx="3" fill="#ffdd2d" fill-opacity="0.5"/>
+
+  <!-- flatten -->
+  <rect x="501" y="116" width="18" height="88" rx="3" fill="#ebe6ff" stroke="#d3d3d8" stroke-width="1"/>
+
+  <!-- fc x3 -->
+  <rect x="533" y="116" width="14" height="88" rx="3" fill="#eaf6ef" stroke="#1a7f45" stroke-width="1.5"/>
+  <rect x="552" y="116" width="14" height="88" rx="3" fill="#eaf6ef" stroke="#1a7f45" stroke-width="1.5"/>
+  <rect x="571" y="116" width="14" height="88" rx="3" fill="#eaf6ef" stroke="#1a7f45" stroke-width="1.5"/>
+
+  <line x1="591" y1="160" x2="609" y2="160" stroke="#3b5bdb" stroke-width="2" stroke-linecap="round" marker-end="url(#arr)"/>
+  <text x="617" y="165" font-size="15" font-weight="600" fill="#141414">output</text>
+
+  <!-- layer labels -->
+  <g font-size="12.5" fill="#4f4f58" text-anchor="middle">
+    <text x="67" y="230">input</text>
+    <text x="140" y="230">conv ×2</text><text x="140" y="246">+ pool</text>
+    <text x="206" y="230">conv ×2</text><text x="206" y="246">+ pool</text>
+    <text x="281" y="230">conv ×3</text><text x="281" y="246">+ pool</text>
+    <text x="366" y="230">conv ×3</text><text x="366" y="246">+ pool</text>
+    <text x="451" y="230">conv ×3</text><text x="451" y="246">+ pool</text>
+    <text x="510" y="230">flatten</text>
+    <text x="559" y="230">fc ×3</text>
+    <text x="641" y="230">softmax</text>
+  </g>
+</svg>

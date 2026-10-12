@@ -200,8 +200,7 @@ In the near future, understanding the basics of machine learning is going to be 
   ]}),
   L({"ru":"История машинного обучения","en":"History of machine learning"}, 15, {ru:[["Исходный урок (Microsoft, MIT)", "https://github.com/microsoft/ML-For-Beginners/blob/main/translations/ru/1-Introduction/2-history-of-ML"], ["Учебник ML (ШАД): о чём учебник", "https://contest.yandex.ru/tracks/ml/introduction/about-this-book"], ["Учебник ML (ШАД): оценка качества моделей", "https://contest.yandex.ru/tracks/ml/model-evaluation/introduction"]],en:[["Original lesson (Microsoft, MIT)", "https://github.com/microsoft/ML-For-Beginners/blob/main/1-Introduction/2-history-of-ML"], ["Yandex ML handbook (RU): about this handbook", "https://contest.yandex.ru/tracks/ml/introduction/about-this-book"], ["Yandex ML handbook (RU): model evaluation", "https://contest.yandex.ru/tracks/ml/model-evaluation/introduction"]]}, {ru:[
     T("Введение", [
-      md(`![Краткий обзор истории машинного обучения в виде скетчноута](ms-assets/ml/sketchnotes/ml-history.png)
-> Скетчноут от [Tomomi Imura](https://www.twitter.com/girlie_mac)> [Видео](https://youtu.be/N6wxM4wZ7V0)
+      md(`> Скетчноут от [Tomomi Imura](https://www.twitter.com/girlie_mac)> [Видео](https://youtu.be/N6wxM4wZ7V0)
 В этом уроке мы рассмотрим ключевые этапы в истории машинного обучения и искусственного интеллекта.
 
 История искусственного интеллекта (ИИ) как области тесно связана с историей машинного обучения, поскольку алгоритмы и вычислительные достижения, лежащие в основе ML, способствовали развитию ИИ. Важно помнить, что, хотя эти области начали формироваться как отдельные направления исследований в 1950-х годах, важные [алгоритмические, статистические, математические, вычислительные и технические открытия](https://wikipedia.org/wiki/Timeline_of_machine_learning) предшествовали этому периоду и пересекались с ним. На самом деле, люди размышляли над этими вопросами [сотни лет](https://wikipedia.org/wiki/History_of_artificial_intelligence): эта статья обсуждает исторические интеллектуальные основы идеи «мыслящей машины».`),
@@ -312,8 +311,7 @@ In the near future, understanding the basics of machine learning is going to be 
     ]),
     ],en:[
     T("Introduction", [
-      md(`![Summary of History of machine learning in a sketchnote](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/sketchnotes/ml-history.png)
-> Sketchnote by [Tomomi Imura](https://www.twitter.com/girlie_mac)
+      md(`> Sketchnote by [Tomomi Imura](https://www.twitter.com/girlie_mac)
 > [Video](https://youtu.be/N6wxM4wZ7V0)
 
 In this lesson, we will walk through the major milestones in the history of machine learning and artificial intelligence.
@@ -564,8 +562,7 @@ RAI Toolbox:
     ]),
     ],en:[
     T("Introduction", [
-      md(`![Summary of responsible AI in Machine Learning in a sketchnote](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/sketchnotes/ml-fairness.png)
-> Sketchnote by [Tomomi Imura](https://www.twitter.com/girlie_mac)
+      md(`> Sketchnote by [Tomomi Imura](https://www.twitter.com/girlie_mac)
 
 In this curriculum, you will start to discover how machine learning can and is impacting our everyday lives. Even now, systems and models are involved in daily decision-making tasks, such as health care diagnoses, loan approvals or detecting fraud. So, it is important that these models work well to provide outcomes that are trustworthy. Just as any software application, AI systems are going to miss expectations or have an undesirable outcome. That is why it is essential to be able to understand and explain the behavior of an AI model. 
 
@@ -1104,9 +1101,7 @@ Scikit-learn упрощает создание моделей и их оценк
     ]),
     ],en:[
     T("Introduction", [
-      md(`![Summary of regressions in a sketchnote](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/sketchnotes/ml-regression.png)
-
-> Sketchnote by [Tomomi Imura](https://www.twitter.com/girlie_mac)
+      md(`> Sketchnote by [Tomomi Imura](https://www.twitter.com/girlie_mac)
 
 
 > ### [This lesson is available in R!](https://github.com/microsoft/ML-For-Beginners/blob/main/2-Regression/1-Tools/solution/R/lesson_1.html)
@@ -9716,9 +9711,7 @@ To review, the steps are:
 COURSE.ML7 = [
   L({"ru":"Введение в прогнозирование временных рядов","en":"Introduction to time series forecasting"}, 15, {ru:[["Исходный урок (Microsoft, MIT)", "https://github.com/microsoft/ML-For-Beginners/blob/main/translations/ru/7-TimeSeries/1-Introduction"], ["Учебник ML (ШАД): временные ряды", "https://contest.yandex.ru/tracks/ml/practical-topics/time-series"], ["Учебник ML (ШАД): аналитика временных рядов", "https://contest.yandex.ru/tracks/ml/practical-topics/time-series-analysis"]],en:[["Original lesson (Microsoft, MIT)", "https://github.com/microsoft/ML-For-Beginners/blob/main/7-TimeSeries/1-Introduction"], ["Yandex ML handbook (RU): time series", "https://contest.yandex.ru/tracks/ml/practical-topics/time-series"], ["Yandex ML handbook (RU): time-series analysis", "https://contest.yandex.ru/tracks/ml/practical-topics/time-series-analysis"]]}, {ru:[
     T("Введение", [
-      md(`![Сводка временных рядов в виде скетчноута](ms-assets/ml/sketchnotes/ml-timeseries.png)
-
-> Скетчноут от [Tomomi Imura](https://www.twitter.com/girlie_mac)
+      md(`> Скетчноут от [Tomomi Imura](https://www.twitter.com/girlie_mac)
 
 В этом уроке и следующем вы узнаете немного о прогнозировании временных рядов — интересной и полезной части арсенала ученого в области машинного обучения, которая менее известна, чем другие темы. Прогнозирование временных рядов — это своего рода «хрустальный шар»: основываясь на прошлых данных о переменной, такой как цена, можно предсказать ее потенциальное значение в будущем.
 
@@ -9891,9 +9884,7 @@ from common.utils import load_data
     ]),
     ],en:[
     T("Introduction", [
-      md(`![Summary of time series in a sketchnote](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/sketchnotes/ml-timeseries.png)
-
-> Sketchnote by [Tomomi Imura](https://www.twitter.com/girlie_mac)
+      md(`> Sketchnote by [Tomomi Imura](https://www.twitter.com/girlie_mac)
 
 In this lesson and the following one, you will learn a bit about time series forecasting, an interesting and valuable part of a ML scientist's repertoire that is a bit less known than other topics. Time series forecasting is a sort of 'crystal ball': based on past performance of a variable such as price, you can predict its future potential value.
 
@@ -11571,7 +11562,7 @@ MAPE:  2.0572089029888656 %
 ];
 
 COURSE.ML8 = [
-  L({"ru":"Введение в обучение с подкреплением и Q-обучение","en":"Introduction to Reinforcement Learning and Q-Learning"}, 25, {ru:[["Исходный урок (Microsoft, MIT)", "https://github.com/microsoft/ML-For-Beginners/blob/main/translations/ru/8-Reinforcement/1-QLearning"], ["Учебник ML (ШАД): обучение с подкреплением", "https://contest.yandex.ru/tracks/ml/environment-interaction/reinforcement-learning"]],en:[["Original lesson (Microsoft, MIT)", "https://github.com/microsoft/ML-For-Beginners/blob/main/8-Reinforcement/1-QLearning"], ["Yandex ML handbook (RU): reinforcement learning", "https://contest.yandex.ru/tracks/ml/environment-interaction/reinforcement-learning"]]}, {ru:[
+  L({"ru":"Введение в обучение с подкреплением и Q-обучение","en":"Introduction to Reinforcement Learning and Q-Learning"}, 24, {ru:[["Исходный урок (Microsoft, MIT)", "https://github.com/microsoft/ML-For-Beginners/blob/main/translations/ru/8-Reinforcement/1-QLearning"], ["Учебник ML (ШАД): обучение с подкреплением", "https://contest.yandex.ru/tracks/ml/environment-interaction/reinforcement-learning"]],en:[["Original lesson (Microsoft, MIT)", "https://github.com/microsoft/ML-For-Beginners/blob/main/8-Reinforcement/1-QLearning"], ["Yandex ML handbook (RU): reinforcement learning", "https://contest.yandex.ru/tracks/ml/environment-interaction/reinforcement-learning"]]}, {ru:[
     T("Введение", [
       md(`![Краткое содержание обучения с подкреплением в машинном обучении в виде скетчноута](ms-assets/ml/ml-reinforcement.94024374d63348db.webp)
 > Скетчноут от [Tomomi Imura](https://www.twitter.com/girlie_mac)
@@ -11878,8 +11869,7 @@ print_statistics(qpolicy)
     ]),
     ],en:[
     T("Introduction", [
-      md(`![Summary of reinforcement in machine learning in a sketchnote](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/sketchnotes/ml-reinforcement.png)
-> Sketchnote by [Tomomi Imura](https://www.twitter.com/girlie_mac)
+      md(`> Sketchnote by [Tomomi Imura](https://www.twitter.com/girlie_mac)
 
 Reinforcement learning involves three important concepts: the agent, some states, and a set of actions per state. By executing an action in a specified state, the agent is given a reward. Again imagine the computer game Super Mario. You are Mario, you are in a game level, standing next to a cliff edge. Above you is a coin. You being Mario, in a game level, at a specific position ... that's your state. Moving one step to the right (an action) will take you over the edge, and that would give you a low numerical score. However, pressing the jump button would let you score a point and you would stay alive. That's a positive outcome and that should award you a positive numerical score.
 
@@ -12833,8 +12823,7 @@ It's important to also study situations where action state is also continuous, a
 COURSE.ML9 = [
   L({"ru":"Постскриптум: Машинное обучение в реальном мире","en":"Postscript: Machine learning in the real world"}, 15, {ru:[["Исходный урок (Microsoft, MIT)", "https://github.com/microsoft/ML-For-Beginners/blob/main/translations/ru/9-Real-World/1-Applications"], ["Учебник ML (ШАД): рекомендательные системы", "https://contest.yandex.ru/tracks/ml/recommender-systems/introduction-to-recommender-systems"], ["Учебник ML (ШАД): оценка качества моделей", "https://contest.yandex.ru/tracks/ml/model-evaluation/introduction"]],en:[["Original lesson (Microsoft, MIT)", "https://github.com/microsoft/ML-For-Beginners/blob/main/9-Real-World/1-Applications"], ["Yandex ML handbook (RU): recommender systems", "https://contest.yandex.ru/tracks/ml/recommender-systems/introduction-to-recommender-systems"], ["Yandex ML handbook (RU): model evaluation", "https://contest.yandex.ru/tracks/ml/model-evaluation/introduction"]]}, {ru:[
     T("Введение", [
-      md(`![Краткое изложение машинного обучения в реальном мире в виде скетчноута](ms-assets/ml/sketchnotes/ml-realworld.png)
-> Скетчноут от [Tomomi Imura](https://www.twitter.com/girlie_mac)
+      md(`> Скетчноут от [Tomomi Imura](https://www.twitter.com/girlie_mac)
 
 В этом курсе вы узнали множество способов подготовки данных для обучения и создания моделей машинного обучения. Вы создали серию классических моделей регрессии, кластеризации, классификации, обработки естественного языка и временных рядов. Поздравляем! Теперь вы, возможно, задаетесь вопросом, для чего все это... какие реальные приложения существуют для этих моделей?
 
@@ -12965,8 +12954,7 @@ MetLife, поставщик страхования жизни, открыто р
     ]),
     ],en:[
     T("Introduction", [
-      md(`![Summary of machine learning in the real world in a sketchnote](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/sketchnotes/ml-realworld.png)
-> Sketchnote by [Tomomi Imura](https://www.twitter.com/girlie_mac)
+      md(`> Sketchnote by [Tomomi Imura](https://www.twitter.com/girlie_mac)
 
 In this curriculum, you have learned many ways to prepare data for training and create machine learning models. You built a series of classic regression, clustering, classification, natural language processing, and time series models. Congratulations! Now, you might be wondering what it's all for... what are the real world applications for these models?
 

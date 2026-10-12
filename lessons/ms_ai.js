@@ -147,9 +147,7 @@ COURSE.MATH1 = [
     ]),
     ],en:[
     T("Introduction", [
-      md(`![Summary of Introduction of AI content in a doodle](https://raw.githubusercontent.com/microsoft/AI-For-Beginners/main/lessons/sketchnotes/ai-intro.png)
-
-> Sketchnote by [Tomomi Imura](https://twitter.com/girlie_mac)
+      md(`> Sketchnote by [Tomomi Imura](https://twitter.com/girlie_mac)
 
 
 **Artificial Intelligence** is an exciting scientific discipline that studies how we can make computers exhibit intelligent behavior, e.g. do those things that human beings are good at doing.
@@ -516,9 +514,7 @@ GROUP BY ?eyeColorLabel
     ]),
     ],en:[
     T("Introduction", [
-      md(`![Summary of Symbolic AI content](https://raw.githubusercontent.com/microsoft/AI-For-Beginners/main/lessons/sketchnotes/ai-symbolic.png)
-
-> Sketchnote by [Tomomi Imura](https://twitter.com/girlie_mac)
+      md(`> Sketchnote by [Tomomi Imura](https://twitter.com/girlie_mac)
 
 The quest for artificial intelligence is based on a search for knowledge, to make sense of the world similar to how humans do. But how can you go about doing this?
 

@@ -51,7 +51,7 @@ function fillFilters() {
 const lessonsOf = id => COURSE[id] || [];
 const stepKey = (mod, li, si) => `${mod}|${li}|${si}`;
 function lessonStat(mod, li) {
-  const steps = lessonsOf(mod)[li].steps;
+  const steps = loc(lessonsOf(mod)[li].steps);
   return { d: steps.filter((_, si) => state.steps[stepKey(mod, li, si)]).length, n: steps.length };
 }
 function modSteps(m) {
@@ -136,7 +136,7 @@ document.addEventListener("click", e => {
     if (now) {
       state.done[id] = true;
       const added = [];
-      lessonsOf(id).forEach((l, li) => l.steps.forEach((_, si) => {
+      lessonsOf(id).forEach((l, li) => loc(l.steps).forEach((_, si) => {
         const k = stepKey(id, li, si);
         if (!state.steps[k]) { state.steps[k] = true; added.push(k); }
       }));
@@ -170,7 +170,7 @@ document.addEventListener("click", e => {
     if (nxt) { openLesson(state.view.mod, nxt.dataset.gotoLesson); return; }
     if (e.target.closest("[data-reset-lesson]")) {
       const { mod, li } = state.view;
-      lessonsOf(mod)[li].steps.forEach((_, si) => delete state.steps[stepKey(mod, li, si)]);
+      loc(lessonsOf(mod)[li].steps).forEach((_, si) => delete state.steps[stepKey(mod, li, si)]);
       delete state.done[mod];
       save(); saveSteps(); renderLesson(); refreshProgress();
       window.scrollTo({ top: 0 });

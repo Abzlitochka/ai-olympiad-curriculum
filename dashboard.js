@@ -110,7 +110,7 @@
     outer: for (const m of MODULES) {
       const ls = lessonsOf(m.id);
       for (let li = 0; li < ls.length; li++)
-        for (let si = 0; si < ls[li].steps.length; si++)
+        for (let si = 0; si < loc(ls[li].steps).length; si++)
           if (!state.steps[stepKey(m.id, li, si)]) { nexts.push({ t: tf("db.nextLesson", m.id, loc(ls[li].title)), fn: `data-dl="${m.id}|${li}"` }); break outer; }
     }
     const nex = EXERCISES.find(x => !sol[x.id]);

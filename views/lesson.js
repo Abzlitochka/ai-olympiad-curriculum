@@ -22,7 +22,7 @@ function prStepLabels(steps) {
 
 /* first not-yet-completed step = "current" */
 function prCurrentStep(mod, li) {
-  const n = lessonsOf(mod)[li].steps.length;
+  const n = loc(lessonsOf(mod)[li].steps).length;
   for (let si = 0; si < n; si++) if (!state.steps[stepKey(mod, li, si)]) return si;
   return -1;
 }
@@ -60,7 +60,7 @@ function blockHTML([type, v]) {
     case "ul": return `<ul class="prl-ul">${v.map(x => `<li>${imd(loc(x))}</li>`).join("")}</ul>`;
     case "code": return `<div class="prl-code"><button type="button" class="prl-copy" data-copy aria-label="${esc(t("ls.copy"))}">${esc(t("ls.copy"))}</button><pre><code>${esc(v)}</code></pre></div>`;
     case "note": return `<aside class="prl-note"><div class="prl-note-label">${esc(t("ls.note"))}</div><div>${imd(loc(v))}</div></aside>`;
-    case "md": return `<div class="prl-md">${msmd(v)}</div>`;
+    case "md": return `<div class="prl-md">${msmd(loc(v))}</div>`;
     case "fig": return figHTML(v);
     case "img": {
       // site-relative files under img/ or an https URL — never javascript:/data:
@@ -107,7 +107,7 @@ function prDrawerList(modId, curMod, li) {
   const ls = lessonsOf(modId);
   const here = modId === curMod;
   const cur = here ? prCurrentStep(modId, li) : -1;
-  const labels = here ? prStepLabels(ls[li].steps) : [];
+  const labels = here ? prStepLabels(loc(ls[li].steps)) : [];
   return `<ol class="prl-lessons">${ls.map((l, i) => {
     const s = lessonStat(modId, i);
     const full = s.n > 0 && s.d === s.n;
@@ -119,7 +119,7 @@ function prDrawerList(modId, curMod, li) {
         <span class="prl-lname">${esc(loc(l.title))}</span>
         <span class="prl-lscore">${s.d}/${s.n}</span>
       </button>
-      ${isCur ? `<ol class="prl-steps">${ls[li].steps.map((st, si) => {
+      ${isCur ? `<ol class="prl-steps">${loc(ls[li].steps).map((st, si) => {
         const d = !!state.steps[stepKey(modId, li, si)];
         return `<li><button type="button" class="prl-step-link ${d ? "is-done" : si === cur ? "is-current" : "is-todo"}" data-goto-step="${si}">
           <span class="prl-dot" aria-hidden="true"></span><span>${esc(labels[si])}</span></button></li>`;
@@ -180,8 +180,8 @@ function prEndHTML(mod, li, ls, l) {
           return `<button type="button" class="prl-link" data-pr-ex="${esc(id)}">${esc(loc(xt))}</button>`;
         }).join("")}</div>` : ""}
       </div>` : ""}
-      ${l.refs.length ? `<div class="prl-refs"><h4>${esc(t("ls.deeper"))}</h4>${l.refs.map(([nm, u]) =>
-        `<a href="${safeUrl(u)}" target="_blank" rel="noopener">${esc(nm)}</a>`).join("")}</div>` : ""}
+      ${loc(l.refs).length ? `<div class="prl-refs"><h4>${esc(t("ls.deeper"))}</h4>${loc(l.refs).map(([nm, u]) =>
+        `<a href="${safeUrl(loc(u))}" target="_blank" rel="noopener">${esc(loc(nm))}</a>`).join("")}</div>` : ""}
       <div class="prl-endnav">
         <button type="button" class="prl-btn prl-ghost" data-reset-lesson>${esc(t("ls.reset"))}</button>
         ${li < ls.length - 1
@@ -208,7 +208,7 @@ function renderLesson() {
   const l = ls[li];
   const st = lessonStat(mod, li);
   prActive = Math.max(0, prCurrentStep(mod, li));
-  const nSteps = l.steps.length;
+  const nSteps = loc(l.steps).length;
   host.innerHTML = `
   <div class="pr-lesson">
     <header class="prl-bar">
@@ -230,7 +230,7 @@ function renderLesson() {
       <div class="prl-tools">
         <button type="button" class="prl-btn prl-ghost" data-jlab>${esc(t("ls.jlab"))}</button>
       </div>
-      ${l.steps.map((s, si) => stepHTML(mod, li, s, si, nSteps)).join("")}
+      ${loc(l.steps).map((s, si) => stepHTML(mod, li, s, si, nSteps)).join("")}
       ${prEndHTML(mod, li, ls, l)}
     </article>
   </div>`;
@@ -255,7 +255,7 @@ function prSetActive(si) {
   prActive = si;
   if (state.view) {
     const bs = $("#prBarStep");
-    if (bs) bs.textContent = tf("ls.stepOf", si + 1, lessonsOf(state.view.mod)[state.view.li].steps.length);
+    if (bs) bs.textContent = tf("ls.stepOf", si + 1, loc(lessonsOf(state.view.mod)[state.view.li].steps).length);
   }
   $$("#lessonView .prl-step-link").forEach(b => b.classList.toggle("is-active", +b.dataset.gotoStep === si));
 }
@@ -390,7 +390,7 @@ function prLessonClick(e) {
   if (chk) {
     if (chk.disabled) return true;
     const si = +chk.dataset.checkQuiz;
-    const step = lessonsOf(state.view.mod)[state.view.li].steps[si];
+    const step = loc(lessonsOf(state.view.mod)[state.view.li].steps)[si];
     const card = chk.closest(".prl-quiz-card");
     const sel = card.querySelector(".prl-opt.is-sel");
     const res = card.querySelector(".prl-result");
@@ -406,7 +406,7 @@ function prLessonClick(e) {
         chk.outerHTML = `<button type="button" class="prl-btn prl-ghost" data-retake-quiz="${si}">${esc(t("ls.tryagain"))}</button>`;
       } else {
         chk.textContent = t("ls.done"); chk.disabled = true;
-        const nSteps = lessonsOf(state.view.mod)[state.view.li].steps.length;
+        const nSteps = loc(lessonsOf(state.view.mod)[state.view.li].steps).length;
         markStep(si, si === nSteps - 1);   // keep explanation on screen mid-lesson; on the last step scroll to the practise card
       }
     } else {
@@ -449,7 +449,7 @@ document.addEventListener("keydown", e => {
   const a = document.activeElement;
   if (a && (/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName) || a.isContentEditable)) return;
   if (a && a.getAttribute && a.getAttribute("role") === "radio") return;
-  const n = lessonsOf(state.view.mod)[state.view.li].steps.length;
+  const n = loc(lessonsOf(state.view.mod)[state.view.li].steps).length;
   const si = Math.min(n - 1, Math.max(0, prActive + (e.key === "ArrowRight" ? 1 : -1)));
   if (si !== prActive) { e.preventDefault(); prScrollToStep(si); }
 });

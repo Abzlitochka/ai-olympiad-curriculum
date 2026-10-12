@@ -3,7 +3,7 @@
    student's local JupyterLab; tools/build_notebooks.mjs writes the same files
    to notebooks/ for download. */
 
-const SITE_URL = "https://ai-olympiad-curriculum.netlify.app";   // absolute base for images in exported notebooks
+const SITE_URL = "https://abzlitochka.github.io/ai-olympiad-curriculum";   // absolute base for images in exported notebooks
 
 const RU2LAT = { а:"a",б:"b",в:"v",г:"g",д:"d",е:"e",ё:"e",ж:"zh",з:"z",и:"i",й:"y",
   к:"k",л:"l",м:"m",н:"n",о:"o",п:"p",р:"r",с:"s",т:"t",у:"u",ф:"f",х:"kh",
@@ -55,7 +55,7 @@ function nbStepCells(s) {
       // markdown, odd segments are code. Only python/unmarked fences become
       // runnable cells; other languages (netlogo, html, bash…) stay fenced
       // inside markdown cells.
-      const segs = String(b[1]).split(/^(```[^\n]*)$/m);
+      const segs = String(loc(b[1])).split(/^(```[^\n]*)$/m);
       let inCode = false, lang = "";
       for (const seg of segs) {
         const fm = seg.match(/^```(\w*)/);
@@ -210,10 +210,10 @@ def _check_task(g, ref_src, entry, n=20, seed=0):
 
 function nbTaskMd(x, n) {
   const diff = "●".repeat(x.diff || 1) + "○".repeat(3 - (x.diff || 1));
-  let md = `### ${loc(NB_MSGS.task)} ${n} — ${x.title}\n\n${diff} · ~${x.minutes} ${loc(NB_MSGS.min)}\n\n`;
-  if (x.theory) md += "> " + String(x.theory).split("\n").join("\n> ") + "\n\n";
-  if (x.prompt) md += x.prompt + "\n\n";
-  if (x.hint) md += `<details><summary>${loc(NB_MSGS.hint)}</summary>\n\n${x.hint}\n\n</details>\n`;
+  let md = `### ${loc(NB_MSGS.task)} ${n} — ${loc(x.title)}\n\n${diff} · ~${x.minutes} ${loc(NB_MSGS.min)}\n\n`;
+  if (x.theory) md += "> " + String(loc(x.theory)).split("\n").join("\n> ") + "\n\n";
+  if (x.prompt) md += loc(x.prompt) + "\n\n";
+  if (x.hint) md += `<details><summary>${loc(NB_MSGS.hint)}</summary>\n\n${loc(x.hint)}\n\n</details>\n`;
   return md;
 }
 
@@ -240,11 +240,11 @@ function lessonToNotebook(modId, li) {
   const l = lessonsOf(modId)[li];
   const cells = [
     nbMd(`# ${loc(l.title)}\n\n**${m.id} · ${loc(m.title)}** — [AI Olympiad Curriculum](${SITE_URL})\n\n~${l.minutes} min`),
-    ...l.steps.flatMap(nbStepCells),
+    ...loc(l.steps).flatMap(nbStepCells),
     ...nbTaskCells(modId, li),
   ];
-  if (l.refs && l.refs.length) {
-    cells.push(nbMd(`---\n\n**${t("ls.deeper")}**\n` + l.refs.map(([nm, u]) => `- [${nm}](${u})`).join("\n")));
+  if (l.refs && loc(l.refs).length) {
+    cells.push(nbMd(`---\n\n**${t("ls.deeper")}**\n` + loc(l.refs).map(([nm, u]) => `- [${loc(nm)}](${loc(u)})`).join("\n")));
   }
   return {
     nbformat: 4,

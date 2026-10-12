@@ -149,7 +149,6 @@
       <div id="labPair" hidden></div>
       <div class="lab-card lab-setup" id="labSetup" hidden></div>
       <div id="labLocal" class="lab-grid">
-        <aside class="lab-tasks" id="labTasks" hidden aria-label="Lesson tasks"></aside>
         <div class="lab-main">
           <div class="lab-card" id="labOffline" hidden></div>
           <div class="lab-card" id="labFallback" hidden></div>
@@ -163,6 +162,11 @@
             <button type="button" class="pr-btn pr-ghost pr-sm" data-lab-newtab data-i18n="lab.newTab">Open in a new tab</button>
             <button type="button" class="pr-btn pr-ghost pr-sm" data-lab-disconnect data-i18n="lab.disconnect">Disconnect computer</button>
           </div>
+          <button type="button" id="labTasksRail" class="lab-rail" hidden aria-expanded="false" aria-controls="labTasks">
+            <span class="lab-rail-t" id="labTasksRailT"></span>
+          </button>
+          <div class="lab-scrim" id="labScrim" hidden></div>
+          <aside class="lab-tasks" id="labTasks" aria-label="Lesson tasks" aria-hidden="true"></aside>
         </div>
       </div>
     </div>

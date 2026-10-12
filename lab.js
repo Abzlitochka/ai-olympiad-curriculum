@@ -27,6 +27,7 @@ const lab = {
   os: null,
   timer: null,
   booted: false,
+  tasksOpen: false,        // task checklist drawer over the lab frame
 };
 
 /* ---------- pairing storage ---------- */
@@ -301,13 +302,21 @@ function labRender() {
   const files = $("#labFiles");
   if (files) files.textContent = lab.files ? tf("lab.files", lab.files) : "";
 
-  /* lesson task checklist beside the frame — same exercises that are graded
-     in the notebook's Задания cells; ticks come from the trainer store */
-  const taskPane = $("#labTasks"), grid = $("#labLocal");
+  /* lesson task checklist — a drawer that slides over the frame's left edge;
+     the rail button stays visible whenever the loaded lesson has tasks */
+  const taskPane = $("#labTasks"), rail = $("#labTasksRail"), railT = $("#labTasksRailT"), scrim = $("#labScrim");
   const tasks = ok && lab.lesson ? labLessonTasks() : null;
+  if (!tasks) lab.tasksOpen = false;
+  const openTasks = !!(tasks && lab.tasksOpen);
+  if (rail) {
+    rail.hidden = !tasks;
+    rail.setAttribute("aria-expanded", String(openTasks));
+    if (tasks && railT) railT.textContent = `${t("lab.tasks")} · ${tasks.filter(x => x.solved).length}/${tasks.length}`;
+  }
+  if (scrim) scrim.hidden = !openTasks;
   if (taskPane) {
-    taskPane.hidden = !tasks;
-    if (grid) grid.classList.toggle("with-tasks", !!tasks);
+    taskPane.classList.toggle("is-open", openTasks);
+    taskPane.setAttribute("aria-hidden", String(!openTasks));
     if (tasks) {
       const done = tasks.filter(x => x.solved).length;
       const sig = `${lab.lesson.mod}|${lab.lesson.li}|${done}/${tasks.length}|${t("lab.tasksH")}`;
@@ -328,7 +337,8 @@ function labLessonTasks() {
 
 function labTasksHTML(tasks, done) {
   const allDone = done === tasks.length;
-  return `<h3 class="lab-tasks-h">${esc(t("lab.tasksH"))} <span class="lab-tasks-prog ${allDone ? "is-done" : ""}">${done}/${tasks.length}</span></h3>
+  return `<div class="lab-tasks-head"><h3 class="lab-tasks-h">${esc(t("lab.tasksH"))} <span class="lab-tasks-prog ${allDone ? "is-done" : ""}">${done}/${tasks.length}</span></h3>
+    <button type="button" class="prl-x prl-x-sm" data-lab-tasks-close aria-label="${esc(t("tr.close"))}"></button></div>
     <p class="lab-tasks-hint">${esc(t("lab.tasksHint"))}</p>
     <ol class="lab-tasklist">${tasks.map((x, i) => `
       <li><button type="button" class="lab-task ${x.solved ? "is-done" : ""}" data-task-ex="${esc(x.id)}" title="${esc(t("lab.taskOpen"))}">
@@ -352,6 +362,8 @@ document.addEventListener("click", e => {
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, () => {});
     return;
   }
+  if (e.target.closest("#labTasksRail")) { lab.tasksOpen = !lab.tasksOpen; labRender(); return; }
+  if (e.target.closest("[data-lab-tasks-close]") || e.target.closest("#labScrim")) { lab.tasksOpen = false; labRender(); return; }
   const taskEx = e.target.closest("[data-task-ex]");
   if (taskEx) { if (typeof prOpenExercise === "function") prOpenExercise(taskEx.dataset.taskEx); return; }
   if (e.target.closest("[data-lab-retry]")) { if (lab.cfg) { lab.status = "checking"; labRender(); labCheck(); } return; }
@@ -386,4 +398,7 @@ function labToggleSetup() {
 }
 
 window.addEventListener("hashchange", labHandleHash);
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && lab.tasksOpen) { lab.tasksOpen = false; labRender(); }
+});
 labHandleHash();

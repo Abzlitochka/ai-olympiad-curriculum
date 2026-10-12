@@ -161,6 +161,7 @@ const I18N = {
   "lab.guide":     { en: "Step-by-step guide", ru: "Пошаговая инструкция" },
   "lab.offlineH":  { en: "Your computer isn't answering", ru: "Компьютер не отвечает" },
   "lab.pushErr":   { en: "Couldn't send the notebook to your computer.", ru: "Не удалось отправить ноутбук на компьютер." },
+  "lab.tasks":     { en: "Tasks", ru: "Задания" },
   "lab.tasksH":    { en: "Lesson tasks", ru: "Задания урока" },
   "lab.tasksHint": { en: "The same tasks are at the end of the notebook, with self-check cells. Click a task to open it in the trainer.", ru: "Эти же задания — в конце ноутбука, с ячейками самопроверки. Нажмите на задание, чтобы открыть его в тренажёре." },
   "lab.taskOpen":  { en: "Open in the trainer", ru: "Открыть в тренажёре" },

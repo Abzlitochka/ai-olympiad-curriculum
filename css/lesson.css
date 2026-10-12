@@ -113,6 +113,12 @@ body.in-lesson main.container { max-width: none; padding: 0; }
 :root[data-theme="dark"] .prl-code .tk-a { color: #79c0ff; }
 .prl-note { background: var(--tint-yellow); border-radius: 18px; padding: 16px 20px; margin: 8px 0 24px; font-size: 16px; line-height: 1.65; color: var(--text); }
 .prl-note-label { font-size: 13px; font-weight: 700; color: var(--text-2); margin-bottom: 4px; }
+/* try-this prompts (were ✅ emoji stickers in the source) — CSS check chip, no emoji */
+.prl-try { background: var(--subtle); border-left: 3px solid var(--brand); border-radius: var(--radius-sm); }
+.prl-try > div { display: flex; gap: 12px; align-items: flex-start; }
+.prl-try > div::before { content: ""; flex: none; width: 7px; height: 13px; margin-top: 4px;
+  border-right: 2.5px solid var(--brand); border-bottom: 2.5px solid var(--brand);
+  transform: rotate(45deg); }
 
 /* ---- buttons ---- */
 .prl-actions { display: flex; gap: 10px; margin-top: 10px; }

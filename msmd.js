@@ -77,7 +77,8 @@ function msmd(src) {
   const ALLOW = /<\/?(?:sub|sup|u|del|mark)\s*>|<br\s*\/?>/gi;
   const inline = s => {
     const stash = [];
-    let r = escH(String(s).replace(ALLOW, m => {
+    s = String(s).replace(/\s*\((?:code blocks?|блок кода)\s*\d*\)/g, "");
+    let r = escH(s.replace(ALLOW, m => {
       stash.push(m.replace(/\s+|\/(?=>)/g, "").toLowerCase());
       return `${stash.length - 1}`;
     }))
@@ -107,7 +108,7 @@ function msmd(src) {
   };
   const flushList = () => {
     if (list) {
-      out.push(`<${list.tag} class="prl-ul">${list.items.map(x => `<li>${inline(x)}</li>`).join("")}</${list.tag}>`);
+      out.push(`<${list.tag} class="prl-ul">${list.items.map(x => `<li${x.n ? ` value="${x.n}"` : ""}>${inline(x.t)}</li>`).join("")}</${list.tag}>`);
       list = null;
     }
   };
@@ -116,14 +117,19 @@ function msmd(src) {
   while (i < lines.length) {
     const line = lines[i];
 
-    // fenced code
-    const fence = line.match(/^```(\w*)\s*$/);
+    // fenced code — tolerate indentation (fences nested inside numbered
+    // steps) and stray code on the opening line after the language tag
+    const fence = line.match(/^(\s*)```(\w*)\s*(.*)$/);
     if (fence) {
       flush();
-      const buf = [];
-      for (i++; i < lines.length && !/^```\s*$/.test(lines[i]); i++) buf.push(lines[i]);
+      const ind = fence[1], buf = [];
+      if (fence[3]) buf.push(fence[3]);
+      for (i++; i < lines.length && !/^\s*```\s*$/.test(lines[i]); i++) {
+        const cl = lines[i];
+        buf.push(cl.startsWith(ind) && ind ? cl.slice(ind.length) : cl);
+      }
       i++;
-      out.push(`<div class="prl-code"><pre><code>${msHl(buf.join("\n"), fence[1])}</code></pre></div>`);
+      out.push(`<div class="prl-code"><pre><code>${msHl(buf.join("\n"), fence[2])}</code></pre></div>`);
       continue;
     }
 
@@ -155,8 +161,9 @@ function msmd(src) {
       flush();
       const buf = [];
       while (i < lines.length && /^>\s?/.test(lines[i])) {
-        const b = lines[i].replace(/^>\s?/, "");
-        const newLine = /^([-*+]|\d+[.)]|🎓|✅|📌|💡|⚠️|\*\*)/.test(b.trim());
+        const raw = lines[i].replace(/^>\s?/, "");
+        const b = raw.replace(/^\s*✅\s*/, "");
+        const newLine = /^([-*+]|\d+[.)]|🎓|✅|📌|💡|⚠️|\*\*)/.test(raw.trim());
         if (buf.length && (newLine || b.trim() === "")) buf.push("\x01");
         else if (buf.length) buf.push(" ");
         buf.push(b);
@@ -167,13 +174,21 @@ function msmd(src) {
       continue;
     }
 
-    // list item — numbered items keep their order (<ol>)
+    // list item — numbered items keep their order (<ol>), ✅ prefixes drop
     const li = line.match(/^\s*(?:([-*+])|(\d+)[.)])\s+(.*)$/);
     if (li) {
       flushPara();
       const tag = li[2] ? "ol" : "ul";
       if (!list) list = { tag, items: [] };
-      list.items.push(li[3]); i++; continue;
+      list.items.push({ t: li[3].replace(/^✅\s*/, ""), n: li[2] }); i++; continue;
+    }
+
+    // ✅ try-this callouts (Microsoft checklist prompts) → styled note, no emoji
+    const tryM = line.match(/^\s*✅\s+(.*)$/);
+    if (tryM) {
+      flush();
+      out.push(`<aside class="prl-note prl-try"><div>${inline(tryM[1])}</div></aside>`);
+      i++; continue;
     }
 
     // horizontal rule / blank → separators

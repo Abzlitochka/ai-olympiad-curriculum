@@ -96,6 +96,21 @@ body.in-lesson main.container { max-width: none; padding: 0; }
 .prl-copy { position: absolute; top: 8px; right: 8px; background: var(--bg); border: 1px solid var(--line);
   border-radius: 6px; padding: 4px 10px; font-size: 12.5px; color: var(--text-2); }
 .prl-copy:hover { color: var(--text); border-color: var(--line-strong); }
+/* syntax tokens (msHl) — light theme mirrors the lesson-reader palette */
+.prl-code .tk-k { color: #067d17; font-weight: 600; }   /* keyword */
+.prl-code .tk-s { color: #ba2121; }                     /* string */
+.prl-code .tk-c { color: #8a8a93; font-style: italic; } /* comment */
+.prl-code .tk-n { color: #1750eb; }                     /* number */
+.prl-code .tk-d { color: #9a6e3a; }                     /* decorator */
+.prl-code .tk-t { color: #116329; }                     /* html tag */
+.prl-code .tk-a { color: #6f42c1; }                     /* html attr */
+:root[data-theme="dark"] .prl-code .tk-k { color: #7ee787; }
+:root[data-theme="dark"] .prl-code .tk-s { color: #ffa198; }
+:root[data-theme="dark"] .prl-code .tk-c { color: #8b949e; }
+:root[data-theme="dark"] .prl-code .tk-n { color: #79c0ff; }
+:root[data-theme="dark"] .prl-code .tk-d { color: #d2a8ff; }
+:root[data-theme="dark"] .prl-code .tk-t { color: #7ee787; }
+:root[data-theme="dark"] .prl-code .tk-a { color: #79c0ff; }
 .prl-note { background: var(--tint-yellow); border-radius: 18px; padding: 16px 20px; margin: 8px 0 24px; font-size: 16px; line-height: 1.65; color: var(--text); }
 .prl-note-label { font-size: 13px; font-weight: 700; color: var(--text-2); margin-bottom: 4px; }
 

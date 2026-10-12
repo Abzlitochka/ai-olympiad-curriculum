@@ -58,7 +58,7 @@ function blockHTML([type, v]) {
     case "p": return `<p class="prl-p">${imd(loc(v))}</p>`;
     case "f": return `<div class="prl-formula">${esc(loc(v)).replace(/\n/g, "<br>")}</div>`;
     case "ul": return `<ul class="prl-ul">${v.map(x => `<li>${imd(loc(x))}</li>`).join("")}</ul>`;
-    case "code": return `<div class="prl-code"><button type="button" class="prl-copy" data-copy aria-label="${esc(t("ls.copy"))}">${esc(t("ls.copy"))}</button><pre><code>${esc(v)}</code></pre></div>`;
+    case "code": return `<div class="prl-code"><button type="button" class="prl-copy" data-copy aria-label="${esc(t("ls.copy"))}">${esc(t("ls.copy"))}</button><pre><code>${msHl(loc(v) || v, "python")}</code></pre></div>`;
     case "note": return `<aside class="prl-note"><div class="prl-note-label">${esc(t("ls.note"))}</div><div>${imd(loc(v))}</div></aside>`;
     case "md": return `<div class="prl-md">${msmd(loc(v))}</div>`;
     case "fig": return figHTML(v);

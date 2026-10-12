@@ -8,6 +8,40 @@
    > blockquotes, ``` fenced code```, | tables |, --- rules.
    All source text is HTML-escaped before markup is added. */
 
+/* msHl — tiny syntax highlighter for fenced code, no deps. Tokenizes the
+   raw source (comments/strings can't be mistaken for keywords, since the
+   leftmost regex alternative wins) and escapes each token itself. */
+function msHl(src, lang) {
+  const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+  const tag = (c, t) => `<span class="tk-${c}">${esc(t)}</span>`;
+  const L = (lang || "").toLowerCase();
+  const MK = ["html", "xml", "svg"].includes(L);
+  let re;
+  if (L === "python" || L === "py") re =
+    /(#[^\n]*)|("""[\s\S]*?"""|'''[\s\S]*?'''|[fFrRbBuU]{0,3}"(?:\\.|[^"\\\n])*"|[fFrRbBuU]{0,3}'(?:\\.|[^'\\\n])*')|(@[\w.]+)|(\b\d[\d_]*(?:\.\d+)?(?:[eE][+-]?\d+)?[jJ]?\b)|(\b(?:False|None|True|and|as|assert|async|await|break|class|continue|def|del|elif|else|except|finally|for|from|global|if|import|in|is|lambda|nonlocal|not|or|pass|raise|return|try|while|with|yield|self|cls)\b)/g;
+  else if (L === "javascript" || L === "js") re =
+    /(\/\/[^\n]*|\/\*[\s\S]*?\*\/)|("(?:\\.|[^"\\\n])*"|'(?:\\.|[^'\\\n])*'|`(?:\\.|[^`\\])*`)|(@[\w.]+)|(\b\d[\d_]*(?:\.\d+)?(?:[eE][+-]?\d+)?\b)|(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|let|new|of|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|async|await|true|false|null|undefined|static)\b)/g;
+  else if (L === "r") re =
+    /(#[^\n]*)|("(?:\\.|[^"\\\n])*"|'(?:\\.|[^'\\\n])*')|(@[\w.]+)|(\b\d[\d_]*(?:\.\d+)?(?:[eE][+-]?\d+)?\b)|(\b(?:function|library|require|if|else|for|while|repeat|break|next|return|TRUE|FALSE|NULL|NA|NaN|Inf|in)\b)/g;
+  else if (["bash", "sh", "shell", "zsh"].includes(L)) re =
+    /(#[^\n]*)|("(?:\\.|[^"\\\n])*"|'(?:[^'\\\n])*')|(@[\w.]+)|(\b\d[\d_]*(?:\.\d+)?\b)|(\b(?:if|then|elif|else|fi|for|while|do|done|case|esac|in|function|return|echo|export|local|cd|pip|python|jupyter|uv|node|npm|npx|git|curl|ls|mkdir|cp|mv|rm)\b)/g;
+  else if (MK) re =
+    /(<!--[\s\S]*?-->)|("(?:\\.|[^"\\\n])*"|'(?:\\.|[^'\\\n])*')|(<\/?[A-Za-z][\w:.-]*|\/>|>)|([A-Za-z_:][\w:.-]*(?=\s*=))|($^)/g;
+  else return esc(src);   // output/text/plain/unknown → plain, never miscolor
+  let out = "", last = 0;
+  for (const m of src.matchAll(re)) {
+    out += esc(src.slice(last, m.index));
+    const [full, c, s, d, a, k] = m;
+    out += c !== undefined ? tag("c", full) : s !== undefined ? tag("s", full)
+      : d !== undefined ? tag(MK ? "t" : "d", full)
+      : a !== undefined ? tag(MK ? "a" : "n", full)
+      : k !== undefined ? tag("k", full) : esc(full);
+    last = m.index + full.length;
+  }
+  return out + esc(src.slice(last));
+}
+
 function msmd(src) {
   const escH = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
     .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -89,7 +123,7 @@ function msmd(src) {
       const buf = [];
       for (i++; i < lines.length && !/^```\s*$/.test(lines[i]); i++) buf.push(lines[i]);
       i++;
-      out.push(`<div class="prl-code"><pre><code>${escH(buf.join("\n"))}</code></pre></div>`);
+      out.push(`<div class="prl-code"><pre><code>${msHl(buf.join("\n"), fence[1])}</code></pre></div>`);
       continue;
     }
 

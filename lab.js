@@ -28,6 +28,7 @@ const lab = {
   timer: null,
   booted: false,
   tasksOpen: false,        // task checklist drawer over the lab frame
+  pickMode: false,         // drawer shows the lesson picker instead of the task list
 };
 
 /* ---------- pairing storage ---------- */
@@ -164,6 +165,7 @@ async function labConnect() {
 /* entry from the lesson's practice card */
 function labOpenLesson(mod, li) {
   lab.lesson = { mod, li: +li };
+  lab.pickMode = false;
   labSaveLesson();
   if (lab.status === "ok") labConnect(); else labRender();
 }
@@ -302,26 +304,31 @@ function labRender() {
   const files = $("#labFiles");
   if (files) files.textContent = lab.files ? tf("lab.files", lab.files) : "";
 
-  /* lesson task checklist — a drawer that slides over the frame's left edge;
-     the rail button stays visible whenever the loaded lesson has tasks */
+  /* lesson task checklist — a drawer that slides over the frame's left edge.
+     With a mapped lesson loaded it lists that lesson's tasks; on the bare lab
+     it becomes a lesson picker so the rail is never a dead end. */
   const taskPane = $("#labTasks"), rail = $("#labTasksRail"), railT = $("#labTasksRailT"), scrim = $("#labScrim");
-  const tasks = ok && lab.lesson ? labLessonTasks() : null;
-  if (!tasks) lab.tasksOpen = false;
-  const openTasks = !!(tasks && lab.tasksOpen);
+  const tasks = ok && lab.lesson && !lab.pickMode ? labLessonTasks() : null;
+  const canPick = ok && typeof MODULES !== "undefined" && typeof LESSON_EX !== "undefined" && Object.keys(LESSON_EX).length > 0;
+  const showRail = !!(tasks || canPick);
+  if (!showRail) lab.tasksOpen = false;
+  const openTasks = showRail && lab.tasksOpen;
   if (rail) {
-    rail.hidden = !tasks;
+    rail.hidden = !showRail;
     rail.setAttribute("aria-expanded", String(openTasks));
-    if (tasks && railT) railT.textContent = `${t("lab.tasks")} · ${tasks.filter(x => x.solved).length}/${tasks.length}`;
+    if (showRail && railT) railT.textContent = tasks
+      ? `${t("lab.tasks")} · ${tasks.filter(x => x.solved).length}/${tasks.length}`
+      : t("lab.tasks");
   }
   if (scrim) scrim.hidden = !openTasks;
   if (taskPane) {
     taskPane.classList.toggle("is-open", openTasks);
     taskPane.setAttribute("aria-hidden", String(!openTasks));
-    if (tasks) {
-      const done = tasks.filter(x => x.solved).length;
-      const sig = `${lab.lesson.mod}|${lab.lesson.li}|${done}/${tasks.length}|${t("lab.tasksH")}`;
-      if (sig !== lab._taskSig) { lab._taskSig = sig; taskPane.innerHTML = labTasksHTML(tasks, done); }
-    } else lab._taskSig = "";
+    const done = tasks ? tasks.filter(x => x.solved).length : 0;
+    const sig = tasks
+      ? `${lab.lesson.mod}|${lab.lesson.li}|${done}/${tasks.length}|${t("lab.tasksH")}`
+      : `pick|${canPick}|${t("lab.pickH")}`;
+    if (sig !== lab._taskSig) { lab._taskSig = sig; taskPane.innerHTML = tasks ? labTasksHTML(tasks, done) : labPickHTML(); }
   }
 }
 
@@ -345,7 +352,27 @@ function labTasksHTML(tasks, done) {
         <span class="lab-task-check" aria-hidden="true">${x.solved ? "✓" : ""}</span>
         <span class="lab-task-body"><b>${i + 1}. ${esc(loc(x.title))}</b>
           <span class="lab-task-meta">${"●".repeat(x.diff || 1)}${"○".repeat(3 - (x.diff || 1))} · ~${x.minutes} ${esc(t("u.min"))}</span></span>
-      </button></li>`).join("")}</ol>`;
+      </button></li>`).join("")}</ol>
+    <button type="button" class="lab-pick-toggle" data-lab-pick-toggle>${esc(t("lab.pickOther"))}</button>`;
+}
+
+/* drawer content on the bare lab (or when switching lessons): every lesson
+   that has mapped tasks, grouped by module — picking one loads its notebook */
+function labPickHTML() {
+  const sol = typeof exSolved === "function" ? exSolved() : {};
+  const body = MODULES.map(m => {
+    const rows = lessonsOf(m.id)
+      .map((l, li) => ({ l, li, ids: LESSON_EX[`${m.id}|${li}`] || [] }))
+      .filter(x => x.ids.length);
+    if (!rows.length) return "";
+    return `<div class="lab-pick-mod"><h4>${esc(m.id)} · ${esc(loc(m.title))}</h4>${
+      rows.map(({ l, li, ids }) => `<button type="button" class="lab-pick" data-lab-pick="${m.id}|${li}">
+        <span class="lab-pick-name">${esc(loc(l.title))}</span>
+        <span class="lab-pick-meta">${ids.filter(id => sol[id]).length}/${ids.length}</span></button>`).join("")}</div>`;
+  }).filter(Boolean).join("");
+  return `<div class="lab-tasks-head"><h3 class="lab-tasks-h">${esc(t("lab.pickH"))}</h3>
+    <button type="button" class="prl-x prl-x-sm" data-lab-tasks-close aria-label="${esc(t("tr.close"))}"></button></div>
+    <p class="lab-tasks-hint">${esc(t("lab.pickHint"))}</p>${body}`;
 }
 
 /* ---------- events ---------- */
@@ -364,6 +391,9 @@ document.addEventListener("click", e => {
   }
   if (e.target.closest("#labTasksRail")) { lab.tasksOpen = !lab.tasksOpen; labRender(); return; }
   if (e.target.closest("[data-lab-tasks-close]") || e.target.closest("#labScrim")) { lab.tasksOpen = false; labRender(); return; }
+  if (e.target.closest("[data-lab-pick-toggle]")) { lab.pickMode = true; labRender(); return; }
+  const pick = e.target.closest("[data-lab-pick]");
+  if (pick) { const [pm, pl] = pick.dataset.labPick.split("|"); labOpenLesson(pm, +pl); return; }
   const taskEx = e.target.closest("[data-task-ex]");
   if (taskEx) { if (typeof prOpenExercise === "function") prOpenExercise(taskEx.dataset.taskEx); return; }
   if (e.target.closest("[data-lab-retry]")) { if (lab.cfg) { lab.status = "checking"; labRender(); labCheck(); } return; }

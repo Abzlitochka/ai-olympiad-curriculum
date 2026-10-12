@@ -4,6 +4,11 @@
    to notebooks/ for download. */
 
 const SITE_URL = "https://abzlitochka.github.io/ai-olympiad-curriculum";   // absolute base for images in exported notebooks
+/* where #ex=<id> trainer deep links point: the page the notebook was exported
+   from when running in the browser, the public mirror for the offline build */
+const NB_BASE = (typeof location !== "undefined" && location.origin && location.origin !== "null")
+  ? location.origin + location.pathname.replace(/[^/]*$/, "").replace(/\/$/, "")
+  : SITE_URL;
 
 const RU2LAT = { а:"a",б:"b",в:"v",г:"g",д:"d",е:"e",ё:"e",ж:"zh",з:"z",и:"i",й:"y",
   к:"k",л:"l",м:"m",н:"n",о:"o",п:"p",р:"r",с:"s",т:"t",у:"u",ф:"f",х:"kh",
@@ -96,6 +101,7 @@ const NB_MSGS = {
   hint: { ru: "Подсказка", en: "Hint" },
   yourCode: { ru: "ваш код", en: "your code" },
   check: { ru: "проверка — запустите после решения ячейки выше", en: "self-check — run after solving the cell above" },
+  openTr: { ru: "Открыть в тренажёре", en: "Open in the trainer" },
   noFn: { ru: "❓ Определите функцию «{e}» в ячейке решения и запустите её", en: "❓ Define a function `{e}` in the solution cell and run it" },
   runErr: { ru: "❌ Тест {i}: {t}: {m}", en: "❌ Test {i}: {t}: {m}" },
   wrong: { ru: "❌ Тест {i}: {r}", en: "❌ Test {i}: {r}" },
@@ -210,7 +216,7 @@ def _check_task(g, ref_src, entry, n=20, seed=0):
 
 function nbTaskMd(x, n) {
   const diff = "●".repeat(x.diff || 1) + "○".repeat(3 - (x.diff || 1));
-  let md = `### ${loc(NB_MSGS.task)} ${n} — ${loc(x.title)}\n\n${diff} · ~${x.minutes} ${loc(NB_MSGS.min)}\n\n`;
+  let md = `### ${loc(NB_MSGS.task)} ${n} — ${loc(x.title)}\n\n${diff} · ~${x.minutes} ${loc(NB_MSGS.min)} · [${loc(NB_MSGS.openTr)} →](${NB_BASE}/#ex=${x.id})\n\n`;
   if (x.theory) md += "> " + String(loc(x.theory)).split("\n").join("\n> ") + "\n\n";
   if (x.prompt) md += loc(x.prompt) + "\n\n";
   if (x.hint) md += `<details><summary>${loc(NB_MSGS.hint)}</summary>\n\n${loc(x.hint)}\n\n</details>\n`;
@@ -224,7 +230,9 @@ function nbTaskCells(modId, li) {
     .filter(x => x && x.entry && x.gen && x.solve && x.starter);
   if (!ids.length) return [];
   const cells = [
-    nbMd(`---\n\n## ✅ ${loc({ ru: "Задания для самопроверки", en: "Self-check tasks" })}\n\n${loc(NB_MSGS.intro)}`),
+    nbMd(`---\n\n## ✅ ${loc({ ru: "Задания для самопроверки", en: "Self-check tasks" })}\n\n${loc(NB_MSGS.intro)}\n\n${
+      ids.map((x, i) => `${i + 1}. [${loc(x.title)}](${NB_BASE}/#ex=${x.id})`).join("\n")
+    }`),
     nbCode(nbTaskHarness()),
   ];
   ids.forEach((x, i) => {

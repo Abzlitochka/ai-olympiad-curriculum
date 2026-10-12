@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="Onest, 'Segoe UI', system-ui, Arial, sans-serif">
+  <rect width="640" height="360" rx="18" fill="#ffffff" stroke="#e7e7ea" stroke-width="1.5"/>
+
+  <!-- source sentence -->
+  <text x="320" y="66" font-size="18" font-weight="600" fill="#141414" text-anchor="middle">I like pizza</text>
+  <line x1="44" y1="90" x2="596" y2="90" stroke="#e7e7ea" stroke-width="1.5"/>
+
+  <!-- unigram row -->
+  <text x="44" y="146" font-size="13" fill="#4f4f58">unigram</text>
+  <rect x="170" y="122" width="44" height="36" rx="9" fill="#eef1fd"/>
+  <text x="192" y="146" font-size="15" fill="#141414" text-anchor="middle">I</text>
+  <rect x="226" y="122" width="66" height="36" rx="9" fill="#eef1fd"/>
+  <text x="259" y="146" font-size="15" fill="#141414" text-anchor="middle">like</text>
+  <rect x="304" y="122" width="78" height="36" rx="9" fill="#eef1fd"/>
+  <text x="343" y="146" font-size="15" fill="#141414" text-anchor="middle">pizza</text>
+
+  <!-- bigram row -->
+  <text x="44" y="214" font-size="13" fill="#4f4f58">bigram</text>
+  <rect x="170" y="190" width="104" height="36" rx="9" fill="#eaf6ef"/>
+  <text x="222" y="214" font-size="15" fill="#141414" text-anchor="middle">I like</text>
+  <rect x="286" y="190" width="124" height="36" rx="9" fill="#eaf6ef"/>
+  <text x="348" y="214" font-size="15" fill="#141414" text-anchor="middle">like pizza</text>
+
+  <!-- trigram row -->
+  <text x="44" y="282" font-size="13" fill="#4f4f58">trigram</text>
+  <rect x="170" y="258" width="172" height="36" rx="9" fill="#ebe6ff"/>
+  <text x="256" y="282" font-size="15" fill="#141414" text-anchor="middle">I like pizza</text>
+</svg>

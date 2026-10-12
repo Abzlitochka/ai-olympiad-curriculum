@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="Onest, 'Segoe UI', system-ui, Arial, sans-serif">
+  <rect width="640" height="360" rx="18" fill="#ffffff" stroke="#e7e7ea" stroke-width="1.5"/>
+  <!-- dendrogram merges (bottom-up) -->
+  <path d="M140 296V252H204V296M252 296V268H300V296
+           M172 252V188H276V268
+           M380 296V236H428V296M404 236V180H532V296M470 296V180
+           M224 188V108H404V180
+           M314 108V76" fill="none" stroke="#4f4f58" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- merge nodes -->
+  <g fill="#4f4f58">
+    <circle cx="172" cy="252" r="3.5"/><circle cx="276" cy="268" r="3.5"/><circle cx="224" cy="188" r="3.5"/>
+    <circle cx="404" cy="236" r="3.5"/><circle cx="470" cy="180" r="3.5"/><circle cx="314" cy="108" r="4.5" fill="#141414"/>
+  </g>
+  <!-- leaves -->
+  <g fill="#3b5bdb">
+    <circle cx="140" cy="296" r="5"/><circle cx="204" cy="296" r="5"/><circle cx="252" cy="296" r="5"/>
+    <circle cx="300" cy="296" r="5"/><circle cx="380" cy="296" r="5"/><circle cx="428" cy="296" r="5"/>
+    <circle cx="532" cy="296" r="5"/>
+  </g>
+  <g font-size="12" fill="#4f4f58" text-anchor="middle">
+    <text x="140" y="322">x₁</text><text x="204" y="322">x₂</text><text x="252" y="322">x₃</text>
+    <text x="300" y="322">x₄</text><text x="380" y="322">x₅</text><text x="428" y="322">x₆</text>
+    <text x="532" y="322">x₇</text>
+  </g>
+  <!-- cut line -->
+  <path d="M96 216H572" fill="none" stroke="#c9302c" stroke-width="1.5" stroke-dasharray="7 5"/>
+  <text x="566" y="204" text-anchor="end" font-size="13" fill="#c9302c">cut → 2 clusters</text>
+</svg>

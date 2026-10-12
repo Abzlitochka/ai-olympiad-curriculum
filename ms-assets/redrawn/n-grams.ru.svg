@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="Onest, 'Segoe UI', system-ui, Arial, sans-serif">
+  <rect width="640" height="360" rx="18" fill="#ffffff" stroke="#e7e7ea" stroke-width="1.5"/>
+
+  <!-- source sentence -->
+  <text x="320" y="66" font-size="18" font-weight="600" fill="#141414" text-anchor="middle">Я люблю пиццу</text>
+  <line x1="44" y1="90" x2="596" y2="90" stroke="#e7e7ea" stroke-width="1.5"/>
+
+  <!-- unigram row -->
+  <text x="44" y="146" font-size="13" fill="#4f4f58">униграммы</text>
+  <rect x="170" y="122" width="44" height="36" rx="9" fill="#eef1fd"/>
+  <text x="192" y="146" font-size="15" fill="#141414" text-anchor="middle">Я</text>
+  <rect x="226" y="122" width="80" height="36" rx="9" fill="#eef1fd"/>
+  <text x="266" y="146" font-size="15" fill="#141414" text-anchor="middle">люблю</text>
+  <rect x="318" y="122" width="78" height="36" rx="9" fill="#eef1fd"/>
+  <text x="357" y="146" font-size="15" fill="#141414" text-anchor="middle">пиццу</text>
+
+  <!-- bigram row -->
+  <text x="44" y="214" font-size="13" fill="#4f4f58">биграммы</text>
+  <rect x="170" y="190" width="118" height="36" rx="9" fill="#eaf6ef"/>
+  <text x="229" y="214" font-size="15" fill="#141414" text-anchor="middle">Я люблю</text>
+  <rect x="300" y="190" width="146" height="36" rx="9" fill="#eaf6ef"/>
+  <text x="373" y="214" font-size="15" fill="#141414" text-anchor="middle">люблю пиццу</text>
+
+  <!-- trigram row -->
+  <text x="44" y="282" font-size="13" fill="#4f4f58">триграммы</text>
+  <rect x="170" y="258" width="186" height="36" rx="9" fill="#ebe6ff"/>
+  <text x="263" y="282" font-size="15" fill="#141414" text-anchor="middle">Я люблю пиццу</text>
+</svg>

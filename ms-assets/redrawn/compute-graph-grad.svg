@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="Onest, 'Segoe UI', system-ui, Arial, sans-serif">
+  <rect width="640" height="360" rx="18" fill="#ffffff" stroke="#e7e7ea" stroke-width="1.5"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#141414"/>
+    </marker>
+    <path id="rh" d="M0 0L11 -5L11 5Z" fill="#c9302c"/>
+  </defs>
+
+  <!-- chain rule -->
+  <text x="320" y="56" text-anchor="middle" font-size="14" font-style="italic" fill="#4f4f58">&#8706;L/&#8706;w = &#8706;L/&#8706;p &#183; &#8706;p/&#8706;z &#183; &#8706;z/&#8706;w</text>
+
+  <!-- forward arrows -->
+  <line x1="104" y1="140" x2="170" y2="140" stroke="#141414" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="284" y1="140" x2="330" y2="140" stroke="#141414" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="436" y1="140" x2="512" y2="140" stroke="#141414" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="158" y1="244" x2="203" y2="166" stroke="#141414" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="302" y1="244" x2="257" y2="166" stroke="#141414" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- forward edge values -->
+  <text x="137" y="126" text-anchor="middle" font-size="13" font-style="italic" fill="#141414">x</text>
+  <text x="307" y="126" text-anchor="middle" font-size="13" font-style="italic" fill="#141414">z</text>
+  <text x="474" y="126" text-anchor="middle" font-size="13" font-style="italic" fill="#141414">p</text>
+
+  <!-- backward gradient labels -->
+  <text x="128" y="200" text-anchor="middle" font-size="13" font-style="italic" fill="#c9302c">&#8706;z/&#8706;x = w</text>
+  <text x="316" y="200" text-anchor="middle" font-size="13" font-style="italic" fill="#c9302c">&#8706;p/&#8706;z</text>
+  <text x="474" y="200" text-anchor="middle" font-size="13" font-style="italic" fill="#c9302c">&#8706;L/&#8706;p</text>
+  <text x="132" y="232" text-anchor="end" font-size="13" font-style="italic" fill="#c9302c">&#8706;z/&#8706;w = x</text>
+  <text x="344" y="232" text-anchor="start" font-size="13" font-style="italic" fill="#c9302c">&#8706;z/&#8706;b = 1</text>
+
+  <!-- nodes -->
+  <rect x="48" y="118" width="56" height="44" rx="10" fill="#eef1fd" stroke="#3b5bdb" stroke-width="1.5"/>
+  <text x="76" y="147" text-anchor="middle" font-size="16" font-style="italic" fill="#141414">x</text>
+
+  <rect x="176" y="118" width="108" height="44" rx="10" fill="#ffffff" stroke="#141414" stroke-width="2"/>
+  <text x="230" y="146" text-anchor="middle" font-size="14" font-style="italic" fill="#141414">z = x&#183;w + b</text>
+
+  <rect x="336" y="118" width="100" height="44" rx="10" fill="#ffffff" stroke="#141414" stroke-width="2"/>
+  <text x="386" y="146" text-anchor="middle" font-size="14" font-style="italic" fill="#141414">p = &#963;(z)</text>
+
+  <rect x="516" y="118" width="56" height="44" rx="10" fill="#ffe8e6" stroke="#c9302c" stroke-width="2"/>
+  <text x="544" y="147" text-anchor="middle" font-size="16" font-style="italic" fill="#141414">L</text>
+
+  <rect x="122" y="246" width="56" height="44" rx="10" fill="#eef1fd" stroke="#3b5bdb" stroke-width="1.5"/>
+  <text x="150" y="275" text-anchor="middle" font-size="16" font-style="italic" fill="#141414">w</text>
+
+  <rect x="282" y="246" width="56" height="44" rx="10" fill="#eef1fd" stroke="#3b5bdb" stroke-width="1.5"/>
+  <text x="310" y="275" text-anchor="middle" font-size="16" font-style="italic" fill="#141414">b</text>
+
+  <!-- backward return hint -->
+  <path d="M544 172 C 556 268 400 322 118 320" fill="none" stroke="#c9302c" stroke-width="2" stroke-dasharray="7 6" stroke-linecap="round"/>
+  <use href="#rh" transform="translate(118,320)"/>
+</svg>

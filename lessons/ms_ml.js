@@ -41,7 +41,7 @@ COURSE.ML1 = [
       md(`Хотя термины могут путать, машинное обучение (ML) — важное подмножество искусственного интеллекта. **ML занимается использованием специализированных алгоритмов для выявления значимой информации и обнаружения скрытых паттернов в воспринятых данных, чтобы подтвердить рациональный процесс принятия решений**.`),
     ]),
     T("ИИ, ML, глубокое обучение", [
-      md(`![AI, ML, deep learning, data science](ms-assets/ml/ai-ml-ds.537ea441b124ebf6.webp)
+      md(`![AI, ML, deep learning, data science](ms-assets/redrawn/ai-ml-ds.ru.svg)
 
 > Диаграмма, показывающая взаимосвязи между ИИ, ML, глубоким обучением и наукой о данных. Инфографика от [Jen Looper](https://twitter.com/jenlooper), вдохновленная [этой схемой](https://softwareengineering.stackexchange.com/questions/366996/distinction-between-ai-ml-neural-networks-deep-learning-and-data-mining)`),
     ]),
@@ -138,7 +138,7 @@ Welcome to this course on classical machine learning for beginners! Whether you'
       md(`Although the terms can be confused, machine learning (ML) is an important subset of artificial intelligence. **ML is concerned with using specialized algorithms to uncover meaningful information and find hidden patterns from perceived data to corroborate the rational decision-making process**.`),
     ]),
     T("AI, ML, Deep Learning", [
-      md(`![AI, ML, deep learning, data science](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/1-Introduction/1-intro-to-ML/images/ai-ml-ds.png)
+      md(`![AI, ML, deep learning, data science](ms-assets/redrawn/ai-ml-ds.svg)
 
 > A diagram showing the relationships between AI, ML, deep learning, and data science. Infographic by [Jen Looper](https://twitter.com/jenlooper) inspired by [this graphic](https://softwareengineering.stackexchange.com/questions/366996/distinction-between-ai-ml-neural-networks-deep-learning-and-data-mining)`),
     ]),
@@ -425,8 +425,7 @@ It remains to be seen what the future holds, but it is important to understand t
   ]}),
   L({"ru":"Создание решений машинного обучения с ответственным ИИ","en":"Building Machine Learning solutions with responsible AI"}, 17, {ru:[["Исходный урок (Microsoft, MIT)", "https://github.com/microsoft/ML-For-Beginners/blob/main/translations/ru/1-Introduction/3-fairness"], ["Учебник ML (ШАД): о чём учебник", "https://contest.yandex.ru/tracks/ml/introduction/about-this-book"], ["Учебник ML (ШАД): оценка качества моделей", "https://contest.yandex.ru/tracks/ml/model-evaluation/introduction"]],en:[["Original lesson (Microsoft, MIT)", "https://github.com/microsoft/ML-For-Beginners/blob/main/1-Introduction/3-fairness"], ["Yandex ML handbook (RU): about this handbook", "https://contest.yandex.ru/tracks/ml/introduction/about-this-book"], ["Yandex ML handbook (RU): model evaluation", "https://contest.yandex.ru/tracks/ml/model-evaluation/introduction"]]}, {ru:[
     T("Введение", [
-      md(`![Сводка об ответственном ИИ в машинном обучении в виде скетчнота](ms-assets/ml/ml-fairness.ef296ebec6afc98a.webp)
-> Скетчнот от [Tomomi Imura](https://www.twitter.com/girlie_mac)
+      md(`> Скетчнот от [Tomomi Imura](https://www.twitter.com/girlie_mac)
 
 В этой учебной программе вы начнете изучать, как машинное обучение может и уже влияет на нашу повседневную жизнь. Даже сейчас системы и модели участвуют в ежедневных задачах принятия решений, таких как диагностирование заболеваний, одобрение кредитов или обнаружение мошенничества. Поэтому важно, чтобы эти модели хорошо работали и предоставляли надежные результаты. Как и любое программное обеспечение, системы ИИ могут не оправдать ожиданий или иметь нежелательные последствия. Вот почему важно уметь понимать и объяснять поведение модели ИИ.
 
@@ -776,7 +775,7 @@ Read about Azure Machine Learning's tools to ensure fairness:
 
 🎓 **Недообучение** и **переобучение** — распространённые проблемы, ухудшающие качество модели, когда модель либо недостаточно хорошо, либо слишком хорошо подгоняется под обучающие данные. Переобученная модель слишком точно повторяет детали и шум обучающих данных. Недообученная модель не способна точно анализировать ни обучающие данные, ни новые данные.
 
-![overfitting model](ms-assets/ml/overfitting.1c132d92bfd93cb6.webp)
+![overfitting model](ms-assets/redrawn/overfitting.ru.svg)
 > Инфографика от [Jen Looper](https://twitter.com/jenlooper)`),
     ]),
     T("Настройка параметров", [
@@ -870,7 +869,7 @@ In the context of machine learning, model fitting refers to the accuracy of the 
 
 🎓 **Underfitting** and **overfitting** are common problems that degrade the quality of the model, as the model fits either not well enough or too well. This causes the model to make predictions either too closely aligned or too loosely aligned with its training data. An overfit model predicts training data too well because it has learned the data's details and noise too well. An underfit model is not accurate as it can neither accurately analyze its training data nor data it has not yet 'seen'.
 
-![overfitting model](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/1-Introduction/4-techniques-of-ML/images/overfitting.png)
+![overfitting model](ms-assets/redrawn/overfitting.svg)
 > Infographic by [Jen Looper](https://twitter.com/jenlooper)`),
     ]),
     T("Parameter tuning", [
@@ -896,9 +895,7 @@ In these lessons, you will discover how to use these steps to prepare, build, te
 COURSE.ML2 = [
   L({"ru":"Начинаем работу с Python и Scikit-learn для регрессионных моделей","en":"Get started with Python and Scikit-learn for regression models"}, 15, {ru:[["Исходный урок (Microsoft, MIT)", "https://github.com/microsoft/ML-For-Beginners/blob/main/translations/ru/2-Regression/1-Tools"], ["Учебник ML (ШАД): обучение с учителем", "https://contest.yandex.ru/tracks/ml/supervised-learning/introduction"], ["Учебник ML (ШАД): смещение и разброс", "https://contest.yandex.ru/tracks/ml/machine-learning-theory/bias-variance-decomposition"], ["Математика для анализа данных: линейная алгебра", "https://contest.yandex.ru/tracks/math/linear-algebra/chapter-overview"], ["Математика для анализа данных: градиенты и оптимизация", "https://contest.yandex.ru/tracks/math/mathematical-analysis/chapter-overview"]],en:[["Original lesson (Microsoft, MIT)", "https://github.com/microsoft/ML-For-Beginners/blob/main/2-Regression/1-Tools"], ["Yandex ML handbook (RU): supervised learning", "https://contest.yandex.ru/tracks/ml/supervised-learning/introduction"], ["Yandex ML handbook (RU): bias and variance", "https://contest.yandex.ru/tracks/ml/machine-learning-theory/bias-variance-decomposition"], ["Yandex math handbook (RU): linear algebra", "https://contest.yandex.ru/tracks/math/linear-algebra/chapter-overview"], ["Yandex math handbook (RU): gradients and optimization", "https://contest.yandex.ru/tracks/math/mathematical-analysis/chapter-overview"]]}, {ru:[
     T("Введение", [
-      md(`![Сводка регрессий в скетчноуте](ms-assets/ml/ml-regression.4e4f70e3b3ed446e.webp)
-
-> Скетчноут от [Tomomi Imura](https://www.twitter.com/girlie_mac)
+      md(`> Скетчноут от [Tomomi Imura](https://www.twitter.com/girlie_mac)
 
 
 > ### [Этот урок доступен на R!](https://github.com/microsoft/ML-For-Beginners/blob/main/translations/ru/2-Regression/1-Tools/solution/R/lesson_1.html)
@@ -1305,7 +1302,7 @@ Read more about the concept of regression and think about what kinds of question
   ]}),
   L({"ru":"Построение регрессионной модели с использованием Scikit-learn: подготовка и визуализация данных","en":"Build a regression model using Scikit-learn: prepare and visualize data"}, 19, {ru:[["Исходный урок (Microsoft, MIT)", "https://github.com/microsoft/ML-For-Beginners/blob/main/translations/ru/2-Regression/2-Data"], ["Учебник ML (ШАД): обучение с учителем", "https://contest.yandex.ru/tracks/ml/supervised-learning/introduction"], ["Учебник ML (ШАД): смещение и разброс", "https://contest.yandex.ru/tracks/ml/machine-learning-theory/bias-variance-decomposition"], ["Математика для анализа данных: линейная алгебра", "https://contest.yandex.ru/tracks/math/linear-algebra/chapter-overview"], ["Математика для анализа данных: градиенты и оптимизация", "https://contest.yandex.ru/tracks/math/mathematical-analysis/chapter-overview"]],en:[["Original lesson (Microsoft, MIT)", "https://github.com/microsoft/ML-For-Beginners/blob/main/2-Regression/2-Data"], ["Yandex ML handbook (RU): supervised learning", "https://contest.yandex.ru/tracks/ml/supervised-learning/introduction"], ["Yandex ML handbook (RU): bias and variance", "https://contest.yandex.ru/tracks/ml/machine-learning-theory/bias-variance-decomposition"], ["Yandex math handbook (RU): linear algebra", "https://contest.yandex.ru/tracks/math/linear-algebra/chapter-overview"], ["Yandex math handbook (RU): gradients and optimization", "https://contest.yandex.ru/tracks/math/mathematical-analysis/chapter-overview"]]}, {ru:[
     T("Введение", [
-      md(`![Инфографика визуализации данных](ms-assets/ml/data-visualization.54e56dded7c1a804.webp)
+      md(`![Инфографика визуализации данных](ms-assets/redrawn/data-visualization.ru.svg)
 
 Инфографика от [Dasani Madipalli](https://twitter.com/dasani_decoded)
 
@@ -1572,7 +1569,7 @@ Read more about the concept of regression and think about what kinds of question
     ]),
     ],en:[
     T("Introduction", [
-      md(`![Data visualization infographic](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/2-Regression/2-Data/images/data-visualization.png)
+      md(`![Data visualization infographic](ms-assets/redrawn/data-visualization.svg)
 
 Infographic by [Dasani Madipalli](https://twitter.com/dasani_decoded)
 
@@ -1834,7 +1831,7 @@ A common workflow is to reach for Seaborn to explore your data quickly, then dro
 Она работает, находя прямую линию, которая лучше всего отражает зависимость между входными признаками и выходным значением.
 
 В этом уроке мы сосредоточимся на понимании концепции, прежде чем изучать более продвинутые методы регрессии.
-![Инфографика линейной и полиномиальной регрессии](ms-assets/ml/linear-polynomial.5523c7cb6576ccab.webp)
+![Инфографика линейной и полиномиальной регрессии](ms-assets/redrawn/linear-polynomial.ru.svg)
 > Инфографика от [Dasani Madipalli](https://twitter.com/dasani_decoded)
 
 > ### [Этот урок доступен на R!](https://github.com/microsoft/ML-For-Beginners/blob/main/translations/ru/2-Regression/3-Linear/solution/R/lesson_3.html)
@@ -1892,13 +1889,13 @@ A common workflow is to reach for Seaborn to explore your data quickly, then dro
 >
 > \`X\` — это «объясняющая переменная». \`Y\` — «зависимая переменная». Наклон линии обозначен как \`b\`, а \`a\` — это y-перехват, то есть значение \`Y\` при \`X = 0\`.
 >
->![вычисление наклона](ms-assets/ml/slope.f3c9d5910ddbfcf9.webp)
+>![вычисление наклона](ms-assets/redrawn/slope.ru.svg)
 >
 > Сначала вычислите наклон \`b\`. Инфографика от [Jen Looper](https://twitter.com/jenlooper)
 >
 > Другими словами, и ссылаясь на исходный вопрос нашего набора данных о тыквах: "предсказать цену тыквы за бушель по месяцу", \`X\` будет означать месяц, а \`Y\` — цену.
 >
->![завершение уравнения](ms-assets/ml/calculation.a209813050a1ddb1.webp)
+>![завершение уравнения](ms-assets/redrawn/calculation.svg)
 >
 > Вычислите значение Y. Если вы платите около $4, должно быть, сейчас апрель! Инфографика от [Jen Looper](https://twitter.com/jenlooper)
 >
@@ -2211,7 +2208,7 @@ print('Model determination: ', score)
 It works by finding a straight line that best represents the relationship between input features and the output.
 
 In this lesson, we focus on understanding the concept before exploring more advanced regression techniques.
-![Linear vs polynomial regression infographic](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/2-Regression/3-Linear/images/linear-polynomial.png)
+![Linear vs polynomial regression infographic](ms-assets/redrawn/linear-polynomial.svg)
 > Infographic by [Dasani Madipalli](https://twitter.com/dasani_decoded)
 
 > ### [This lesson is available in R!](https://github.com/microsoft/ML-For-Beginners/blob/main/2-Regression/3-Linear/solution/R/lesson_3.html)`),
@@ -2268,13 +2265,13 @@ We then add all these squared values together. Our goal is to find the specific 
 >
 > \`X\` is the 'explanatory variable'. \`Y\` is the 'dependent variable'. The slope of the line is \`b\` and \`a\` is the y-intercept, which refers to the value of \`Y\` when \`X = 0\`. 
 >
->![calculate the slope](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/2-Regression/3-Linear/images/slope.png)
+>![calculate the slope](ms-assets/redrawn/slope.svg)
 >
 > First, calculate the slope \`b\`. Infographic by [Jen Looper](https://twitter.com/jenlooper)
 >
 > In other words, and referring to our pumpkin data's original question: "predict the price of a pumpkin per bushel by month", \`X\` would refer to the price and \`Y\` would refer to the month of sale. 
 >
->![complete the equation](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/2-Regression/3-Linear/images/calculation.png)
+>![complete the equation](ms-assets/redrawn/calculation.svg)
 >
 > Calculate the value of Y. If you're paying around $4, it must be April! Infographic by [Jen Looper](https://twitter.com/jenlooper)
 >
@@ -2584,7 +2581,7 @@ This should give us the best determination coefficient of almost 97%, and RMSE=2
   ]}),
   L({"ru":"Логистическая регрессия для предсказания категорий","en":"Logistic regression to predict categories"}, 24, {ru:[["Исходный урок (Microsoft, MIT)", "https://github.com/microsoft/ML-For-Beginners/blob/main/translations/ru/2-Regression/4-Logistic"], ["Учебник ML (ШАД): обучение с учителем", "https://contest.yandex.ru/tracks/ml/supervised-learning/introduction"], ["Учебник ML (ШАД): смещение и разброс", "https://contest.yandex.ru/tracks/ml/machine-learning-theory/bias-variance-decomposition"], ["Математика для анализа данных: линейная алгебра", "https://contest.yandex.ru/tracks/math/linear-algebra/chapter-overview"], ["Математика для анализа данных: градиенты и оптимизация", "https://contest.yandex.ru/tracks/math/mathematical-analysis/chapter-overview"]],en:[["Original lesson (Microsoft, MIT)", "https://github.com/microsoft/ML-For-Beginners/blob/main/2-Regression/4-Logistic"], ["Yandex ML handbook (RU): supervised learning", "https://contest.yandex.ru/tracks/ml/supervised-learning/introduction"], ["Yandex ML handbook (RU): bias and variance", "https://contest.yandex.ru/tracks/ml/machine-learning-theory/bias-variance-decomposition"], ["Yandex math handbook (RU): linear algebra", "https://contest.yandex.ru/tracks/math/linear-algebra/chapter-overview"], ["Yandex math handbook (RU): gradients and optimization", "https://contest.yandex.ru/tracks/math/mathematical-analysis/chapter-overview"]]}, {ru:[
     T("Введение", [
-      md(`![Инфографика: Логистическая vs. линейная регрессия](ms-assets/ml/2-Regression/4-Logistic/images/linear-vs-logistic.png)
+      md(`![Инфографика: Логистическая vs. линейная регрессия](ms-assets/redrawn/linear-vs-logistic.ru.svg)
 
 
 > ### [Этот урок доступен на R!](https://github.com/microsoft/ML-For-Beginners/blob/main/translations/ru/2-Regression/4-Logistic/solution/R/lesson_4.html)
@@ -2618,7 +2615,7 @@ This should give us the best determination coefficient of almost 97%, and RMSE=2
 
 Логистическая регрессия не предоставляет тех же возможностей, что и линейная регрессия. Первая предсказывает бинарную категорию ("белая или не белая"), тогда как вторая способна предсказывать непрерывные значения, например, исходя из происхождения тыквы и времени сбора урожая, _насколько вырастет ее цена_.
 
-![Модель классификации тыкв](ms-assets/ml/2-Regression/4-Logistic/images/pumpkin-classifier.png)
+![Модель классификации тыкв](ms-assets/redrawn/pumpkin-classifier.ru.svg)
 > Инфографика от [Dasani Madipalli](https://twitter.com/dasani_decoded)
 
 ### Другие классификации
@@ -2628,7 +2625,7 @@ This should give us the best determination coefficient of almost 97%, and RMSE=2
 - **Мультиномиальная**, которая включает более одной категории - "Оранжевая, Белая и Полосатая".
 - **Порядковая**, которая включает упорядоченные категории, полезные, если мы хотим логически упорядочить результаты, например, наши тыквы, упорядоченные по конечному числу размеров (мини, маленькая, средняя, большая, очень большая, гигантская).
 
-![Мультиномиальная vs порядковая регрессия](ms-assets/ml/2-Regression/4-Logistic/images/multinomial-vs-ordinal.png)
+![Мультиномиальная vs порядковая регрессия](ms-assets/redrawn/multinomial-vs-ordinal.ru.svg)
 
 ### Переменные НЕ обязаны коррелировать
 
@@ -2957,7 +2954,7 @@ print(auc)
     ]),
     ],en:[
     T("Introduction", [
-      md(`![Logistic vs. linear regression infographic](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/2-Regression/4-Logistic/images/linear-vs-logistic.png)
+      md(`![Logistic vs. linear regression infographic](ms-assets/redrawn/linear-vs-logistic.svg)
 
 
 > ### [This lesson is available in R!](https://github.com/microsoft/ML-For-Beginners/blob/main/2-Regression/4-Logistic/solution/R/lesson_4.html)
@@ -2991,7 +2988,7 @@ Let's build a logistic regression model to predict that, given some variables, _
     T("Binary classification", [
       md(`Logistic regression does not offer the same features as linear regression. The former offers a prediction about a binary category ("white or not white") whereas the latter is capable of predicting continual values, for example given the origin of a pumpkin and the time of harvest, _how much its price will rise_.
 
-![Pumpkin classification Model](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/2-Regression/4-Logistic/images/pumpkin-classifier.png)
+![Pumpkin classification Model](ms-assets/redrawn/pumpkin-classifier.svg)
 > Infographic by [Dasani Madipalli](https://twitter.com/dasani_decoded)`),
     ]),
     T("Other classifications", [
@@ -3000,7 +2997,7 @@ Let's build a logistic regression model to predict that, given some variables, _
 - **Multinomial**, which involves having more than one category - "Orange, White, and Striped".
 - **Ordinal**, which involves ordered categories, useful if we wanted to order our outcomes logically, like our pumpkins that are ordered by a finite number of sizes (mini,sm,med,lg,xl,xxl).
 
-![Multinomial vs ordinal regression](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/2-Regression/4-Logistic/images/multinomial-vs-ordinal.png)`),
+![Multinomial vs ordinal regression](ms-assets/redrawn/multinomial-vs-ordinal.svg)`),
     ]),
     T("Variables DO NOT have to correlate", [
       md(`Remember how linear regression worked better with more correlated variables? Logistic regression is the opposite - the variables don't have to align. That works for this data which has somewhat weak correlations.`),
@@ -6115,7 +6112,7 @@ COURSE.ML5 = [
 >
 > «Гладкая» здесь означает евклидову геометрию (часть которой изучается как «плоская» геометрия), а негладкая — это неевклидова геометрия. Как это связано с машинным обучением? Поскольку обе области основаны на математике, нужен общий способ измерения расстояния между точками в кластерах, который может быть «гладким» или «негладким» в зависимости от данных. [Евклидовы расстояния](https://wikipedia.org/wiki/Euclidean_distance) измеряются как длина отрезка между двумя точками. [Неевклидовы расстояния](https://wikipedia.org/wiki/Non-Euclidean_geometry) измеряются по кривой. Если визуализированные данные выглядят как не лежащие на плоскости, может потребоваться специализированный алгоритм.
 >
-![Инфографика: Гладкая vs. Негладкая геометрия](ms-assets/ml/flat-nonflat.d1c8c6e2a96110c1.webp)
+![Инфографика: Гладкая vs. Негладкая геометрия](ms-assets/redrawn/flat-nonflat.ru.svg)
 > Инфографика от [Dasani Madipalli](https://twitter.com/dasani_decoded)
 > 
 > 🎓 ['Расстояния'](https://web.stanford.edu/class/cs345a/slides/12-clustering.pdf)
@@ -6137,12 +6134,12 @@ COURSE.ML5 = [
 
 - **Иерархическая кластеризация**. Если объект классифицируется по близости к соседнему объекту, а не к более удалённому, кластеры формируются на основе расстояний между их членами и другими объектами. Агломеративная кластеризация Scikit-learn является иерархической.
 
-   ![Инфографика иерархической кластеризации](ms-assets/ml/hierarchical.bf59403aa43c8c47.webp)
+   ![Инфографика иерархической кластеризации](ms-assets/redrawn/hierarchical.svg)
    > Инфографика от [Dasani Madipalli](https://twitter.com/dasani_decoded)
 
 - **Кластеризация по центроиду**. Этот популярный алгоритм требует выбора 'k', то есть числа кластеров, после чего алгоритм определяет центральную точку кластера и собирает данные вокруг неё. [K-means кластеризация](https://wikipedia.org/wiki/K-means_clustering) — популярный вариант кластеризации по центроиду. Центр определяется ближайшим средним, отсюда и название. Квадрат расстояния от кластера минимизируется.
 
-   ![Инфографика кластеризации по центроиду](ms-assets/ml/centroid.097fde836cf6c918.webp)
+   ![Инфографика кластеризации по центроиду](ms-assets/redrawn/centroid.ru.svg)
    > Инфографика от [Dasani Madipalli](https://twitter.com/dasani_decoded)
 
 - **Кластеризация на основе распределения**. Основана на статистическом моделировании, где определяют вероятность принадлежности точки данных к кластеру и присваивают её соответственно. К этому типу относятся методы на основе гауссовских смесей.
@@ -6431,7 +6428,7 @@ Deepen your understanding of clustering techniques in this [Learn module](https:
 >
 >'Flat' in this context refers to Euclidean geometry (parts of which are taught as 'plane' geometry), and non-flat refers to non-Euclidean geometry. What does geometry have to do with machine learning? Well, as two fields that are rooted in mathematics, there must be a common way to measure distances between points in clusters, and that can be done in a 'flat' or 'non-flat' way, depending on the nature of the data. [Euclidean distances](https://wikipedia.org/wiki/Euclidean_distance) are measured as the length of a line segment between two points. [Non-Euclidean distances](https://wikipedia.org/wiki/Non-Euclidean_geometry) are measured along a curve. If your data, visualized, seems to not exist on a plane, you might need to use a specialized algorithm to handle it.
 >
-![Flat vs Nonflat Geometry Infographic](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/5-Clustering/1-Visualize/images/flat-nonflat.png)
+![Flat vs Nonflat Geometry Infographic](ms-assets/redrawn/flat-nonflat.svg)
 > Infographic by [Dasani Madipalli](https://twitter.com/dasani_decoded)
 > 
 > 🎓 ['Distances'](https://web.stanford.edu/class/cs345a/slides/12-clustering.pdf)
@@ -6453,12 +6450,12 @@ Deepen your understanding of clustering techniques in this [Learn module](https:
 
 - **Hierarchical clustering**. If an object is classified by its proximity to a nearby object, rather than to one farther away, clusters are formed based on their members' distance to and from other objects. Scikit-learn's agglomerative clustering is hierarchical.
 
-   ![Hierarchical clustering Infographic](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/5-Clustering/1-Visualize/images/hierarchical.png)
+   ![Hierarchical clustering Infographic](ms-assets/redrawn/hierarchical.svg)
    > Infographic by [Dasani Madipalli](https://twitter.com/dasani_decoded)
 
 - **Centroid clustering**. This popular algorithm requires the choice of 'k', or the number of clusters to form, after which the algorithm determines the center point of a cluster and gathers data around that point. [K-means clustering](https://wikipedia.org/wiki/K-means_clustering) is a popular version of centroid clustering. The center is determined by the nearest mean, thus the name. The squared distance from the cluster is minimized.
 
-   ![Centroid clustering Infographic](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/5-Clustering/1-Visualize/images/centroid.png)
+   ![Centroid clustering Infographic](ms-assets/redrawn/centroid.svg)
    > Infographic by [Dasani Madipalli](https://twitter.com/dasani_decoded)
 
 - **Distribution-based clustering**. Based in statistical modeling, distribution-based clustering centers on determining the probability that a data point belongs to a cluster, and assigning it accordingly. Gaussian mixture methods belong to this type.
@@ -7179,7 +7176,7 @@ COURSE.ML6 = [
 
 Если вы когда-либо диктовали текст своему телефону вместо того, чтобы печатать, или задавали вопрос виртуальному помощнику, ваша речь была преобразована в текстовую форму, а затем обработана или *проанализирована* на языке, на котором вы говорили. Обнаруженные ключевые слова затем были обработаны в формате, который телефон или помощник могли понять и использовать.
 
-![понимание](ms-assets/ml/6-NLP/1-Introduction-to-NLP/images/comprehension.png)
+
 > Настоящее лингвистическое понимание — это сложно! Изображение от [Jen Looper](https://twitter.com/jenlooper)
 
 ### Как эта технология стала возможной?
@@ -7326,7 +7323,7 @@ You will learn about:
     T("Example - phone dictation", [
       md(`If you have ever dictated to your phone instead of typing or asked a virtual assistant a question, your speech was converted into a text form and then processed or *parsed* from the language you spoke. The detected keywords were then processed into a format that the phone or assistant could understand and act on.
 
-![comprehension](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/6-NLP/1-Introduction-to-NLP/images/comprehension.png)
+
 > Real linguistic comprehension is hard! Image by [Jen Looper](https://twitter.com/jenlooper)`),
     ]),
     T("How is this technology made possible?", [
@@ -7463,14 +7460,14 @@ In the next lesson, you'll learn about a number of other approaches to parsing n
 
 Вероятно, первое, что делают большинство алгоритмов обработки естественного языка, — это разбивают текст на токены или слова. Хотя это звучит просто, необходимость учитывать пунктуацию и разделители слов и предложений в разных языках может усложнить задачу. Возможно, вам придется использовать различные методы для определения границ.
 
-![токенизация](ms-assets/ml/6-NLP/2-Tasks/images/tokenization.png)
+![токенизация](ms-assets/redrawn/tokenization.ru.svg)
 > Токенизация предложения из **Гордости и предубеждения**. Инфографика от [Jen Looper](https://twitter.com/jenlooper)
 
 ### Встраивание слов (Embeddings)
 
 [Встраивание слов](https://wikipedia.org/wiki/Word_embedding) — это способ численного представления текстовых данных. Встраивание выполняется таким образом, чтобы слова с похожим значением или слова, которые часто используются вместе, группировались рядом.
 
-![встраивание слов](ms-assets/ml/6-NLP/2-Tasks/images/embedding.png)
+![встраивание слов](ms-assets/redrawn/embedding.ru.svg)
 > "Я испытываю величайшее уважение к вашим нервам, они мои старые друзья." - Встраивание слов для предложения из **Гордости и предубеждения**. Инфографика от [Jen Looper](https://twitter.com/jenlooper)
 
 ✅ Попробуйте [этот интересный инструмент](https://projector.tensorflow.org/) для экспериментов с встраиванием слов. Нажатие на одно слово показывает кластеры похожих слов: 'toy' группируется с 'disney', 'lego', 'playstation' и 'console'.
@@ -7479,7 +7476,7 @@ In the next lesson, you'll learn about a number of other approaches to parsing n
 
 Каждое токенизированное слово может быть помечено как часть речи — существительное, глагол или прилагательное. Например, предложение \`the quick red fox jumped over the lazy brown dog\` может быть размечено как fox = существительное, jumped = глагол.
 
-![разбор](ms-assets/ml/6-NLP/2-Tasks/images/parse.png)
+![разбор](ms-assets/redrawn/parse.svg)
 
 > Разбор предложения из **Гордости и предубеждения**. Инфографика от [Jen Looper](https://twitter.com/jenlooper)
 
@@ -7529,7 +7526,7 @@ He travels the fastest who travels alone.
 7.   the quick red fox jumped over <u>**the lazy brown**</u> dog  
 8.   the quick red fox jumped over the **<u>lazy brown dog</u>**  
 
-![скользящее окно n-грамм](ms-assets/ml/6-NLP/2-Tasks/images/n-grams.gif)
+![скользящее окно n-грамм](ms-assets/redrawn/n-grams.ru.svg)
 
 > Значение n-граммы = 3: Инфографика от [Jen Looper](https://twitter.com/jenlooper)
 
@@ -7669,13 +7666,13 @@ Let's discover common techniques used in processing text. Combined with machine 
     T("Tokenization", [
       md(`Probably the first thing most NLP algorithms have to do is to split the text into tokens, or words. While this sounds simple, having to account for punctuation and different languages' word and sentence delimiters can make it tricky. You might have to use various methods to determine demarcations.
 
-![tokenization](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/6-NLP/2-Tasks/images/tokenization.png)
+![tokenization](ms-assets/redrawn/tokenization.svg)
 > Tokenizing a sentence from **Pride and Prejudice**. Infographic by [Jen Looper](https://twitter.com/jenlooper)`),
     ]),
     T("Embeddings", [
       md(`[Word embeddings](https://wikipedia.org/wiki/Word_embedding) are a way to convert your text data numerically. Embeddings are done in a way so that words with a similar meaning or words used together cluster together.
 
-![word embeddings](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/6-NLP/2-Tasks/images/embedding.png)
+![word embeddings](ms-assets/redrawn/embedding.svg)
 > "I have the highest respect for your nerves, they are my old friends." - Word embeddings for a sentence in **Pride and Prejudice**. Infographic by [Jen Looper](https://twitter.com/jenlooper)
 
 ✅ Try [this interesting tool](https://projector.tensorflow.org/) to experiment with word embeddings. Clicking on one word shows clusters of similar words: 'toy' clusters with 'disney', 'lego', 'playstation', and 'console'.`),
@@ -7683,7 +7680,7 @@ Let's discover common techniques used in processing text. Combined with machine 
     T("Parsing & Part-of-speech Tagging", [
       md(`Every word that has been tokenized can be tagged as a part of speech - a noun, verb, or adjective. The sentence \`the quick red fox jumped over the lazy brown dog\` might be POS tagged as fox = noun, jumped = verb.
 
-![parsing](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/6-NLP/2-Tasks/images/parse.png)
+![parsing](ms-assets/redrawn/parse.svg)
 
 > Parsing a sentence from **Pride and Prejudice**. Infographic by [Jen Looper](https://twitter.com/jenlooper)
 
@@ -7731,7 +7728,7 @@ It might be easier to visualize it as a sliding box over the sentence. Here it i
 7.   the quick red fox jumped over <u>**the lazy brown**</u> dog
 8.   the quick red fox jumped over the **<u>lazy brown dog</u>**
 
-![n-grams sliding window](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/6-NLP/2-Tasks/images/n-grams.gif)
+![n-grams sliding window](ms-assets/redrawn/n-grams.svg)
 
 > N-gram value of 3: Infographic by [Jen Looper](https://twitter.com/jenlooper)`),
     ]),
@@ -7899,7 +7896,7 @@ Implement the bot in the prior knowledge check and test it on a friend. Can it t
 
 Например, английская фраза \`I have no money\`, переведенная дословно на французский, может стать \`Je n'ai pas de monnaie\`. "Monnaie" — это сложный французский "ложный друг", так как "money" и "monnaie" не являются синонимами. Лучший перевод, который мог бы сделать человек, был бы \`Je n'ai pas d'argent\`, так как он лучше передает смысл того, что у вас нет денег (а не "мелочи", что является значением "monnaie").
 
-![monnaie](ms-assets/ml/6-NLP/3-Translation-Sentiment/images/monnaie.png)
+![monnaie](ms-assets/redrawn/monnaie.ru.svg)
 
 > Изображение от [Jen Looper](https://twitter.com/jenlooper)
 
@@ -8073,7 +8070,7 @@ For instance, consider the case of *Pride and Prejudice*, a well-known English n
 
 For instance, when an English phrase such as \`I have no money\` is translated literally to French, it might become \`Je n'ai pas de monnaie\`. "Monnaie" is a tricky french 'false cognate', as 'money' and 'monnaie' are not synonymous. A better translation that a human might make would be \`Je n'ai pas d'argent\`, because it better conveys the meaning that you have no money (rather than 'loose change' which is the meaning of 'monnaie').
 
-![monnaie](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/6-NLP/3-Translation-Sentiment/images/monnaie.png)
+![monnaie](ms-assets/redrawn/monnaie.svg)
 
 > Image by [Jen Looper](https://twitter.com/jenlooper)
 
@@ -11564,8 +11561,7 @@ MAPE:  2.0572089029888656 %
 COURSE.ML8 = [
   L({"ru":"Введение в обучение с подкреплением и Q-обучение","en":"Introduction to Reinforcement Learning and Q-Learning"}, 24, {ru:[["Исходный урок (Microsoft, MIT)", "https://github.com/microsoft/ML-For-Beginners/blob/main/translations/ru/8-Reinforcement/1-QLearning"], ["Учебник ML (ШАД): обучение с подкреплением", "https://contest.yandex.ru/tracks/ml/environment-interaction/reinforcement-learning"]],en:[["Original lesson (Microsoft, MIT)", "https://github.com/microsoft/ML-For-Beginners/blob/main/8-Reinforcement/1-QLearning"], ["Yandex ML handbook (RU): reinforcement learning", "https://contest.yandex.ru/tracks/ml/environment-interaction/reinforcement-learning"]]}, {ru:[
     T("Введение", [
-      md(`![Краткое содержание обучения с подкреплением в машинном обучении в виде скетчноута](ms-assets/ml/ml-reinforcement.94024374d63348db.webp)
-> Скетчноут от [Tomomi Imura](https://www.twitter.com/girlie_mac)
+      md(`> Скетчноут от [Tomomi Imura](https://www.twitter.com/girlie_mac)
 
 Обучение с подкреплением включает три важных понятия: агент, некоторые состояния и набор действий для каждого состояния. Выполняя действие в заданном состоянии, агент получает награду. Снова представьте себе компьютерную игру Super Mario. Вы — Марио, вы на уровне игры, стоите рядом с краем обрыва. Над вами монета. Вы — Марио, на уровне игры, в конкретной позиции ... это ваше состояние. Сделать шаг вправо (действие) приведёт к тому, что вы упадёте с обрыва, и получите низкий числовой балл. Однако нажатие кнопки прыжка позволит вам заработать очко и остаться в живых. Это положительный исход, и за него вам должна быть присуждена положительная числовая награда.
 
@@ -13083,7 +13079,7 @@ For example, the Art Institute of Chicago built models to predict what audiences
     T("Предварительные требования", [
       md(`Перед началом ознакомьтесь с [инструментами ответственного ИИ для разработчиков](https://www.microsoft.com/ai/ai-lab-responsible-ai-dashboard).
 
-> ![Gif об инструментах ответственного ИИ](ms-assets/ml/9-Real-World/2-Debugging-ML-Models/images/rai-overview.gif)`),
+>`),
     ]),
     T("Анализ ошибок", [
       md(`Традиционные метрики производительности модели, используемые для измерения точности, в основном основаны на расчетах правильных и неправильных предсказаний. Например, определение того, что модель точна на 89% с потерей ошибки 0.001, может считаться хорошим результатом. Однако ошибки часто распределены неравномерно в вашем исходном наборе данных. Вы можете получить показатель точности модели 89%, но обнаружить, что в некоторых областях данных модель ошибается в 42% случаев. Последствия таких паттернов ошибок для определенных групп данных могут привести к проблемам справедливости или надежности. Важно понимать области, где модель работает хорошо или плохо. Области данных с высоким количеством ошибок могут оказаться важными демографическими группами.
@@ -13235,7 +13231,7 @@ In this lesson, you will learn about debugging your models using:
     T("Prerequisite", [
       md(`As a prerequisite, please take the review [Responsible AI tools for developers](https://www.microsoft.com/ai/ai-lab-responsible-ai-dashboard)
 
-> ![Gif on Responsible AI Tools](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/main/9-Real-World/2-Debugging-ML-Models/images/rai-overview.gif)`),
+>`),
     ]),
     T("Error Analysis", [
       md(`Traditional model performance metrics used for measuring accuracy are mostly calculations based on correct vs incorrect predictions. For example, determining that a model is accurate 89% of time with an error loss of 0.001 can be considered a good performance. Errors are often not distributed uniformly in your underlying dataset. You may get an 89% model accuracy score but discover that there are different regions of your data for which the model is failing 42% of the time. The consequence of these failure patterns with certain data groups can lead to fairness or reliability issues. It is essential to understand areas where the model is performing well or not. The data regions where there are a high number of inaccuracies in your model may turn out to be an important data demographic.  

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="Onest, 'Segoe UI', system-ui, Arial, sans-serif">
+  <rect width="640" height="360" rx="18" fill="#ffffff" stroke="#e7e7ea" stroke-width="1.5"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#141414"/>
+    </marker>
+  </defs>
+
+  <text x="320" y="37" text-anchor="middle" font-size="18" font-weight="600" fill="#141414">Бинарная классификация</text>
+
+  <!-- decision regions -->
+  <path d="M90 76L600 76V112C430 122 350 158 300 195C250 232 170 250 90 250Z" fill="#ffe8e6"/>
+  <path d="M90 250C170 250 250 232 300 195C350 158 430 122 600 112V294H90Z" fill="#eef1fd"/>
+
+  <!-- axes -->
+  <path d="M90 295V75" fill="none" stroke="#141414" stroke-width="2" stroke-linecap="round" marker-end="url(#arr)"/>
+  <path d="M90 295H600" fill="none" stroke="#141414" stroke-width="2" stroke-linecap="round" marker-end="url(#arr)"/>
+  <text x="82" y="299" text-anchor="end" font-size="12" fill="#4f4f58">0</text>
+  <text x="82" y="79" text-anchor="end" font-size="12" fill="#4f4f58">1</text>
+  <text x="596" y="314" text-anchor="middle" font-size="12" fill="#4f4f58">1</text>
+  <text x="345" y="328" text-anchor="middle" font-size="13" fill="#4f4f58">признак 1</text>
+  <text x="42" y="185" text-anchor="middle" font-size="13" fill="#4f4f58" transform="rotate(-90 42 185)">признак 2</text>
+
+  <!-- decision boundary -->
+  <path d="M90 250C170 250 250 232 300 195C350 158 430 122 600 112" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="515" y="64" text-anchor="middle" font-size="13" fill="#141414">граница решений</text>
+  <path d="M512 70L524 109" fill="none" stroke="#141414" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arr)"/>
+
+  <!-- class 2: above boundary -->
+  <g fill="#c9302c">
+    <circle cx="125" cy="140" r="5.5"/>
+    <circle cx="185" cy="95" r="5.5"/>
+    <circle cx="198" cy="138" r="5.5"/>
+    <circle cx="236" cy="102" r="5.5"/>
+    <circle cx="262" cy="150" r="5.5"/>
+    <circle cx="290" cy="135" r="5.5"/>
+    <circle cx="300" cy="112" r="5.5"/>
+    <circle cx="338" cy="92" r="5.5"/>
+    <circle cx="378" cy="104" r="5.5"/>
+    <circle cx="415" cy="88" r="5.5"/>
+    <circle cx="455" cy="96" r="5.5"/>
+    <circle cx="498" cy="86" r="5.5"/>
+    <circle cx="540" cy="92" r="5.5"/>
+    <circle cx="575" cy="84" r="5.5"/>
+  </g>
+  <!-- class 1: below boundary -->
+  <g fill="#3b5bdb">
+    <circle cx="135" cy="270" r="5.5"/>
+    <circle cx="180" cy="256" r="5.5"/>
+    <circle cx="228" cy="270" r="5.5"/>
+    <circle cx="278" cy="258" r="5.5"/>
+    <circle cx="330" cy="270" r="5.5"/>
+    <circle cx="370" cy="278" r="5.5"/>
+    <circle cx="378" cy="242" r="5.5"/>
+    <circle cx="415" cy="263" r="5.5"/>
+    <circle cx="462" cy="238" r="5.5"/>
+    <circle cx="495" cy="276" r="5.5"/>
+    <circle cx="505" cy="258" r="5.5"/>
+    <circle cx="545" cy="235" r="5.5"/>
+    <circle cx="558" cy="274" r="5.5"/>
+    <circle cx="580" cy="252" r="5.5"/>
+  </g>
+
+  <!-- class labels -->
+  <circle cx="102" cy="92" r="5" fill="#c9302c"/>
+  <text x="114" y="97" font-size="13" fill="#141414">класс 2</text>
+  <circle cx="112" cy="281" r="5" fill="#3b5bdb"/>
+  <text x="124" y="286" font-size="13" fill="#141414">класс 1</text>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="Onest, 'Segoe UI', system-ui, Arial, sans-serif">
+  <rect width="640" height="360" rx="18" fill="#ffffff" stroke="#e7e7ea" stroke-width="1.5"/>
+  <!-- axes -->
+  <path d="M80 300V56M80 300H560" fill="none" stroke="#141414" stroke-width="2" stroke-linecap="round"/>
+  <text x="560" y="330" text-anchor="end" font-size="14" fill="#4f4f58">x</text>
+  <text x="62" y="66" font-size="14" fill="#4f4f58">y</text>
+  <!-- regression line y = mx + b -->
+  <path d="M80 244L540 92" fill="none" stroke="#3b5bdb" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- y-intercept marker -->
+  <circle cx="80" cy="244" r="6" fill="#ffdd2d" stroke="#141414" stroke-width="2"/>
+  <text x="96" y="252" font-size="15" font-weight="600" font-style="italic" fill="#141414">b</text>
+  <!-- rise/run triangle -->
+  <path d="M320 163H420M420 163V129" fill="none" stroke="#1a7f45" stroke-width="2" stroke-dasharray="5 4" stroke-linecap="round"/>
+  <text x="370" y="182" text-anchor="middle" font-size="14" font-style="italic" fill="#1a7f45">run</text>
+  <text x="436" y="150" font-size="14" font-style="italic" fill="#1a7f45">rise</text>
+  <path d="M414 129H426M414 163V129" fill="none" stroke="#1a7f45" stroke-width="1.5"/>
+  <!-- formula -->
+  <text x="480" y="200" text-anchor="middle" font-size="18" font-style="italic" fill="#141414">y = m x + b</text>
+  <text x="480" y="228" text-anchor="middle" font-size="13" fill="#4f4f58">m = rise / run</text>
+</svg>

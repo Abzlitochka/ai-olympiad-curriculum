@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="Onest, 'Segoe UI', system-ui, Arial, sans-serif">
+  <rect width="640" height="360" rx="18" fill="#ffffff" stroke="#e7e7ea" stroke-width="1.5"/>
+  <!-- axes -->
+  <path d="M72 292V72M72 292H452" fill="none" stroke="#141414" stroke-width="2" stroke-linecap="round"/>
+  <text x="452" y="318" text-anchor="end" font-size="14" fill="#4f4f58">x</text>
+  <text x="56" y="84" font-size="14" fill="#4f4f58">y</text>
+  <!-- fitted line -->
+  <path d="M78 258L446 118" fill="none" stroke="#3b5bdb" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- residuals: point to line -->
+  <g stroke="#c9302c" stroke-width="1.5" stroke-dasharray="4 4">
+    <path d="M110 196V241"/>
+    <path d="M166 256V237"/>
+    <path d="M222 160V222"/>
+    <path d="M278 252V206"/>
+    <path d="M334 150V190"/>
+    <path d="M390 226V173"/>
+  </g>
+  <!-- data points -->
+  <g fill="#141414">
+    <circle cx="110" cy="196" r="5"/><circle cx="166" cy="256" r="5"/><circle cx="222" cy="160" r="5"/>
+    <circle cx="278" cy="252" r="5"/><circle cx="334" cy="150" r="5"/><circle cx="390" cy="226" r="5"/>
+  </g>
+  <!-- residual callout -->
+  <path d="M334 150H356M334 150V190" fill="none" stroke="#c9302c" stroke-width="1.5"/>
+  <text x="362" y="146" font-size="14" font-style="italic" fill="#c9302c">residual = y − ŷ</text>
+  <!-- metric card -->
+  <rect x="474" y="120" width="140" height="120" rx="12" fill="#eef1fd"/>
+  <text x="544" y="150" text-anchor="middle" font-size="15" font-weight="600" fill="#3b5bdb">error</text>
+  <text x="544" y="178" text-anchor="middle" font-size="14" font-style="italic" fill="#141414">MAE = Σ|y−ŷ|/n</text>
+  <text x="544" y="206" text-anchor="middle" font-size="14" font-style="italic" fill="#141414">R² = 1 − SSᵣ/SSₜ</text>
+</svg>

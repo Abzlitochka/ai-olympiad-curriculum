@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="Onest, 'Segoe UI', system-ui, Arial, sans-serif">
+  <rect width="640" height="360" rx="18" fill="#ffffff" stroke="#e7e7ea" stroke-width="1.5"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#3b5bdb"/>
+    </marker>
+  </defs>
+
+  <!-- dependency arcs: head -> dependent -->
+  <path d="M310,232 Q236,128 142,230" fill="none" stroke="#3b5bdb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr)"/>
+  <path d="M330,232 Q404,128 498,230" fill="none" stroke="#3b5bdb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr)"/>
+  <text x="231" y="168" font-size="13" fill="#3b5bdb" text-anchor="middle">nsubj</text>
+  <text x="409" y="168" font-size="13" fill="#3b5bdb" text-anchor="middle">dobj</text>
+
+  <!-- root marker -->
+  <text x="320" y="108" font-size="13" fill="#4f4f58" text-anchor="middle">root</text>
+  <line x1="320" y1="120" x2="320" y2="208" stroke="#3b5bdb" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- words -->
+  <text x="140" y="252" font-size="20" fill="#141414" text-anchor="middle">I</text>
+  <text x="320" y="252" font-size="20" font-weight="600" fill="#3b5bdb" text-anchor="middle">eat</text>
+  <text x="500" y="252" font-size="20" fill="#141414" text-anchor="middle">pizza</text>
+
+  <!-- POS tags -->
+  <text x="140" y="282" font-size="12" letter-spacing="1.5" fill="#4f4f58" text-anchor="middle">PRON</text>
+  <text x="320" y="282" font-size="12" letter-spacing="1.5" fill="#4f4f58" text-anchor="middle">VERB</text>
+  <text x="500" y="282" font-size="12" letter-spacing="1.5" fill="#4f4f58" text-anchor="middle">NOUN</text>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="Onest, 'Segoe UI', system-ui, Arial, sans-serif">
+  <rect width="720" height="300" rx="18" fill="#ffffff" stroke="#e7e7ea" stroke-width="1.5"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#3b5bdb"/>
+    </marker>
+  </defs>
+
+  <text x="131" y="48" text-anchor="middle" font-size="15" font-weight="500" fill="#141414">кадр t</text>
+  <text x="365" y="48" text-anchor="middle" font-size="15" font-weight="500" fill="#141414">кадр t+1</text>
+  <text x="599" y="48" text-anchor="middle" font-size="15" font-weight="500" fill="#141414">поле движения</text>
+
+  <!-- frame t -->
+  <rect x="36" y="64" width="190" height="182" rx="12" fill="#ffffff" stroke="#d3d3d8" stroke-width="1.5"/>
+  <line x1="50" y1="212" x2="212" y2="212" stroke="#d3d3d8" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="92" cy="194" r="18" fill="#3b5bdb"/>
+
+  <!-- frame t+1 -->
+  <rect x="270" y="64" width="190" height="182" rx="12" fill="#ffffff" stroke="#d3d3d8" stroke-width="1.5"/>
+  <line x1="284" y1="212" x2="446" y2="212" stroke="#d3d3d8" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="326" cy="194" r="18" fill="none" stroke="#3b5bdb" stroke-width="1.5" stroke-dasharray="5 5" opacity="0.45"/>
+  <circle cx="390" cy="170" r="18" fill="#3b5bdb"/>
+  <line x1="343" y1="188" x2="369" y2="178" stroke="#3b5bdb" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- transitions -->
+  <line x1="232" y1="155" x2="264" y2="155" stroke="#3b5bdb" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="468" y1="155" x2="500" y2="155" stroke="#3b5bdb" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- motion field -->
+  <rect x="504" y="64" width="190" height="182" rx="12" fill="#eef1fd" stroke="#d3d3d8" stroke-width="1.5"/>
+  <g stroke="#3b5bdb" stroke-width="2" stroke-linecap="round">
+    <line x1="534" y1="100" x2="552" y2="92" marker-end="url(#arr)"/>
+    <line x1="576" y1="100" x2="594" y2="92" marker-end="url(#arr)"/>
+    <line x1="618" y1="100" x2="636" y2="92" marker-end="url(#arr)"/>
+    <line x1="660" y1="100" x2="678" y2="92" marker-end="url(#arr)"/>
+    <line x1="534" y1="142" x2="552" y2="134" marker-end="url(#arr)"/>
+    <line x1="576" y1="142" x2="594" y2="134" marker-end="url(#arr)"/>
+    <line x1="618" y1="142" x2="636" y2="134" marker-end="url(#arr)"/>
+    <line x1="660" y1="142" x2="678" y2="134" marker-end="url(#arr)"/>
+    <line x1="534" y1="184" x2="552" y2="176" marker-end="url(#arr)"/>
+    <line x1="576" y1="184" x2="594" y2="176" marker-end="url(#arr)"/>
+    <line x1="618" y1="184" x2="636" y2="176" marker-end="url(#arr)"/>
+    <line x1="660" y1="184" x2="678" y2="176" marker-end="url(#arr)"/>
+    <line x1="534" y1="226" x2="552" y2="218" marker-end="url(#arr)"/>
+    <line x1="576" y1="226" x2="594" y2="218" marker-end="url(#arr)"/>
+    <line x1="618" y1="226" x2="636" y2="218" marker-end="url(#arr)"/>
+    <line x1="660" y1="226" x2="678" y2="218" marker-end="url(#arr)"/>
+  </g>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="Onest, 'Segoe UI', system-ui, Arial, sans-serif">
+  <rect width="640" height="360" rx="18" fill="#ffffff" stroke="#e7e7ea" stroke-width="1.5"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#3b5bdb"/>
+    </marker>
+  </defs>
+
+  <!-- source sentence -->
+  <text x="320" y="110" font-size="18" font-weight="600" fill="#141414" text-anchor="middle">Я очень люблю пиццу!</text>
+  <line x1="320" y1="132" x2="320" y2="168" stroke="#3b5bdb" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- token chips -->
+  <text x="44" y="205" font-size="13" fill="#4f4f58">токены</text>
+
+  <rect x="132" y="182" width="44" height="36" rx="9" fill="#eef1fd"/>
+  <text x="154" y="206" font-size="15" fill="#141414" text-anchor="middle">Я</text>
+  <rect x="188" y="182" width="80" height="36" rx="9" fill="#eef1fd"/>
+  <text x="228" y="206" font-size="15" fill="#141414" text-anchor="middle">очень</text>
+  <rect x="280" y="182" width="80" height="36" rx="9" fill="#eef1fd"/>
+  <text x="320" y="206" font-size="15" fill="#141414" text-anchor="middle">люблю</text>
+  <rect x="372" y="182" width="80" height="36" rx="9" fill="#eef1fd"/>
+  <text x="412" y="206" font-size="15" fill="#141414" text-anchor="middle">пиццу</text>
+  <rect x="464" y="182" width="44" height="36" rx="9" fill="#ebe6ff"/>
+  <text x="486" y="206" font-size="15" fill="#141414" text-anchor="middle">!</text>
+
+  <!-- token indices -->
+  <text x="154" y="248" font-size="12" fill="#4f4f58" text-anchor="middle">1</text>
+  <text x="228" y="248" font-size="12" fill="#4f4f58" text-anchor="middle">2</text>
+  <text x="320" y="248" font-size="12" fill="#4f4f58" text-anchor="middle">3</text>
+  <text x="412" y="248" font-size="12" fill="#4f4f58" text-anchor="middle">4</text>
+  <text x="486" y="248" font-size="12" fill="#4f4f58" text-anchor="middle">5</text>
+</svg>

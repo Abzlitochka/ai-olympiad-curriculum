@@ -6,9 +6,7 @@
 COURSE.MATH1 = [
   L({"ru":"Введение в искусственный интеллект","en":"Introduction to AI"}, 18, {ru:[["Исходный урок (Microsoft, MIT)", "https://github.com/microsoft/AI-For-Beginners/blob/main/translations/ru/lessons/1-Intro"], ["Математика для анализа данных: как читать хендбук", "https://contest.yandex.ru/tracks/math/introduction/why-this-textbook-and-how-to-read-it"]],en:[["Original lesson (Microsoft, MIT)", "https://github.com/microsoft/AI-For-Beginners/blob/main/lessons/1-Intro"], ["Yandex math handbook (RU): how to read the handbook", "https://contest.yandex.ru/tracks/math/introduction/why-this-textbook-and-how-to-read-it"]]}, {ru:[
     T("Введение", [
-      md(`![Резюме содержания введения в ИИ в виде рисунка](ms-assets/ai/ai-intro.bf28d1ac4235881c.webp)
-
-> Рисунок от [Tomomi Imura](https://twitter.com/girlie_mac)
+      md(`> Рисунок от [Tomomi Imura](https://twitter.com/girlie_mac)
 
 
 **Искусственный интеллект** — это увлекательная научная дисциплина, изучающая, как можно заставить компьютеры демонстрировать интеллектуальное поведение, например, выполнять те задачи, в которых люди преуспевают.
@@ -287,9 +285,7 @@ Over the past few years we have witnessed huge successes with large language mod
   ]}),
   L({"ru":"Представление Знаний и Экспертные Системы","en":"Knowledge Representation and Expert Systems"}, 22, {ru:[["Исходный урок (Microsoft, MIT)", "https://github.com/microsoft/AI-For-Beginners/blob/main/translations/ru/lessons/2-Symbolic"], ["Математика для анализа данных: как читать хендбук", "https://contest.yandex.ru/tracks/math/introduction/why-this-textbook-and-how-to-read-it"], ["Математика для анализа данных: теория графов", "https://contest.yandex.ru/tracks/math/graph-theory-introduction/chapter-overview"]],en:[["Original lesson (Microsoft, MIT)", "https://github.com/microsoft/AI-For-Beginners/blob/main/lessons/2-Symbolic"], ["Yandex math handbook (RU): how to read the handbook", "https://contest.yandex.ru/tracks/math/introduction/why-this-textbook-and-how-to-read-it"], ["Yandex math handbook (RU): graph theory", "https://contest.yandex.ru/tracks/math/graph-theory-introduction/chapter-overview"]]}, {ru:[
     T("Введение", [
-      md(`![Резюме содержимого Символического ИИ](ms-assets/ai/ai-symbolic.715a30cb610411a6.webp)
-
-> Набросок от [Tomomi Imura](https://twitter.com/girlie_mac)
+      md(`> Набросок от [Tomomi Imura](https://twitter.com/girlie_mac)
 
 Поиск искусственного интеллекта основан на поиске знаний, чтобы понять мир так же, как это делают люди. Но как можно это сделать?
 
@@ -1031,7 +1027,7 @@ Here's an interesting [article about perceptrons](https://towardsdatascience.com
 
 Обратите внимание, что левая часть всех этих выражений одинакова, и поэтому мы можем эффективно вычислять производные, начиная с функции потерь и двигаясь "назад" по вычислительному графу. Таким образом, метод обучения многослойного перцептрона называется **обратным распространением ошибки** (backpropagation), или просто 'backprop'.
 
-![граф вычислений](ms-assets/ai/ComputeGraphGrad.4626252c0de03507.webp)
+![граф вычислений](ms-assets/redrawn/compute-graph-grad.svg)
 
 > TODO: ссылка на источник изображения
 
@@ -1107,7 +1103,7 @@ The gradient descent algorithm would remain the same, but it would be more diffi
 
 Note that the left-most part of all those expressions is the same, and thus we can effectively calculate derivatives starting from the loss function and going "backwards" through the computational graph. Thus the method of training a multi-layered perceptron is called **backpropagation**, or 'backprop'.
 
-![compute graph](https://raw.githubusercontent.com/microsoft/AI-For-Beginners/main/lessons/3-NeuralNetworks/04-OwnFramework/images/ComputeGraphGrad.png)
+![compute graph](ms-assets/redrawn/compute-graph-grad.svg)
 
 > TODO: image citation
 
@@ -1430,7 +1426,7 @@ im = cv2.cvtColor(im,cv2.COLOR_BGR2RGB)
    - **Плотный оптический поток** вычисляет векторное поле, показывающее, куда перемещается каждый пиксель.
    - **Разреженный оптический поток** основывается на выделении характерных признаков изображения (например, краев) и построении их траектории от кадра к кадру.
 
-![Изображение оптического потока](ms-assets/ai/optical.1f4a94464579a83a.webp)
+![Изображение оптического потока](ms-assets/redrawn/optical.ru.svg)
 
 > Изображение из [OpenCV.ipynb](https://github.com/microsoft/AI-For-Beginners/blob/main/translations/ru/lessons/4-ComputerVision/06-IntroCV/OpenCV.ipynb)`),
     ]),
@@ -1528,7 +1524,7 @@ You can also use OpenCV to load video frame-by-frame - an example is given in th
    - **Dense Optical Flow** computes the vector field that shows for each pixel where is it moving
    - **Sparse Optical Flow** is based on taking some distinctive features in the image (eg. edges), and building their trajectory from frame to frame.
 
-![Image of Optical Flow](https://raw.githubusercontent.com/microsoft/AI-For-Beginners/main/lessons/4-ComputerVision/06-IntroCV/images/optical.png)
+![Image of Optical Flow](ms-assets/redrawn/optical.svg)
 
 > Image from [OpenCV.ipynb](https://github.com/microsoft/AI-For-Beginners/blob/main/lessons/4-ComputerVision/06-IntroCV/OpenCV.ipynb)`),
     ]),
@@ -1678,7 +1674,7 @@ As an example, let's look at the architecture of VGG-16, a network that achieved
 
 Вот пример признаков, извлечённых из изображения кошки сетью VGG-16:
 
-![Признаки, извлечённые VGG-16](ms-assets/ai/features.6291f9c7ba3a0b95.webp)`),
+![Признаки, извлечённые VGG-16](ms-assets/redrawn/features.ru.svg)`),
     ]),
     T("Набор данных \"Кошки против собак\"", [
       md(`В этом примере мы будем использовать набор данных [Кошки и собаки](https://www.microsoft.com/download/details.aspx?id=54765&WT.mc_id=academic-77998-cacaste), который очень близок к реальному сценарию классификации изображений.`),
@@ -1746,7 +1742,7 @@ Both Keras and PyTorch contain functions to easily load pre-trained neural netwo
 
 Here are sample features extracted from a picture of a cat by VGG-16 network:
 
-![Features extracted by VGG-16](https://raw.githubusercontent.com/microsoft/AI-For-Beginners/main/lessons/4-ComputerVision/08-TransferLearning/images/features.png)`),
+![Features extracted by VGG-16](ms-assets/redrawn/features.svg)`),
     ]),
     T("Cats vs. Dogs Dataset", [
       md(`In this example, we will use a dataset of [Cats and Dogs](https://www.microsoft.com/download/details.aspx?id=54765&WT.mc_id=academic-77998-cacaste), which is very close to a real-life image classification scenario.`),

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="Onest, 'Segoe UI', system-ui, Arial, sans-serif">
+  <rect width="640" height="360" rx="18" fill="#ffffff" stroke="#e7e7ea" stroke-width="1.5"/>
+  <!-- titles -->
+  <text x="170" y="52" text-anchor="middle" font-size="17" font-weight="600" fill="#141414">плоская</text>
+  <text x="470" y="52" text-anchor="middle" font-size="17" font-weight="600" fill="#141414">иерархическая</text>
+  <!-- divider -->
+  <path d="M320 74V330" fill="none" stroke="#d3d3d8" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <!-- flat: independent groups -->
+  <ellipse cx="74" cy="200" rx="40" ry="50" fill="#eef1fd" stroke="#3b5bdb" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <ellipse cx="172" cy="200" rx="40" ry="50" fill="#eef1fd" stroke="#3b5bdb" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <ellipse cx="268" cy="200" rx="40" ry="50" fill="#eef1fd" stroke="#3b5bdb" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <g fill="#3b5bdb">
+    <circle cx="58" cy="178" r="4.5"/><circle cx="88" cy="174" r="4.5"/><circle cx="74" cy="200" r="4.5"/><circle cx="54" cy="206" r="4.5"/><circle cx="94" cy="202" r="4.5"/><circle cx="66" cy="226" r="4.5"/><circle cx="88" cy="224" r="4.5"/>
+    <circle cx="156" cy="180" r="4.5"/><circle cx="188" cy="176" r="4.5"/><circle cx="172" cy="200" r="4.5"/><circle cx="150" cy="208" r="4.5"/><circle cx="194" cy="204" r="4.5"/><circle cx="164" cy="226" r="4.5"/><circle cx="186" cy="224" r="4.5"/>
+    <circle cx="252" cy="180" r="4.5"/><circle cx="284" cy="178" r="4.5"/><circle cx="268" cy="202" r="4.5"/><circle cx="246" cy="208" r="4.5"/><circle cx="292" cy="204" r="4.5"/><circle cx="260" cy="226" r="4.5"/><circle cx="282" cy="224" r="4.5"/>
+  </g>
+  <!-- hierarchical: nested merge tree -->
+  <path d="M380 295V270H420V295M400 270V215H480V265M460 265V295M500 265V295M460 265H500M540 295V275H580V295M440 215V150H560V275M500 150V130" fill="none" stroke="#4f4f58" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#4f4f58">
+    <circle cx="400" cy="270" r="3"/><circle cx="480" cy="265" r="3"/><circle cx="560" cy="275" r="3"/><circle cx="440" cy="215" r="3"/><circle cx="500" cy="130" r="4"/>
+  </g>
+  <g fill="#3b5bdb">
+    <circle cx="380" cy="295" r="4.5"/><circle cx="420" cy="295" r="4.5"/><circle cx="460" cy="295" r="4.5"/><circle cx="500" cy="295" r="4.5"/><circle cx="540" cy="295" r="4.5"/><circle cx="580" cy="295" r="4.5"/>
+  </g>
+</svg>

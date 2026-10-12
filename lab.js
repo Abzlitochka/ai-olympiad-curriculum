@@ -9,6 +9,7 @@
    Step-by-step guide for students: guide/jupyterlab.html */
 
 const LAB_KEY = "olympiadai.lab";
+const LAB_LESSON_KEY = "olympiadai.lab.lesson";   // last lesson opened in the lab (survives reloads)
 const LAB_WHEEL = "olympiadai_lab-0.2.0-py3-none-any.whl";   // rewritten by lab-helper/release-to-showcase.sh
 const LAB_POLL_MS = 3000;
 const LAB_PROBE_TIMEOUT_MS = 1500;
@@ -39,6 +40,18 @@ function labSave(port, token) {
 function labClear() {
   lab.cfg = null;
   try { localStorage.removeItem(LAB_KEY); } catch (_) {}
+}
+function labReadLesson() {
+  try {
+    const l = JSON.parse(localStorage.getItem(LAB_LESSON_KEY));
+    return l && l.mod && typeof lessonsOf === "function" && lessonsOf(l.mod)[l.li] ? { mod: l.mod, li: +l.li } : null;
+  } catch (_) { return null; }
+}
+function labSaveLesson() {
+  try {
+    if (lab.lesson) localStorage.setItem(LAB_LESSON_KEY, JSON.stringify(lab.lesson));
+    else localStorage.removeItem(LAB_LESSON_KEY);
+  } catch (_) {}
 }
 
 /* ---------- addresses ---------- */
@@ -150,6 +163,7 @@ async function labConnect() {
 /* entry from the lesson's practice card */
 function labOpenLesson(mod, li) {
   lab.lesson = { mod, li: +li };
+  labSaveLesson();
   if (lab.status === "ok") labConnect(); else labRender();
 }
 window.labOpenLesson = labOpenLesson;
@@ -167,6 +181,7 @@ function labInit() {
     lab.booted = true;
     lab.cfg = labRead();
     lab.os = labDetectOs();
+    if (!lab.lesson) lab.lesson = labReadLesson();   // reload mid-work: reopen the same notebook+tasks
     if (lab.cfg) {
       lab.status = "checking";
       labRender();

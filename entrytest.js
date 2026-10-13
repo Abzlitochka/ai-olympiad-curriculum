@@ -41,10 +41,10 @@
       <div class="et-card">
         <div class="et-top"><span class="db-muted">${e(tf("et.qN", run.i + 1, ENTRY_TEST.length, areaName(q.area)))}</span>
           <div class="progress"><i style="width:${run.i / ENTRY_TEST.length * 100}%"></i></div></div>
-        <h3 class="qt">${imd(loc(q.q))}</h3>
+        <div class="qt" role="heading" aria-level="3">${md(loc(q.q))}</div>
         <div class="opts">${q.options.map((o, oi) =>
           `<button class="opt ${answered ? (oi === q.answer ? "ok" : oi === run.answers[run.i] ? "bad" : "") : ""}" data-opt="${oi}" ${answered ? "disabled" : ""}>${imd(loc(o))}</button>`).join("")}</div>
-        <div class="reveal" ${answered ? "" : "hidden"}><b>${e(t("et.why"))}</b> ${imd(loc(q.explain))}</div>
+        <div class="reveal" ${answered ? "" : "hidden"}><b>${e(t("et.why"))}</b> ${md(loc(q.explain))}</div>
         ${answered ? `<button class="btn btn--primary" data-et="next" style="margin-top:14px">${e(run.i < ENTRY_TEST.length - 1 ? t("et.next") : t("et.results"))}</button>` : ""}
       </div>`;
     if (wasIn) {

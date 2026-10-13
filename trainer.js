@@ -179,8 +179,8 @@
       (isSolved(x.id) ? `<span class="pr-badge ok">${store.gaveUp[x.id] ? e(t("tr.doneSaw")) : e(t("tr.stDone"))}</span>`
         : store.gaveUp[x.id] ? `<span class="pr-badge gaveup">${e(t("tr.sawSol"))}</span>`
         : +store.att[x.id] > 0 ? `<span class="pr-badge">${e(pl(+store.att[x.id], "u.attempt"))}</span>` : "");
-    g("trPrompt").innerHTML = imd(loc(x.prompt));
-    g("trTheoryBody").innerHTML = imd(loc(x.theory) || t("tr.noTheory"));
+    g("trPrompt").innerHTML = md(loc(x.prompt));
+    g("trTheoryBody").innerHTML = md(loc(x.theory) || t("tr.noTheory"));
     g("trHintBox").innerHTML = "";  // rendered lazily on open, after the attempt gate
     setTaskErr("");
     const ed = g("trEditor");
@@ -373,7 +373,7 @@
     const m = g("trHintModal");
     m.hidden = !open;
     if (open) {
-      if (x) g("trHintBox").innerHTML = imd(loc(x.hint) || t("tr.noHint"));
+      if (x) g("trHintBox").innerHTML = md(loc(x.hint) || t("tr.noHint"));
       if (x && !store.hintUsed) store.hintUsed = {};
       if (x && !store.hintUsed[x.id]) { store.hintUsed[x.id] = { at: Date.now(), att: +store.att[x.id] || 0 }; persist(); if (window.ACT) ACT.log("hint"); }
       g("trHintClose").focus();

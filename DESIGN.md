@@ -63,6 +63,11 @@ gradient.
 - Numbers use `font-variant-numeric: tabular-nums` (facts, sprint numbers,
   counters) so they don't jitter.
 - Mono (`--mono`) for code, exercise ids and the install command.
+- The trainer code editor is an IDE-style dark surface (`#16181d`) in both
+  themes: a syntax-highlight overlay (`msHl` dark token palette) sits behind a
+  transparent-text textarea — caret `#9fb2ff`, selection `rgba(159,178,255,.30)`,
+  gutter numbers `#636a76`. Tab indents every selected line, Shift-Tab dedents,
+  Enter auto-indents (extra level after `:`).
 
 ### Shape, space, motion
 

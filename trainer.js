@@ -96,9 +96,9 @@
     }
   }
 
-  /* ---------- editor gutter ---------- */
+  /* ---------- editor gutter + highlight overlay ---------- */
   function syncGutter() {
-    const ed = g("trEditor"), gu = g("trGutter");
+    const ed = g("trEditor"), gu = g("trGutter"), hl = g("trHlCode"), hp = g("trHl");
     if (!ed || !gu) return;
     const n = ed.value.split("\n").length;
     if (+gu.dataset.n !== n) {
@@ -106,6 +106,15 @@
       gu.textContent = Array.from({ length: n }, (_, i) => i + 1).join("\n");
     }
     gu.scrollTop = ed.scrollTop;
+    if (hl && hp && typeof msHl === "function") {
+      const src = ed.value;
+      if (hp.dataset.src !== src) {
+        hp.dataset.src = src;
+        hl.innerHTML = msHl(src + "\n", "python");   // trailing \n keeps height in sync with the textarea
+      }
+      hp.scrollTop = ed.scrollTop;
+      hp.scrollLeft = ed.scrollLeft;
+    }
   }
 
   /* ---------- right-bottom pane: Результат / Теория ---------- */
@@ -456,16 +465,31 @@
     if (ev.key === "Escape") { g("trCheck").focus(); return; }
     if (ev.key === "Tab" && !ev.ctrlKey && !ev.altKey && !ev.metaKey) {
       ev.preventDefault();
-      const s = ed.selectionStart, en = ed.selectionEnd;
-      if (ev.shiftKey) { // dedent one level at the caret
-        const lineStart = ed.value.lastIndexOf("\n", s - 1) + 1;
-        if (ed.value.startsWith("    ", lineStart)) {
-          ed.setRangeText("", lineStart, lineStart + 4, "start");
-          ed.dispatchEvent(new Event("input", { bubbles: true }));
-        }
-        return;
+      const v = ed.value, s = ed.selectionStart, en = ed.selectionEnd;
+      const ls = v.lastIndexOf("\n", s - 1) + 1;
+      if (s !== en && v.slice(s, en).includes("\n")) {   // multi-line selection → (de)indent every touched line
+        let le = v.lastIndexOf("\n", en - 1) + 1;        // a selection ending at a line start doesn't touch that line
+        if (en === le) en = le - 1;
+        const block = v.slice(ls, en);
+        const out = ev.shiftKey
+          ? block.split("\n").map(l => l.replace(/^(?:    |\t| {1,3})/, "")).join("\n")
+          : block.split("\n").map(l => l ? "    " + l : l).join("\n");
+        ed.setRangeText(out, ls, en, "select");
+      } else if (ev.shiftKey) { // dedent one level at the caret
+        if (v.startsWith("    ", ls)) ed.setRangeText("", ls, ls + 4, "start");
+      } else {
+        ed.setRangeText("    ", s, en, "end");
       }
-      ed.setRangeText("    ", s, en, "end");
+      ed.dispatchEvent(new Event("input", { bubbles: true }));
+      return;
+    }
+    if (ev.key === "Enter" && !ev.ctrlKey && !ev.altKey && !ev.metaKey) {
+      ev.preventDefault();                              // IDE auto-indent: keep indent, +1 level after ":"
+      const v = ed.value, s = ed.selectionStart;
+      const line = v.slice(v.lastIndexOf("\n", s - 1) + 1, s);
+      const ind = (line.match(/^[ \t]*/) || [""])[0];
+      const extra = /:\s*(?:#.*)?$/.test(line) ? "    " : "";
+      ed.setRangeText("\n" + ind + extra, s, ed.selectionEnd, "end");
       ed.dispatchEvent(new Event("input", { bubbles: true }));
     }
   });
